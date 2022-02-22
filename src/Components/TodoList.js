@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import Dashboard from './Dashboard';
+import Dashboard from '../Dashboard';
 import {Row, Col, Input, Button, Modal} from 'antd';
 
 function TodoList(){

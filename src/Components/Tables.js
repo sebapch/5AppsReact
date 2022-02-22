@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import Dashboard from './Dashboard';
+import Dashboard from '../Dashboard';
 import {Input , Table} from 'antd';
 import moment from 'moment';
 
