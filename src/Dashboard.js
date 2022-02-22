@@ -13,7 +13,7 @@ import {
 import LogoOficial from './assets/LogoOficial.svg';
 import LogoSinTexto from './assets/LogoSinTexto.svg';
 import './Dashboard.css';
-
+import Violeta from './assets/violeta.png';
 
 const { Header, Sider, Content } = Layout;
 
@@ -43,8 +43,8 @@ class Dashboard extends React.Component {
             <Menu.Item key="/" icon={<UserOutlined />}>
               <Link to='/'>Home</Link>
             </Menu.Item>
-            <Menu.Item key="/tables" icon={<TableOutlined />}>
-              <Link to='/tables'>My Vaults</Link>
+            <Menu.Item key="/myVaults" >
+              <Link to='/myVaults'><img src={LogoSinTexto} alt='' width='30px'/>My Vaults</Link>
             </Menu.Item>
             <Menu.Item key="/forms" icon={<UploadOutlined />}>
               <Link to='/forms'>Guuru</Link>
@@ -67,8 +67,7 @@ class Dashboard extends React.Component {
           <Content
             className="site-layout-background"
             style={{
-              margin: '24px 16px',
-              padding: 24,
+            
               minHeight: 280,
             }}
           >

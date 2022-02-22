@@ -6,6 +6,7 @@ import Login from './Components/Login';
 import Tables from './Components/Tables';
 import Forms from './Components/Forms'
 import TodoList from './Components/TodoList'
+import Welcome from './Components/Welcome'
 import API from './API';
 import "antd/dist/antd.css";
 
@@ -13,11 +14,12 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-      <Route path='/' exact component={Home}/>
-      <Route path='/login' exact component={Login}/>
-      <Route path='/forms' exact component={Forms}/>
-      <Route path='/todolist' exact component={TodoList}/>
-      <Route path='/api' exact component={API}/>
+        <Route path='/' exact component={Welcome}/>
+        <Route path='/Home' exact component={Home}/>
+        <Route path='/login' exact component={Login}/>
+        <Route path='/forms' exact component={Forms}/>
+        <Route path='/todolist' exact component={TodoList}/>
+        <Route path='/api' exact component={API}/>
       </BrowserRouter>
     </div>
   );
