@@ -15,7 +15,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Route path='/' exact component={Welcome}/>
-        <Route path='/Home' exact component={Home}/>
+        <Route path='/home' exact component={Home}/>
         <Route path='/login' exact component={Login}/>
         <Route path='/forms' exact component={Forms}/>
         <Route path='/todolist' exact component={TodoList}/>

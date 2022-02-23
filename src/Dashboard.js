@@ -35,7 +35,7 @@ class Dashboard extends React.Component {
      
           <Menu  mode="inline" defaultSelectedKeys={[window.location.pathname]} className='themenu'>
           <div className="logo">
-            <h3>{this.state.collapsed ? <img src={LogoSinTexto} alt='' /> : <img src={LogoOficial} alt='' />}</h3>
+            <h3>{this.state.collapsed ? <img src={LogoSinTexto} alt=''  onClick={this.toggle}/>  : <img src={LogoOficial} alt='' onClick={this.toggle} />}</h3>
           </div>
           <Menu.Item key="/login" icon={<UserOutlined />}>
               <Link to='/login'>Login</Link>
@@ -43,8 +43,8 @@ class Dashboard extends React.Component {
             <Menu.Item key="/" icon={<UserOutlined />}>
               <Link to='/'>Home</Link>
             </Menu.Item>
-            <Menu.Item key="/myVaults" >
-              <Link to='/myVaults'><img src={LogoSinTexto} alt='' width='30px'/>My Vaults</Link>
+            <Menu.Item key="/myVaults" icon={<UploadOutlined />} >
+              <Link to='/myVaults'>My Vaults</Link>
             </Menu.Item>
             <Menu.Item key="/forms" icon={<UploadOutlined />}>
               <Link to='/forms'>Guuru</Link>
@@ -58,12 +58,7 @@ class Dashboard extends React.Component {
           </Menu>
         </Sider>
         <Layout className="site-layout">
-          <Header className="site-layout-background" style={{ padding: 0, textAlign: 'left' }}>
-            {React.createElement(this.state.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
-              className: 'trigger',
-              onClick: this.toggle,
-            })}
-          </Header>
+  
           <Content
             className="site-layout-background"
             style={{
@@ -71,6 +66,7 @@ class Dashboard extends React.Component {
               minHeight: 280,
             }}
           >
+            
             {this.props.children}
           </Content>
         </Layout>
