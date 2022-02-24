@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import {BrowserRouter , Route} from 'react-router-dom';
+import {BrowserRouter , Route, Routes, Link} from 'react-router-dom';
 import Home from './Components/Home';
 import Login from './Components/Login';
 import Tables from './Components/Tables';
@@ -14,12 +14,14 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Route path='/' exact component={Welcome}/>
-        <Route path='/home' exact component={Home}/>
-        <Route path='/login' exact component={Login}/>
-        <Route path='/forms' exact component={Forms}/>
-        <Route path='/todolist' exact component={TodoList}/>
-        <Route path='/api' exact component={API}/>
+      <Routes>
+        <Route path='/' exact element={<Welcome />}/>
+        <Route path='/home' exact element={<Home />}/>
+        <Route path='/login' exact element={<Login />}/>
+        <Route path='/forms' exact element={<Forms />}/>
+        <Route path='/todolist' exact element={<TodoList />}/>
+        <Route path='/api' exact element={<API />}/>
+        </Routes>
       </BrowserRouter>
     </div>
   );

@@ -1,8 +1,71 @@
 import React from 'react'
+import { useState } from 'react' 
 import Dashboard from '../Dashboard'
 import './Login.css'
+import axios from 'axios'
+import { Link, useNavigate } from 'react-router-dom'
+
 
 const Login = () => {
+
+    const [dataLogin, setDataLogin] = useState({
+        email:"",
+        password:"",
+    });
+    const [errorLogin, setErrorLogin] = useState("")
+
+    const handleChangeLogin = ({currentTarget: input}) => {
+        setDataLogin({...data, [input.name]: input.value});
+    }
+
+    const handleSubmitLogin = async (e) =>{
+        e.preventDefault();
+        try {
+            const url="http://localhost:8080/api/auth";
+            const {data: res} = await axios.post(url, data);
+            localStorage.setItem("token", res.data);
+            window.location = "/"
+            console.log(res.message);
+        } catch (error) {
+            if(error.response && 
+                error.response.status >= 400 &&
+                error.response.status <= 500
+                ){
+                    setError(error.response.data.message)
+                }
+        }
+    }
+
+    const [data, setData] = useState({
+        name:"",
+        email:"",
+        password:"",
+    });
+    const [error, setError] = useState("")
+    const navigate = useNavigate();
+
+    const handleChange = ({currentTarget: input}) => {
+        setData({...data, [input.name]: input.value});
+    }
+
+    const handleSubmit = async (e) =>{
+        e.preventDefault();
+        try {
+            const url="http://localhost:8080/api/users";
+            const {data: res} = await axios.post(url, data);
+            navigate("/login")
+            console.log(res.message);
+        } catch (error) {
+            if(error.response && 
+                error.response.status >= 400 &&
+                error.response.status <= 500
+                ){
+                    setError(error.response.data.message)
+                }
+        }
+    }
+
+
     return (
         <Dashboard>
 
@@ -21,16 +84,18 @@ const Login = () => {
                                             <div class="center-wrap">
                                                 <div class="section text-center">
                                                     <h4 class="mb-4 pb-3">Log In</h4>
+                                                    <form onSubmit={handleSubmitLogin}>
                                                     <div class="form-group">
-                                                        <input type="email" name="logemail" class="form-style" placeholder="Your Email" id="logemail" autocomplete="off" />
+                                                        <input type="email" name="email" value={dataLogin.name} onChange={handleChangeLogin} class="form-style" placeholder="Your Email" id="logemail" autocomplete="off" />
                                                         <i class="input-icon uil uil-at"></i>
                                                     </div>
                                                     <div class="form-group mt-2">
-                                                        <input type="password" name="logpass" class="form-style" placeholder="Your Password" id="logpass" autocomplete="off" />
+                                                        <input type="password" name="logpass" value={dataLogin.email} onChange={handleChangeLogin} class="form-style" placeholder="Your Password" id="logpass" autocomplete="off" />
                                                         <i class="input-icon uil uil-lock-alt"></i>
                                                     </div>
-                                                    <a href="#" class="btn mt-4">submit</a>
+                                                    <button type='submit' class="btn mt-4">submit</button>
                                                     <p class="mb-0 mt-4 text-center"><a href="#0" class="link">Forgot your password?</a></p>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
@@ -38,19 +103,24 @@ const Login = () => {
                                             <div class="center-wrap">
                                                 <div class="section text-center">
                                                     <h4 class="mb-4 pb-3">Sign Up</h4>
+                                                    <form onSubmit={handleSubmit}>
                                                     <div class="form-group">
-                                                        <input type="text" name="logname" class="form-style" placeholder="Your Full Name" id="logname" autocomplete="off" />
+                                                        <input type="text" name="name" value={data.name} onChange={handleChange} onChclass="form-style" placeholder="Your Full Name" id="logname" autocomplete="off" />
                                                         <i class="input-icon uil uil-user"></i>
                                                     </div>
                                                     <div class="form-group mt-2">
-                                                        <input type="email" name="logemail" class="form-style" placeholder="Your Email" id="logemail" autocomplete="off" />
+                                                        <input type="email" name="email" value={data.email} onChange={handleChange} class="form-style" placeholder="Your Email" id="logemail" autocomplete="off" />
                                                         <i class="input-icon uil uil-at"></i>
                                                     </div>
                                                     <div class="form-group mt-2">
-                                                        <input type="password" name="logpass" class="form-style" placeholder="Your Password" id="logpass" autocomplete="off" />
+                                                        <input type="password" name="password" value={data.password} onChange={handleChange} class="form-style" placeholder="Your Password" id="logpass" autocomplete="off" />
                                                         <i class="input-icon uil uil-lock-alt"></i>
                                                     </div>
-                                                    <a href="#" class="btn mt-4">submit</a>
+                                                    {error && <div>{error}</div>}
+                                                    <button onClick={handleSubmit} class="btn mt-4" >
+                                                        submit
+                                                    </button>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
