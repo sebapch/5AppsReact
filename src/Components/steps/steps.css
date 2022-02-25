@@ -1,0 +1,31 @@
+.steps{
+    border: 2px solid black !important;
+
+}
+
+.title{
+    color: green;
+}
+
+.box-active{
+    border: 2px solid green;
+    color: white;
+    background-color: purple;
+}
+
+.box-active{
+    border: 2px solid green;
+    color: white;
+    background-color: purple;
+}
+
+.box-active{
+    border: 2px solid green;
+    color: white;
+    background-color: purple;
+}
+
+.ant-row{
+    text-align: center !important;
+
+}

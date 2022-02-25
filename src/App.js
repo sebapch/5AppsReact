@@ -9,6 +9,7 @@ import TodoList from './Components/TodoList'
 import Welcome from './Components/Welcome'
 import API from './API';
 import "antd/dist/antd.css";
+import Step1 from './Components/steps/step1';
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
         <Route path='/' exact element={<Welcome />}/>
         <Route path='/home' exact element={<Home />}/>
         <Route path='/login' exact element={<Login />}/>
-        <Route path='/forms' exact element={<Forms />}/>
+        <Route path='/step1' exact element={<Step1 />}/>
         <Route path='/todolist' exact element={<TodoList />}/>
         <Route path='/api' exact element={<API />}/>
         </Routes>
