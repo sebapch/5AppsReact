@@ -5,6 +5,12 @@
 
 .title{
     color: green;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.info{
+    color: aqua;
 }
 
 .box-active{
