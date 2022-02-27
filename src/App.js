@@ -16,12 +16,12 @@ function App() {
     <div className="App">
       <BrowserRouter>
       <Routes>
-        <Route path='/' exact element={<Welcome />}/>
-        <Route path='/home' exact element={<Home />}/>
-        <Route path='/login' exact element={<Login />}/>
-        <Route path='/step1' exact element={<Step1 />}/>
-        <Route path='/todolist' exact element={<TodoList />}/>
-        <Route path='/api' exact element={<API />}/>
+          <Route path='/' exact element={<Welcome />}/>
+          <Route path='/home' exact element={<Home />}/>
+          <Route path='/login' exact element={<Login />}/>
+          <Route path='/step1' exact element={<Step1 />}/>
+          <Route path='/todolist' exact element={<TodoList />}/>
+          <Route path='/api' exact element={<API />}/>
         </Routes>
       </BrowserRouter>
     </div>
