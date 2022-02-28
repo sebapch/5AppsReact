@@ -10,6 +10,8 @@ import Welcome from './Components/Welcome'
 import API from './API';
 import "antd/dist/antd.css";
 import Step1 from './Components/steps/step1';
+import EarlyAccess from './Components/EarlyAccess';
+import Admin from './Components/Admin';
 
 function App() {
   return (
@@ -20,7 +22,9 @@ function App() {
           <Route path='/home' exact element={<Home />}/>
           <Route path='/login' exact element={<Login />}/>
           <Route path='/step1' exact element={<Step1 />}/>
+          <Route path='/early' exact element={<EarlyAccess />}/>
           <Route path='/todolist' exact element={<TodoList />}/>
+          <Route path='/admin' exact element={<Admin />}/>
           <Route path='/api' exact element={<API />}/>
         </Routes>
       </BrowserRouter>

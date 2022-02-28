@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Layout, Menu, Row, Col } from 'antd';
+import { Layout, Menu, Row, Col, Space } from 'antd';
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
@@ -41,49 +41,72 @@ class Dashboard extends React.Component {
         <Header className="header">
           <Row>
             <Col span={12}>
-           <h1 className="titleHeader">Guuru</h1>
-           <img src={solBlanco} style={{color: 'white',  width:"50px"}} alt=''/>
-           <img src={lunaVioleta} style={{color: 'white',  width:"50px"}} alt=''/>
-           </Col>
-           <Col span={12}>
-           <img src={LogoSinTexto} style={{color: 'white',  width:"100px"}} alt=''/>
-           </Col>
+              <Space direction='vertical'>
+                <h1 className="titleHeader">Guuru</h1>
+                <Space className='toggle-day'>
+                  <img src={solBlanco} style={{ color: 'white', width: "30px" }} alt='' />
+                  <p className='divider-slash'>/</p>
+                  <img src={lunaVioleta} style={{ color: 'white', width: "30px" }} alt='' />
+                </Space>
+              </Space>
+            </Col>
+            <Col span={12} className='logo-header-col'>
+              <img src={LogoSinTexto} style={{ color: 'white', width: "100px" }} alt='' className='img-round-logo' />
+            </Col>
           </Row>
         </Header>
-       
-        
-  
-          <Content>
 
-            {this.props.children}
-          </Content>
 
-          <Footer>
-          <Menu  mode="horizontal" defaultSelectedKeys={[window.location.pathname]} className='themenu'>
-          {/* <div className="logo">
-            <h3>{this.state.collapsed ? <img src={LogoSinTexto} alt=''  onClick={this.toggle}/>  : <img src={LogoOficial} alt='' onClick={this.toggle} />}</h3>
-          </div> */}
-          <Menu.Item key="/login" icon={<img src={LogoSinTexto} style={{color: 'white'}} alt='' width="25px"/>}>
-              <Link to='/login'>Login</Link>
-            </Menu.Item>
-            <Menu.Item key="/" icon={<img src={HomeBlanco} alt='' width="25px"/>}>
-              <Link to='/'>Home</Link>
-            </Menu.Item>
-            <Menu.Item key="/myVaults" icon={<img src={VaultsBlanco} alt='' width="25px"/>} >
-              <Link to='/myVaults'>My Vaults</Link>
-            </Menu.Item>
-            <Menu.Item key="/forms" icon={<img src={LogoSinTextoBlanco} alt='' width="50px"/>}>
-              <Link to='/forms'>Guuru</Link>
-            </Menu.Item>
-            <Menu.Item key="/todolist" icon={<img src={UsuarioBlanco} alt='' width="25px"/>}>
-              <Link to='/todolist'>Profile</Link>
-            </Menu.Item>
-            <Menu.Item key="/api" icon={<img src={AjustesBlanco} alt='' width="25px"/>}>
-              <Link to='/api'>Settings</Link>
-            </Menu.Item>
-          </Menu> 
-          </Footer>
-        
+
+        <Content>
+
+          {this.props.children}
+        </Content>
+
+        <Footer>
+
+          <Row className='themenu' justify='space-around'>
+            <Col span={4}>
+              <Space direction='vertical'>
+                <img src={HomeBlanco} alt='' width="50px" />
+                <Link to='/' className='links-footer'>Home</Link>
+              </Space>
+            </Col>
+            <Col span={4}>
+              <Space direction='vertical'>
+                <img src={VaultsBlanco} alt='' width="50px" />
+                <Link to='/myVaults' className='links-footer'>My Vaults</Link>
+              </Space>
+
+            </Col>
+            <Col span={4}>
+              <Space direction='vertical'>
+
+                <img src={LogoSinTexto} alt='' width="100px" />
+                <Link to='/forms' className='links-footer'>Guuru</Link>
+              </Space>
+
+            </Col>
+            <Col span={4}>
+              <Space direction='vertical'>
+
+                <img src={UsuarioBlanco} alt='' width="55px" />
+                <Link to='/todolist' className='links-footer'>Profile</Link>
+              </Space>
+
+            </Col>
+            <Col span={4}>
+              <Space direction='vertical'>
+
+                <img src={AjustesBlanco} alt='' width="55px" />
+                <Link to='/api' className='links-footer'>Settings</Link>
+              </Space>
+
+            </Col>
+          </Row>
+
+        </Footer>
+
       </Layout>
     );
   }

@@ -1,0 +1,68 @@
+/* Set height to 100% for body and html to enable the background image to cover the whole page: */
+body, html {
+    height: 100%;
+    background: rgb(126,217,87);
+    background: linear-gradient(180deg, rgba(126,217,87,1) 0%, rgba(32,202,255,1) 100%) !important; 
+  }
+  
+  .bgimg {
+    /* Background image */
+    background-image: url('/src/assets/GuroColgado.svg');
+    /* Full-screen */
+    height: 100%;
+    /* Center the background image */
+    background-position: center;
+    /* Scale and zoom in the image */
+    background-size: cover;
+    /* Add position: relative to enable absolutely positioned elements inside the image (place text) */
+    
+    /* Add a white text color to all elements inside the .bgimg container */
+    color: black;
+    /* Add a font */
+
+    /* Set the font-size to 25 pixels */
+    font-size: 25px;
+  }
+  
+  /* Position text in the top-left corner */
+  .topleft {
+    position: absolute;
+    top: 0;
+    left: 16px;
+  }
+  
+  /* Position text in the bottom-left corner */
+  .bottomleft {
+    position: absolute;
+    bottom: 0;
+    left: 16px;
+  }
+  
+  
+  /* Position text in the middle */
+  .middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  /* Style the <hr> element */
+  hr {
+    margin: auto;
+    width: 40%;
+  }
+
+h1{
+    color: #4D0457;
+}
+
+  .btn-early{
+        
+        background: rgb(126,217,87);
+        background: linear-gradient(0deg, rgba(126,217,87,1) 0%, rgba(32,202,255,1) 100%);
+        color: #4D0457;
+    
+  }
