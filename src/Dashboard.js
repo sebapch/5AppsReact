@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Layout, Menu } from 'antd';
+import { Layout, Menu, Row, Col } from 'antd';
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
@@ -16,8 +16,9 @@ import AjustesBlanco from './assets/ajustesBlanco.png';
 import HomeBlanco from './assets/homeBlanco.png';
 import UsuarioBlanco from './assets/usuarioBlanco.png';
 import VaultsBlanco from './assets/vaultsBlanco.png'
-import LogoSinTextoBlanco from './assets/LogoSinTextoBlanco.svg'
-
+import LogoSinTextoBlanco from './assets/LogoSinTextoBlanco.svg';
+import solBlanco from './assets/solBlanco.svg';
+import lunaVioleta from './assets/lunaVioleta.svg'
 import './Dashboard.css';
 import Violeta from './assets/violeta.png';
 
@@ -37,8 +38,17 @@ class Dashboard extends React.Component {
   render() {
     return (
       <Layout >
-        <Header>
-          <h1>HEADER</h1>
+        <Header className="header">
+          <Row>
+            <Col span={12}>
+           <h1 className="titleHeader">Guuru</h1>
+           <img src={solBlanco} style={{color: 'white',  width:"50px"}} alt=''/>
+           <img src={lunaVioleta} style={{color: 'white',  width:"50px"}} alt=''/>
+           </Col>
+           <Col span={12}>
+           <img src={LogoSinTexto} style={{color: 'white',  width:"100px"}} alt=''/>
+           </Col>
+          </Row>
         </Header>
        
         
@@ -71,7 +81,7 @@ class Dashboard extends React.Component {
             <Menu.Item key="/api" icon={<img src={AjustesBlanco} alt='' width="25px"/>}>
               <Link to='/api'>Settings</Link>
             </Menu.Item>
-          </Menu>
+          </Menu> 
           </Footer>
         
       </Layout>

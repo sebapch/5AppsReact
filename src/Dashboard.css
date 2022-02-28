@@ -4,3 +4,13 @@
  
 }
 
+.header{
+    background:green !important;
+    height: 6rem;
+}
+
+.titleHeader{
+    color: purple !important;
+    width: auto !important;
+    height: 5px !important;
+}
