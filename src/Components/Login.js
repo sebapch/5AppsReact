@@ -1,8 +1,31 @@
-import React from 'react'
+import React, { Component, useState } from 'react'
 import Dashboard from '../Dashboard'
 import './Login.css'
 
 const Login = () => {
+
+    const [form, setForm] = useState({
+        name: "",
+        email: "",
+        password: ""
+    });
+
+    function handleInputChange(value) {
+        console.log(value)
+        return setForm((prev) => {
+            console.log(form);
+            return { ...prev, ...value };
+        });
+    }
+
+    async function handleSubmit(e) {
+        e.preventDefault();
+        const user = {
+            ...form
+        }
+        console.log(user);
+    };
+
     return (
         <Dashboard>
 
@@ -39,15 +62,26 @@ const Login = () => {
                                                 <div class="section text-center">
                                                     <h4 class="mb-4 pb-3">Sign Up</h4>
                                                     <div class="form-group">
-                                                        <input type="text" name="logname" class="form-style" placeholder="Your Full Name" id="logname" autocomplete="off" />
+                                                        <input type="text" name="name" class="form-style" onChange={(e) => handleInputChange({ name: e.target.value, position: e.target.value, level: e.target.value })}
+                                                            value={form.name} placeholder="Your Full Name" id="name" autocomplete="off" />
                                                         <i class="input-icon uil uil-user"></i>
                                                     </div>
                                                     <div class="form-group mt-2">
-                                                        <input type="email" name="logemail" class="form-style" placeholder="Your Email" id="logemail" autocomplete="off" />
+                                                        <input type="email" name="email"
+                                                            onChange={handleInputChange}
+                                                            value={form.email} class="form-style" placeholder="Your Email" id="email" autocomplete="off" />
                                                         <i class="input-icon uil uil-at"></i>
                                                     </div>
                                                     <div class="form-group mt-2">
-                                                        <input type="password" name="logpass" class="form-style" placeholder="Your Password" id="logpass" autocomplete="off" />
+                                                        <input type="password" name="password"
+                                                            onChange={handleInputChange}
+                                                            value={form.password} class="form-style" placeholder="Your Password" id="logpass" autocomplete="off" />
+                                                        <i class="input-icon uil uil-lock-alt"></i>
+                                                    </div>
+                                                    <div class="form-group mt-2">
+                                                        <input type="password" name="password_confirm"
+                                                            onChange={handleInputChange}
+                                                            value={form.password_confirm} class="form-style" placeholder="Your Password" id="logpass" autocomplete="off" />
                                                         <i class="input-icon uil uil-lock-alt"></i>
                                                     </div>
                                                     <a href="#" class="btn mt-4">submit</a>
