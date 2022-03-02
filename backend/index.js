@@ -1,34 +1,33 @@
 const express = require("express");
-const app = express();
+const mongoose = require("mongoose");
 const cors = require("cors");
-require("dotenv").config({ path: "./config.env" });
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-const passport = require('passport');
+require("dotenv").config();
 
+// set up express
 
-const port = process.env.PORT || 5000;
-const users = require('./routes/users'); 
-
-app.use(passport.initialize());
-require('./passport')(passport);
-
-app.use(cors());
+const app = express();
 app.use(express.json());
-app.use(require("./routes/record"));
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(cors());
 
-// get driver connection
-const dbo = require("./db");
+const PORT = process.env.PORT || 5000;
 
-app.use('/api/users', users);
- 
-app.listen(port, () => {
-  // perform a database connection when server starts
-  dbo.connectToServer(function (err) {
-    if (err) console.error(err);
- 
-  });
-  console.log(`Server is running on port: ${port}`);
-});
+app.listen(PORT, () => console.log(`The server has started on port: ${PORT}`));
+
+// set up mongoose
+
+mongoose.connect(
+  process.env.ATLAS_URI,
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+   
+  },
+  (err) => {
+    if (err) throw err;
+    console.log("MongoDB connection established");
+  }
+);
+
+// set up routes
+
+app.use("/users", require("./routes/users"));

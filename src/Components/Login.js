@@ -1,29 +1,42 @@
-import React, { Component, useState } from 'react'
+import React, { useState, useContext } from 'react';
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import UserContext from "./context/userContext";
+import ErrorNotice from "./misc/ErrorNotice";
 import Dashboard from '../Dashboard'
 import './Login.css'
 
 const Login = () => {
 
-    const [form, setForm] = useState({
-        name: "",
-        email: "",
-        password: ""
-    });
+    const [email, setEmail] = useState();
+    const [password, setPassword] = useState();
+    const [passwordCheck, setPasswordCheck] = useState();
+    const [displayName, setDisplayName] = useState();
+    const [error, setError] = useState();
 
-    function handleInputChange(value) {
-        console.log(value)
-        return setForm((prev) => {
-            console.log(form);
-            return { ...prev, ...value };
-        });
-    }
+    const { setUserData } = useContext(UserContext);
+    let navigate = useNavigate();
 
-    async function handleSubmit(e) {
+    const submit = async (e) => {
         e.preventDefault();
-        const user = {
-            ...form
+
+        try {
+            const newUser = { email, password, passwordCheck, displayName };
+            await axios.post("http://localhost:5000/users/register", newUser);
+            console.log(newUser);
+            /* const loginResponse = await axios.post("http://localhost:5000/users/login", {
+                email, password
+            });
+            setUserData({
+                token: loginResponse.data.token,
+                user: loginResponse.data.user
+            });
+            localStorage.setItem("auth-token", loginResponse.data.token); */
+            navigate("/");
+        } catch (err) {
+            err.response.data.msg && setError(err.response.data.msg)
         }
-        console.log(user);
+
     };
 
     return (
@@ -61,30 +74,25 @@ const Login = () => {
                                             <div class="center-wrap">
                                                 <div class="section text-center">
                                                     <h4 class="mb-4 pb-3">Sign Up</h4>
-                                                    <div class="form-group">
-                                                        <input type="text" name="name" class="form-style" onChange={(e) => handleInputChange({ name: e.target.value, position: e.target.value, level: e.target.value })}
-                                                            value={form.name} placeholder="Your Full Name" id="name" autocomplete="off" />
-                                                        <i class="input-icon uil uil-user"></i>
-                                                    </div>
-                                                    <div class="form-group mt-2">
-                                                        <input type="email" name="email"
-                                                            onChange={handleInputChange}
-                                                            value={form.email} class="form-style" placeholder="Your Email" id="email" autocomplete="off" />
-                                                        <i class="input-icon uil uil-at"></i>
-                                                    </div>
-                                                    <div class="form-group mt-2">
-                                                        <input type="password" name="password"
-                                                            onChange={handleInputChange}
-                                                            value={form.password} class="form-style" placeholder="Your Password" id="logpass" autocomplete="off" />
-                                                        <i class="input-icon uil uil-lock-alt"></i>
-                                                    </div>
-                                                    <div class="form-group mt-2">
-                                                        <input type="password" name="password_confirm"
-                                                            onChange={handleInputChange}
-                                                            value={form.password_confirm} class="form-style" placeholder="Your Password" id="logpass" autocomplete="off" />
-                                                        <i class="input-icon uil uil-lock-alt"></i>
-                                                    </div>
-                                                    <a href="#" class="btn mt-4">submit</a>
+                                                    <form onSubmit={submit}>
+                                                        <div class="form-group">
+                                                            <input type="text" name="name" className="form-style" id="dsplay-name" onChange={e => setDisplayName(e.target.value)} autocomplete="off" />
+                                                            <i class="input-icon uil uil-user"></i>
+                                                        </div>
+                                                        <div class="form-group mt-2">
+                                                            <input type="email" id="email" className="form-style" onChange={e => setEmail(e.target.value)} autocomplete="off" />
+                                                            <i class="input-icon uil uil-at"></i>
+                                                        </div>
+                                                        <div class="form-group mt-2">
+                                                            <input type="password" id="password" onChange={e => setPassword(e.target.value)} class="form-style" placeholder="Your Password"  autocomplete="off" />
+                                                            <i class="input-icon uil uil-lock-alt"></i>
+                                                        </div>
+                                                        <div class="form-group mt-2">
+                                                            <input type="password" class="form-style" placeholder="Confirm password" onChange={e => setPasswordCheck(e.target.value)} autocomplete="off" />
+                                                            <i class="input-icon uil uil-lock-alt"></i>
+                                                        </div>
+                                                        <button type="submit" value="Register" class="btn mt-4">submit</button>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
