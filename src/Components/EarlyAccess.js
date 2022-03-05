@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router";
+
 import './EarlyAccess.css'
 import { Row, Col } from 'antd'
 import LogoFondoClaro from '../assets/LogoFondoClaro.svg';
@@ -17,7 +17,7 @@ const EarlyAccess = () => {
     position: "",
     level: "",
   });
-  const navigate = useNavigate();
+
 
   // These methods will update the state properties.
   function updateForm(value) {
@@ -52,7 +52,7 @@ const EarlyAccess = () => {
 
     setForm({ name: "", position: "", level: "" });
     console.log(form)
-    navigate("/admin");
+/*     navigate("/admin"); */
   }
   return (
     <>

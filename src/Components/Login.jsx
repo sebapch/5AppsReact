@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
-import { useNavigate } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
-import UserContext from "./context/userContext";
+import UserContext from '../context/userContext';
 import ErrorNotice from "./misc/ErrorNotice";
 import Dashboard from '../Dashboard'
 import './Login.css'
@@ -15,7 +15,7 @@ const Login = () => {
     const [error, setError] = useState();
 
     const { setUserData } = useContext(UserContext);
-    let navigate = useNavigate();
+    const history = useHistory();
 
     const submit = async (e) => {
         e.preventDefault();
@@ -24,15 +24,15 @@ const Login = () => {
             const newUser = { email, password, passwordCheck, displayName };
             await axios.post("http://localhost:5000/users/register", newUser);
             console.log(newUser);
-            /* const loginResponse = await axios.post("http://localhost:5000/users/login", {
+            const loginResponse = await axios.post("http://localhost:5000/users/login", {
                 email, password
             });
             setUserData({
                 token: loginResponse.data.token,
                 user: loginResponse.data.user
             });
-            localStorage.setItem("auth-token", loginResponse.data.token); */
-            navigate("/");
+            localStorage.setItem("auth-token", loginResponse.data.token);
+            history.push("/");
         } catch (err) {
             err.response.data.msg && setError(err.response.data.msg)
         }
