@@ -16,11 +16,11 @@ app.listen(PORT, () => console.log(`The server has started on port: ${PORT}`));
 // set up mongoose
 
 mongoose.connect(
-  process.env.ATLAS_URI,
+  process.env.MONGODB_CONNECTION_STRING,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-   
+
   },
   (err) => {
     if (err) throw err;
@@ -31,3 +31,4 @@ mongoose.connect(
 // set up routes
 
 app.use("/users", require("./routes/users"));
+app.use("/todos", require("./routes/todo"));
