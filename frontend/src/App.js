@@ -40,7 +40,7 @@ function App() {
   return (
     <BrowserRouter>
       <UserContext.Provider value={{ userData, setUserData }}>
-        {/* <Header /> */}
+        <Header />
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/register" component={Register} />
