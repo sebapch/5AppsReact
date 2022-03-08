@@ -8,6 +8,7 @@ import Login from './components/auth/Login';
 import UserContext from './context/userContext';
 import './App.css';
 import Early from './components/pages/Early';
+import Step1 from './components/pages/steps/step1';
 
 function App() {
   const [ userData, setUserData] = useState({
@@ -46,6 +47,7 @@ function App() {
           <Route path="/register" component={Register} />
           <Route path="/login" component={Login} />
           <Route path="/early" component={Early} />
+          <Route path="/step1" component={Step1} />
 
         </Switch>
         </UserContext.Provider>
