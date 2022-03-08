@@ -1,0 +1,15 @@
+.background{
+    background: url('../../assets/7.png') no-repeat center fixed ;
+    position: fixed; 
+  top: 0; 
+  left: 0; 
+	
+  /* Preserve aspet ratio */
+  min-width: 100%;
+  min-height: 100%;
+}
+
+
+.icons-early{
+    text-align: end;
+}

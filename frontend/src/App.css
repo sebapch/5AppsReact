@@ -1,5 +1,11 @@
 .App {
   text-align: center;
+  
+}
+
+body{
+  font-family: 'League Spartan', sans-serif;
+
 }
 
 .header{
