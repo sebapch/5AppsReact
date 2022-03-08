@@ -1,7 +1,7 @@
 import React from 'react'
 import './Early.css';
 import { Row, Col, Container } from 'react-bootstrap';
-import LogoFondoClaro from '../../assets/LogoFondoClaro.svg';
+import LogoOficial from '../../assets/LogoOficial.svg';
 import Mascota from '../../assets/Mascota.svg'
 import Instagram from '../../assets/icons/Instagram.svg';
 import Telegram from '../../assets/icons/Telegram.svg';
@@ -10,39 +10,39 @@ import Whatsapp from '../../assets/icons/Whatsapp.svg';
 
 const Early = () => {
   return (
-    <>
-    <Container className='background'>
+    <div className='background'>
+    <Container >
         <Row gutter={16} >
-          <Col className="gutter-row icons-early" span={6}>
-            <img src={Instagram} style={{ color: 'white', width: "100px" }} alt='' />
-            <img src={Telegram} style={{ color: 'white', width: "100px" }} alt='' />
-            <img src={Twitter} style={{ color: 'white', width: "100px" }} alt='' />
-            <img src={Whatsapp} style={{ color: 'white', width: "100px" }} alt='' />
+          <Col className="gutter-row icons-early" sm={12} >
+            <img src={Instagram} className="icon" style={{ color: 'white', width: "100px" }} alt='' />
+            <img src={Telegram} className="icon" style={{ color: 'white', width: "100px" }} alt='' />
+            <img src={Twitter} className="icon" style={{ color: 'white', width: "100px" }} alt='' />
+            <img src={Whatsapp} className="icon" style={{ color: 'white', width: "100px" }} alt='' />
           </Col>
         </Row>
         <Row gutter={16}>
-          <Col className="gutter-row" span={6}>
-            <img src={LogoFondoClaro} style={{ color: 'white' }} alt='' />
-            <p>
+          <Col className="gutter-row" span={6} sm={12} md={6}>
+            <img src={LogoOficial} style={{ color: 'white' }} alt='' />
+            <p className="text-early">
               Guru es una plataforma ideada para romper la barrera de entrada al mundo de las criptomonedas
               y traer las oportunidades de inversion que este ofrece a todas las personas, sin
               importar su capacidad de inversion.
             </p>
-            <Row>
+            <Row className="row-btn">
               <Col>
-                <button>Litepaper</button>
+                <button className="btn-litepaper">Litepaper</button>
               </Col>
               <Col>
-                <button>Launch App</button>
+                <button className="btn-launch">Launch App</button>
               </Col>
             </Row>
           </Col>
-          <Col className="gutter-row" span={6}>
-            <img src={Mascota} style={{ color: 'white' }} alt='' />
+          <Col className="gutter-row img-flex" span={6}>
+            <img src={Mascota} style={{ color: 'white' }} alt='' className="img-logo"/>
           </Col>
         </Row>
       </Container>
-    </>
+    </div>
   )
 }
 
