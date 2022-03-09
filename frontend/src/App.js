@@ -1,5 +1,6 @@
 import React, {useState, useEffect } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import ProtectedRoute from './components/auth/ProtectedRoute';
 import axios from 'axios';
 import Header from './components/layout/Header';
 import Home from './components/pages/Home';
@@ -46,7 +47,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route path="/register" component={Register} />
           <Route path="/login" component={Login} />
-          <Route path="/early" component={Early} />
+          <ProtectedRoute path="/early" component={Early} />
           <Route path="/step1" component={Step1} />
 
         </Switch>

@@ -22,6 +22,7 @@ function Login () {
                 user: loginResponse.data.user
             });
             localStorage.setItem("auth-token", loginResponse.data.token);
+            localStorage.setItem("isAuthenticated", "true");
             history.push("/");
         } catch(err) {
             err.response.data.msg && setError(err.response.data.msg)

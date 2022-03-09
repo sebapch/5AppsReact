@@ -6,7 +6,7 @@ const User = require("../models/user.model");
 
 router.post("/register", async (req, res) => {
   try {
-    let { email, password, passwordCheck, displayName } = req.body;
+    let { email, password, passwordCheck, displayName, saldo } = req.body;
 
     // validate
 
@@ -36,6 +36,7 @@ router.post("/register", async (req, res) => {
       email,
       password: passwordHash,
       displayName,
+      saldo,
     });
     const savedUser = await newUser.save();
     res.json(savedUser);
@@ -68,6 +69,7 @@ router.post("/login", async (req, res) => {
       user: {
         id: user._id,
         displayName: user.displayName,
+        saldo: user.saldo,
       },
     });
   } catch (err) {
@@ -107,6 +109,7 @@ router.get("/", auth, async (req, res) => {
   res.json({
     displayName: user.displayName,
     id: user._id,
+    saldo: user.saldo
   });
 });
 

@@ -11,6 +11,7 @@ function Register () {
     const [passwordCheck, setPasswordCheck] = useState();
     const [displayName, setDisplayName] = useState();
     const [error, setError] = useState();
+    const saldo = 0;
 
     const { setUserData } = useContext(UserContext);
     const history = useHistory();
@@ -19,7 +20,7 @@ function Register () {
         e.preventDefault();
 
         try{
-            const newUser = {email, password, passwordCheck, displayName};
+            const newUser = {email, password, passwordCheck, displayName, saldo};
             await axios.post("http://localhost:5000/users/register", newUser);
             const loginResponse = await axios.post("http://localhost:5000/users/login", {
                 email, password
