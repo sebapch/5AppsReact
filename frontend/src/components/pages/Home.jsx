@@ -9,6 +9,7 @@ function Home() {
   const { userData, setUserData } = useContext(UserContext);
   console.log(userData)
   const history = useHistory();
+  console.log(localStorage)
 
   const logout = () => {
     setUserData({
