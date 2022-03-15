@@ -3,7 +3,9 @@ import { useHistory, Link } from 'react-router-dom';
 import UserContext from '../../context/userContext';
 import Mascota from '../../assets/Mascota.svg'
 import ModalInfo from '../utils/Modal/Modal';
+import FixedBottomNavigation from '../layout/Footer';
 import './Home.css';
+import Header from '../layout/Header';
 
 function Home() {
   const { userData, setUserData } = useContext(UserContext);
@@ -23,17 +25,8 @@ function Home() {
 
   return (
     <>
-
-      {userData.user ? (
-        <div>
-        <h1>Welcome {userData.user.displayName}</h1>
-        <button onClick={logout}>Logout</button>
-        </div>
-      ) : (
-
-        <h2>You are not logged in</h2>
-
-      )}
+   <Header/> 
+      
       {userData.user ? (
         <div>
       <div className="div-saldo">
@@ -59,9 +52,11 @@ function Home() {
           <button className="custom-btn btn-siguiente">Siguiente</button>
         </div>
       </div>
+      <FixedBottomNavigation /> 
       </div>
+     
       ): ( <h1>No existe</h1>)}
-
+     
     </>
 
   );

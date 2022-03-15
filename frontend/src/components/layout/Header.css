@@ -1,0 +1,12 @@
+.header{
+
+   display: flex;
+    background: linear-gradient(90deg, rgba(126,217,87,1) 0%, rgba(32,202,255,1) 100%) !important; 
+    
+}
+
+.icons{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}

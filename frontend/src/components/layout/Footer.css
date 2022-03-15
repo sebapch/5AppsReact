@@ -1,0 +1,21 @@
+.footer-container{
+    display: flex;
+    justify-content: space-evenly;
+    background: linear-gradient(90deg, rgba(126,217,87,1) 0%, rgba(32,202,255,1) 100%) !important; 
+    align-items: center;
+    height: 25% !important;
+}
+
+.footer-icons{
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.links-footer{
+    color: purple;
+    text-decoration: none;
+}

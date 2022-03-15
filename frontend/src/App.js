@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import axios from 'axios';
 import Header from './components/layout/Header';
+import Sidebar from './components/layout/Footer';
 import Home from './components/pages/Home';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
@@ -44,9 +45,12 @@ function App() {
       <UserContext.Provider value={{ userData, setUserData }}>
          {/* <Header />  */}
         <Switch>
+
+          
           <Route exact path="/" component={Home} />
           <Route path="/register" component={Register} />
           <Route path="/login" component={Login} />
+          <Route path="/test" component={Sidebar} />
           <ProtectedRoute path="/early" component={Early} />
           <Route path="/step1" component={Step1} />
 

@@ -35,3 +35,37 @@
     text-align: center !important;
 
 }
+
+.row-pasos{
+
+}
+
+.col-pasos{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.paso{
+    margin-top: 2rem;
+    background-color: purple;
+    width: 10%;
+    color: darkgray;
+    border: 3px solid cyan;
+    text-align: center;
+}
+
+.text-green{
+    text-align: center;
+    font-size: 24px;
+}
+
+.row-centered{
+    display: flex;
+    justify-content: center;
+
+}
+
+.info-text{
+    color: cyan;
+    text-align: center;
+}
