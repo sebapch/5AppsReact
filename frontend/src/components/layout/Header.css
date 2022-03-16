@@ -1,7 +1,9 @@
 .header{
-
    display: flex;
     background: linear-gradient(90deg, rgba(126,217,87,1) 0%, rgba(32,202,255,1) 100%) !important; 
+    padding-left: 15%;
+    padding-right: 15%;
+    padding-top: 2%;
     
 }
 
@@ -9,4 +11,29 @@
     display: flex;
     flex-direction: row;
     align-items: flex-start;
+}
+
+.diaynoche{
+    white-space: nowrap;
+
+}
+
+.theme{
+    display: inline-block;
+}
+
+.divider-slash{
+    display: inline-block;
+}
+
+.divHeader{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+.titleHeader{
+    color: #4D0457;
+    font-size: 2.5rem;
+   
 }

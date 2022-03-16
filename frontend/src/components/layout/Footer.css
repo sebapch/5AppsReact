@@ -4,6 +4,7 @@
     background: linear-gradient(90deg, rgba(126,217,87,1) 0%, rgba(32,202,255,1) 100%) !important; 
     align-items: center;
     height: 25% !important;
+    border-top: 5px solid #4D0457;
 }
 
 .footer-icons{
@@ -16,6 +17,12 @@
 }
 
 .links-footer{
-    color: purple;
+    color: #4D0457;
     text-decoration: none;
+    font-size: 12px;
+}
+
+.text-footer{
+    text-align: center;
+    
 }

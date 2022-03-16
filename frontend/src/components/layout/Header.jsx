@@ -6,6 +6,8 @@ import './Header.css';
 import solBlanco from '../../assets/solBlanco.svg'
 import lunaVioleta from '../../assets/lunaVioleta.svg'
 import LogoSinTexto from '../../assets/LogoSinTexto.svg'
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
 
 function Header() {
   const { userData, setUserData } = useContext(UserContext);
@@ -27,22 +29,23 @@ function Header() {
   return (
     <>
       {userData.user ? (
-        <div className='header'>
-          <div className='titledivider'>
-            <h1 className="titleHeader">Guuru</h1>
-            </div>
-            <div className='icons'>
-            <img src={solBlanco} style={{ color: 'white', width: "30px" }} alt='' />
-            <p className='divider-slash'>/</p>
-            <img src={lunaVioleta} style={{ color: 'white', width: "30px" }} alt='' />
-            </div>
+
+        <Box sx={{ flexGrow: 2 }}>
+          <Grid container spacing={2} className='header'>
+            <Grid xs={8} className='divHeader'>
+              <h1 className="titleHeader">Guuru</h1>
+            </Grid>
+            <Grid item xs={4} >
+              <img src={LogoSinTexto} style={{ color: 'white', width: "150px" }} alt='' className='img-round-logo' />
+            </Grid>
+            <Grid item xs={2} className='diaynoche'>
+              <img src={solBlanco} style={{ color: 'white', width: "30px" }} alt='' className='theme'/>
+              <p className='divider-slash'>/</p>
+              <img src={lunaVioleta} style={{ color: 'white', width: "30px" }} alt='' className='theme'/>
+            </Grid>
          
-          <div>
-            <img src={LogoSinTexto} style={{ color: 'white', width: "100px" }} alt='' className='img-round-logo' />
-          </div>
-        </div>
-
-
+          </Grid>
+        </Box>
 
       ) : (
         <div>
