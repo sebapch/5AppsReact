@@ -1,0 +1,38 @@
+.container-apy{
+    
+    border: 3px solid black;
+}
+
+.row-apy{
+    display: flex;
+    justify-content: space-evenly;
+}
+.apy-round{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: cadetblue;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    
+}
+
+.icons-apy{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.apy-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    color: purple;
+    background-color: white;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+}

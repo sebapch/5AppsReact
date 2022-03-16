@@ -11,6 +11,7 @@ import UserContext from './context/userContext';
 import './App.css';
 import Early from './components/pages/Early';
 import Step1 from './components/pages/steps/step1';
+import apy from './components/utils/apy/apy';
 
 function App() {
   const [ userData, setUserData] = useState({
@@ -50,7 +51,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route path="/register" component={Register} />
           <Route path="/login" component={Login} />
-          <Route path="/test" component={Sidebar} />
+          <Route path="/test" component={apy} />
           <ProtectedRoute path="/early" component={Early} />
           <Route path="/step1" component={Step1} />
 
