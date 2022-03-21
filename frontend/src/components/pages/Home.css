@@ -73,7 +73,6 @@
 .img-round{
     background: rgb(126,217,87);
     background: linear-gradient(90deg, rgba(126,217,87,1) 0%, rgba(32,202,255,1) 100%);
-    
     width: 15rem;
     height: 15rem;
     border-radius: 50%;

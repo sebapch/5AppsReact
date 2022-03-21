@@ -13,7 +13,7 @@ const Footer = () => {
   return (
     <Grid container spacing={2} columns={15} className='footer-container'>
       <Grid item xs={3}>
-        <Link to='/home' className='links-footer'>
+        <Link to='/' className='links-footer'>
           <img src={HomeVioleta} alt='' />
           <p className='text-footer'>Inicio</p>
         </Link>
@@ -25,7 +25,7 @@ const Footer = () => {
         </Link>
       </Grid>
       <Grid item xs={3}>
-        <Link to='/invest' className='links-footer'>
+        <Link to='/step1' className='links-footer'>
           <img src={GuuruVioleta} alt=''  />
           <p className='text-footer'>Guuru</p>
         </Link>

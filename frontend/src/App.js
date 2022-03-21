@@ -12,6 +12,9 @@ import './App.css';
 import Early from './components/pages/Early';
 import Step1 from './components/pages/steps/step1';
 import apy from './components/utils/apy/apy';
+import Vaults from './components/pages/Vaults/Vaults'
+import Profile from './components/pages/Profile/Profile';
+import Settings from './components/pages/Settings/Settings';
 
 function App() {
   const [ userData, setUserData] = useState({
@@ -54,6 +57,8 @@ function App() {
           <Route path="/test" component={apy} />
           <ProtectedRoute path="/early" component={Early} />
           <Route path="/step1" component={Step1} />
+          <Route path="/vaults" component={Vaults} />
+          <Route path="/settings" component={Settings} />
 
         </Switch>
         </UserContext.Provider>

@@ -34,6 +34,7 @@ function Header() {
           <Grid container spacing={2} className='header'>
             <Grid xs={8} className='divHeader'>
               <h1 className="titleHeader">Guuru</h1>
+              
             </Grid>
             <Grid item xs={4} >
               <img src={LogoSinTexto} style={{ color: 'white', width: "150px" }} alt='' className='img-round-logo' />
