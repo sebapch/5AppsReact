@@ -5,7 +5,7 @@ import UST from '../../../assets/coins/UST.svg'
 import './apy.css'
 import switchTo from '../switch/switchTo'
 
-const apy = () => {
+const APY = () => {
     return (
         <>
         <Container className='container-apy'>
@@ -30,4 +30,4 @@ const apy = () => {
     )
 }
 
-export default apy
+export default APY

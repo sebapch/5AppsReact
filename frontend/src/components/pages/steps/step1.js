@@ -1,5 +1,9 @@
 import React from 'react'
 import Carrousel from '../../utils/Carrousel'
+import APY from '../../utils/apy/apy'
+import SwitchTo from '../../utils/switch/switchTo'
+import Divider from '@mui/material/Divider';
+
 import './steps.css'
 import Header from '../../layout/Header'
 import Footer from '../../layout/Footer'
@@ -13,13 +17,10 @@ const Step1 = () => {
         <Row className='row-pasos'>
           <Col xs={12} className='col-pasos'>
             <p className='paso paso1'>1</p>
-          
-       
+
             <p className='paso paso2' >2</p>
-      
-         
             <p className='paso paso3'>3</p>
-            </Col>
+          </Col>
         </Row>
         <Row>
           <Col xs={12}>
@@ -27,9 +28,9 @@ const Step1 = () => {
           </Col>
         </Row>
         <Row className='row-centered'>
-          
-            <Carrousel />
-          
+
+          <Carrousel />
+
         </Row>
         <Row>
           <Col xs={12}>
@@ -38,17 +39,23 @@ const Step1 = () => {
         </Row>
         <Row>
           <Col xs={12}>
-            API
+            < APY />
           </Col>
         </Row>
         <Row>
           <Col xs={12}>
-            SWITCH
+            <SwitchTo />
+          </Col>
+          <Col xs={12}>
+            <Divider style={{ border: '4px solid black' }} />
           </Col>
         </Row>
         <Row>
           <Col xs={12}>
-            ATRAS SIGUIENTE
+            <div className="btn-div">
+              <button className="custom-btn btn-atras">Atras</button>
+              <button className="custom-btn btn-siguiente">Siguiente</button>
+            </div>
           </Col>
         </Row>
       </Container>

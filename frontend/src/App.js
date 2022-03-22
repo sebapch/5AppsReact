@@ -15,6 +15,8 @@ import apy from './components/utils/apy/apy';
 import Vaults from './components/pages/Vaults/Vaults'
 import Profile from './components/pages/Profile/Profile';
 import Settings from './components/pages/Settings/Settings';
+import switchTo from './components/utils/switch/switchTo';
+import BackNext from './components/layout/buttons/BackNext';
 
 function App() {
   const [ userData, setUserData] = useState({
@@ -54,7 +56,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route path="/register" component={Register} />
           <Route path="/login" component={Login} />
-          <Route path="/test" component={apy} />
+          <Route path="/test" component={BackNext} />
           <ProtectedRoute path="/early" component={Early} />
           <Route path="/step1" component={Step1} />
           <Route path="/vaults" component={Vaults} />
