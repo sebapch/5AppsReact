@@ -1,0 +1,20 @@
+.timelockContainer{
+    padding: 10%;
+}
+
+.containerCandado{
+    display: flex;
+    align-items: center;
+    background: linear-gradient(180deg, rgb(232, 225, 230) 0%, rgb(178, 50, 221) 100%);
+    border: 5px solid purple;
+    border-radius:5%
+}
+
+.img-candado{
+    width: 100%;
+}
+
+.aligns{
+    display: flex;
+    align-items: baseline;
+}
