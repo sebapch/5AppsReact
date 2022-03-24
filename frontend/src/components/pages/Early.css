@@ -1,0 +1,81 @@
+.background{
+    background: url('../../assets/7.png')  ;
+    background-size: cover;
+    padding-bottom: 3rem;
+    width: 100%;
+    top: 0; 
+    left: 0; 
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+
+.icons-early{
+    text-align: end;
+}
+
+.text-early{
+  font-size: 1.5rem;
+  color: #4D0457;
+}
+
+.btn-litepaper{
+    -webkit-border-radius: 25;
+    -moz-border-radius: 25;
+    border-radius: 25px;
+    color: #4D0457;
+    font-size: 20px;
+    background: #ffd23c;
+    padding: 10px 35px 10px 35px;
+    border: solid #e8c03c 3px;
+    text-decoration: none;
+    text-align: center;
+  
+}
+
+.btn-launch{
+  -webkit-border-radius: 25;
+  -moz-border-radius: 25;
+  border-radius: 25px;
+  color: #4D0457;
+  font-size: 20px;
+  background: #94ff70;
+  padding: 10px 35px 10px 35px;
+  border: solid #c1f3b1 4px;
+  text-decoration: none;
+  text-align: center;
+
+}
+
+.img-logo{
+ height:80%;
+}
+
+.img-flex{
+  display: flex;
+    justify-content: center;
+    align-items: center;
+  
+}
+
+@media (max-width: 600px) {
+  .icons-early{
+    text-align: center;
+    display: fixed;
+    align-items: space-between;
+    padding-top: 1rem;
+}
+.icon{
+  width: 80px !important;
+}
+.btn-litepaper{
+  margin-bottom: 1rem;
+
+}
+.img-logo{
+  height:100%;
+ }
+
+
+}

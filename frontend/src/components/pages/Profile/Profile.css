@@ -1,0 +1,55 @@
+.welcome{
+    display: flex;
+    justify-content: flex-start;
+    border-top: 1px solid purple;
+    border-bottom: 3px solid purple;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.div-interior{
+    border: 5px solid white;
+    display: flex;
+    flex-direction: column;
+    background-color: purple;
+    border-radius: 5%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.div-exterior{
+    background: linear-gradient(0deg, rgba(126,217,87,1) 0%, rgba(32,202,255,1) 100%);
+    border: 6px solid purple;
+    border-radius: 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 75%;
+    padding: 2%;
+
+}
+
+.container-btn{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.grid-cerrar{
+    text-align: center;
+    color: red;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.grid-container{
+    display: flex;
+    justify-content: center;
+}
+
+.title-wallet{
+    text-align: center;
+    color: #59D49D;
+}
