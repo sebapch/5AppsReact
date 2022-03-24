@@ -19,6 +19,8 @@ import switchTo from './components/utils/switch/switchTo';
 import BackNext from './components/layout/buttons/BackNext';
 import ApyCripto from './components/utils/ApyCripto/ApyCripto';
 import TimeLock from './components/utils/timelock/Timelock'
+import Binance from './components/pages/Profile/Binance';
+import WalletPage from './components/pages/Profile/Wallet'
 
 function App() {
   const [ userData, setUserData] = useState({
@@ -58,11 +60,16 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route path="/register" component={Register} />
           <Route path="/login" component={Login} />
-          <Route path="/test" component={TimeLock} />
+          <Route path="/test" component={WalletPage} />
           <ProtectedRoute path="/early" component={Early} />
           <Route path="/step1" component={Step1} />
           <Route path="/vaults" component={Vaults} />
           <Route path="/settings" component={Settings} />
+          {/* perfil */}
+          <Route path="/profile" component={Profile} />
+          <Route path="/bpay" component={Binance} />
+          <Route path="/transfer" component={WalletPage} />
+
 
         </Switch>
         </UserContext.Provider>

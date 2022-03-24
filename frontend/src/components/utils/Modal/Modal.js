@@ -1,45 +1,34 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
+import { Modal } from 'react-bootstrap';
 import Typography from '@mui/material/Typography';
-import Modal from '@mui/material/Modal';
-import "./Modal.css" 
+import { Button } from '@mui/material';
 
-const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: '100%',
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
-  boxShadow: 24,
-  p: 4,
-  inlineSize: "min-content",
-};
-
-export default function BasicModal({success, setSuccess, newName, link, newAddress}) {
-  
-
-  return (
-    <div className="modal-nuevo">
-      <Modal
-        open={success}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box sx={style}  className="modal-content">
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            Token successfully created!
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 3, mb: 3 }} >
-            You can see your Token "{newName}" at: <a href={link + newAddress}target="_blank" rel="noreferrer" style={{color: 'blue'}}>{link + newAddress}</a>
-          </Typography>
-          <Button variant="contained" id="modal" color="success" onClick={() => setSuccess(false)} className='modal-button'>
-            Accept
-          </Button>
-        </Box>
-      </Modal>
-    </div>
-  );
+export default function InfoModal({ open, handleClose }) {
+    return (
+        <Modal show={open} onHide={handleClose}>
+            <Modal.Header closeButton>
+                <Modal.Title>Terms and Conditions</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <Typography id="transition-modal-description">
+                    <Typography id="transition-modal-title" variant="h6" component="span" sx={{ display: 'block' }}>Terse</Typography>
+                    LOREN IPSUM
+                </Typography>
+                <Typography id="transition-modal-description" sx={{ mt: 2 }}>
+                    <Typography id="transition-modal-title" variant="h6" component="span" sx={{ display: 'block' }}>asddd</Typography>
+                    
+                </Typography>
+                <Typography id="transition-modal-description" sx={{ mt: 2 }}>
+                    <Typography id="transition-modal-title" variant="h6" component="span" sx={{ display: 'block' }}>Tqwp</Typography>
+                    
+                </Typography>
+                <Typography id="transition-modal-description" sx={{ mt: 2 }}>
+                    <Typography id="transition-modal-title" variant="h6" component="span" sx={{ display: 'block' }}>asdasd</Typography>
+                    
+                </Typography></Modal.Body>
+            <Modal.Footer>
+                <Button variant="contained" onClick={handleClose}>Aceptar</Button>
+            </Modal.Footer>
+        </Modal>
+    )
 }
