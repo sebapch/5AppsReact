@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 import UserContext from "../../context/userContext";
 import ErrorNotice from "../../components/misc/ErrorNotice";
+import './Login.css'
 
 function Register () {
 
@@ -41,16 +42,20 @@ function Register () {
         <div className="register">
             <h2>Register</h2>
             {error && <ErrorNotice message={error} clearError={() => setError(undefined)} />}
-            <form onSubmit={submit}>
+            <div className='box-form'>
+            <form onSubmit={submit} className='form-login'>
+                <label>Nombre: </label>
+                <input type="text" id="dsplay-name" onChange={e => setDisplayName(e.target.value)}/>
                 <label>Email: </label>
                 <input type="email" id="email" onChange={e => setEmail(e.target.value)}/>
                 <label>Password: </label>
                 <input type="password" id="password" onChange={e => setPassword(e.target.value)}/>
-                <input type="password" placeholder="Confirm password" onChange={e => setPasswordCheck(e.target.value)}/>
-                <label>Display name </label>
-                <input type="text" id="dsplay-name" onChange={e => setDisplayName(e.target.value)}/>
+                <label>Repetir Password: </label>
+                <input type="password" onChange={e => setPasswordCheck(e.target.value)}/>
+                
                 <input type="submit" value="Register" className="btn btn-primary" />
             </form>
+            </div>
         </div>
         );
 }
