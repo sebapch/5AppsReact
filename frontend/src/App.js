@@ -21,6 +21,7 @@ import ApyCripto from './components/utils/ApyCripto/ApyCripto';
 import TimeLock from './components/utils/timelock/Timelock'
 import Binance from './components/pages/Profile/Binance';
 import WalletPage from './components/pages/Profile/Wallet'
+import DrawerLayout from './components/layout/Drawer/DrawerLayout';
 
 function App() {
   const [ userData, setUserData] = useState({
@@ -60,7 +61,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route path="/register" component={Register} />
           <Route path="/login" component={Login} />
-          <Route path="/test" component={WalletPage} />
+          <Route path="/test" component={DrawerLayout} />
           <ProtectedRoute path="/early" component={Early} />
           <Route path="/step1" component={Step1} />
           <Route path="/vaults" component={Vaults} />
