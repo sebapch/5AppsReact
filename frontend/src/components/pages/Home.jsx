@@ -9,6 +9,7 @@ import Header from '../layout/Header';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import infoVioleta from '../../assets/icons/infoVioleta.svg'
+import DrawerLayout from '../layout/Drawer/DrawerLayout';
 
 function Home() {
   const { userData, setUserData } = useContext(UserContext);
@@ -28,6 +29,7 @@ function Home() {
 
   return (
     <>
+    <DrawerLayout>
    <Header/> 
       
       {userData.user ? (
@@ -69,7 +71,7 @@ function Home() {
       </div>
      
       ): ( <h1>No existe</h1>)}
-     
+     </DrawerLayout>
     </>
 
   );
