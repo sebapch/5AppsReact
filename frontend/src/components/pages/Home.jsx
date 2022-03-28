@@ -29,49 +29,52 @@ function Home() {
 
   return (
     <>
-    <DrawerLayout>
-   <Header/> 
-      
-      {userData.user ? (
-        <div>
-      
-      <Box sx={{ flexGrow: 1 }} className="div-saldo">
-      <Grid container spacing={2} columns={12}>
-        <Grid item xs={12}>
-        <h1 className="title-green" style={{ fontSize: '30px' }}>
-          Saldo Disponible
-        </h1>
-        </Grid>
-        <Grid item xs={12}>
-        <div className="box-purple">
-          <h3 className="saldo"> $ {userData?.user.saldo} </h3>
-        </div>
-        </Grid>
-      </Grid>
-      </Box>
+      <DrawerLayout>
 
-       
-      <div className="home-section">
-        <h3 className="subtitle-home">
-          Relajate y deja que Guuru trabaje por vos
-        </h3>
-        <img src={Mascota} alt="" className="img-round" />
-        
-        <h4 className="text-purple">Ommm...</h4>
-        <Box className='box-info'>
-        <h4 className="text-green">¿Como Funciona?<img src={infoVioleta} alt='' width='20%' /></h4>
-        <h4 className="text-blue"> ¿Listo para invertir?</h4>
-        <div className="btn-div">
-          <button className="custom-btn btn-atras">Atras</button>
-          <button className="custom-btn btn-siguiente">Siguiente</button>
-        </div>
-        </Box>
-      </div>
-      <FixedBottomNavigation /> 
-      </div>
-     
-      ): ( <h1>No existe</h1>)}
-     </DrawerLayout>
+        {userData.user ? (
+          <div>
+
+            <Box sx={{ flexGrow: 1 }} className="div-saldo">
+              <Grid container spacing={2} columns={12}>
+                <Grid item xs={12}>
+                  <h1 className="title-green" style={{ fontSize: '30px' }}>
+                    Saldo Disponible
+                  </h1>
+                </Grid>
+                <Grid item xs={12}>
+                  <div className="box-purple">
+                    <h3 className="saldo"> $ {userData?.user.saldo} </h3>
+                  </div>
+                </Grid>
+              </Grid>
+            </Box>
+
+
+            <div className="home-section">
+              <h3 className="subtitle-home">
+                Relajate y deja que Guuru trabaje por vos
+              </h3>
+              <img src={Mascota} alt="" className="img-round" />
+
+              <h4 className="text-purple">Ommm...</h4>
+              <Box className='box-info'>
+                <h4 className="text-green">¿Como Funciona?<img src={infoVioleta} alt='' width='5%' /></h4>
+                <h4 className="text-blue"> ¿Listo para invertir?</h4>
+                <div className="btn-div">
+                  <button className="custom-btn btn-atras">Atras</button>
+                    <Link to="/step1" className="links-footer">
+                  <button className="custom-btn btn-siguiente">
+                      Siguiente
+                    
+                  </button>
+                  </Link>
+                </div>
+              </Box>
+            </div>
+          </div>
+
+        ) : (<h1>No existe</h1>)}
+      </DrawerLayout>
     </>
 
   );

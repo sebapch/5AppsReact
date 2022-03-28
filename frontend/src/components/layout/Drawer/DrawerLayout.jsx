@@ -14,7 +14,7 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import Grid from "@mui/material/Grid";
-
+import './DrawerLayout.css';
 import HomeVioleta from "../../../assets/homeVioleta.svg";
 import VaultsBlanco from "../../../assets/vaultsVioleta.svg";
 import AjustesBlanco from "../../../assets/ajustesVioleta.svg";
@@ -134,7 +134,7 @@ const DrawerLayout = ({ children }) => {
           </Link>
           <Link to="/vaults" className="links-footer">
             <img src={VaultsBlanco} alt="" />
-            <p className="text-footer">Mis Vaults</p>
+            <p className="text-footer">Vaults</p>
           </Link>
           <Link to="/step1" className="links-footer">
             <img src={GuuruVioleta} alt="" />

@@ -7,10 +7,11 @@ import Big4 from '../../../assets/Big4.png'
 import BSC from '../../../assets/BSC.png'
 import Estable from '../../../assets/Estable.png'
 import "./steps.css";
-import Header from "../../layout/Header";
+import DrawerLayout from "../../layout/Drawer/DrawerLayout";
 import Footer from "../../layout/Footer";
 import { Container, Row, Col } from "react-bootstrap";
 import ApyCripto from '../../utils/ApyCripto/ApyCripto'
+import { useHistory, Link } from 'react-router-dom';
 
 const Step1 = () => {
   const [index, setIndex] = useState(0);
@@ -24,7 +25,7 @@ const Step1 = () => {
 
   return (
     <>
-      <Header />
+    <DrawerLayout> 
       <Container>
         <Row className="row-pasos">
           <Col xs={12} className="col-pasos">
@@ -81,12 +82,15 @@ const Step1 = () => {
           <Col xs={12}>
             <div className="btn-div">
               <button className="custom-btn btn-atras">Atras</button>
+              <Link to='/step2' >
               <button className="custom-btn btn-siguiente">Siguiente</button>
+              </Link>
             </div>
           </Col>
         </Row>
       </Container>
-      <Footer />
+      
+      </DrawerLayout>
     </>
   );
 };
