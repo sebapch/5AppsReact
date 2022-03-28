@@ -21,6 +21,9 @@ import ApyCripto from './components/utils/ApyCripto/ApyCripto';
 import TimeLock from './components/utils/timelock/Timelock'
 import Binance from './components/pages/Profile/Binance';
 import WalletPage from './components/pages/Profile/Wallet'
+import DrawerLayout from './components/layout/Drawer/DrawerLayout';
+import step2 from './components/pages/steps/step2';
+import step3 from './components/pages/steps/step3';
 
 function App() {
   const [ userData, setUserData] = useState({
@@ -60,9 +63,12 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route path="/register" component={Register} />
           <Route path="/login" component={Login} />
-          <Route path="/test" component={WalletPage} />
+          <Route path="/test" component={DrawerLayout} />
           <ProtectedRoute path="/early" component={Early} />
           <Route path="/step1" component={Step1} />
+          <Route path="/step2" component={step2} />
+          <Route path="/step3" component={step3} />
+
           <Route path="/vaults" component={Vaults} />
           <Route path="/settings" component={Settings} />
           {/* perfil */}

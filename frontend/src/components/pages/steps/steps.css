@@ -69,3 +69,13 @@
     color: cyan;
     text-align: center;
 }
+
+.div-input{
+    background-color: purple;
+ 
+}
+
+.grid-cont-input{
+    display: flex;
+    align-items: baseline;
+}

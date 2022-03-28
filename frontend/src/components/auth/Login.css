@@ -1,0 +1,12 @@
+.box-form{
+    display: flex;
+    justify-content: center;
+}
+
+.form-login{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    border: 1px solid purple;
+    padding: 5%;
+}
