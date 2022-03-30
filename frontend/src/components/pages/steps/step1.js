@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import APY from "../../utils/apy/apy";
 import SwitchTo from "../../utils/switch/switchTo";
 import { Carousel } from "react-bootstrap";
@@ -13,9 +13,12 @@ import { Container, Row, Col } from "react-bootstrap";
 import ApyCripto from "../../utils/ApyCripto/ApyCripto";
 import { useHistory, Link } from "react-router-dom";
 import CheckIcon from "@mui/icons-material/Check";
+import { VaultContext } from "../../../context/vaultContext";
 
 const Step1 = () => {
   const [index, setIndex] = useState(0);
+
+  const { vault, setVault } = useContext(VaultContext);
 
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);
@@ -24,7 +27,8 @@ const Step1 = () => {
   console.log('Vault Seleccionado: '+ index);
 
   function handleClick() {
-    console.log(index);
+    setVault(index);
+    console.log(vault);
   }
 
   return (
@@ -47,6 +51,7 @@ const Step1 = () => {
               </div>
             </Col>
           </Row>
+          {JSON.stringify(vault, null, 2)}
           <Row>
             <Col xs={12}>
               <p className="text-green">
