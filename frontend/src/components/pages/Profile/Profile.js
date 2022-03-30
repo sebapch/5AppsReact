@@ -7,6 +7,7 @@ import BNB from '../../../assets/coins/BNB.svg';
 import Wallet from '../../../assets/icons/Wallet.svg'
 import Header from '../../layout/Header';
 import FixedBottomNavigation from '../../layout/Footer'
+import DrawerLayout from '../../layout/Drawer/DrawerLayout';
 
 
 const Profile = () => {
@@ -19,7 +20,7 @@ const Profile = () => {
 
   return (
     <>
-      <Header />
+      <DrawerLayout>
       <Grid container >
         <Grid item xs={12}>
           <h1 className='welcome'>Guuru Tag: {user}</h1>
@@ -65,7 +66,7 @@ const Profile = () => {
         </Grid>
       </Grid>
       <label>Dolar Hoy: 1USD = 0.89EUR</label>
-      <FixedBottomNavigation />
+      </DrawerLayout>
     </>
   )
 }

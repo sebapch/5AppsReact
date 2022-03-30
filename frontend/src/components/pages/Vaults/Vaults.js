@@ -6,6 +6,8 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import DrawerLayout from '../../layout/Drawer/DrawerLayout';
+
 
 function createData(name, calories, fat, carbs, protein) {
   return { name, calories, fat, carbs, protein };
@@ -22,7 +24,7 @@ const rows = [
 const Vaults = () => {
   return (
     <>
-    
+    <DrawerLayout>
     <h1 className='title'>Historial</h1>
     <label>Armado</label>
     <label>Retiro</label>
@@ -55,6 +57,7 @@ const Vaults = () => {
         </TableBody>
       </Table>
     </TableContainer>
+    </DrawerLayout>
     </>
   )
 }

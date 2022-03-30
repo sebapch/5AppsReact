@@ -1,0 +1,20 @@
+.img-drawer{
+    width:50px;
+}
+
+.links-footer{
+    display: flex;
+    align-items: center;
+    height: 4rem;
+}
+
+.text-drawer{
+    display: flex;
+}
+
+.btn-drawer{
+    display: flex;
+    
+    width: 75%;
+    justify-content: flex-end;
+}

@@ -42,16 +42,24 @@
 
 .col-pasos{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
+}
+.icons-pasos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.icons-pasos-middle{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 .paso{
-    margin-top: 2rem;
-    background-color: purple;
-    width: 10%;
-    color: darkgray;
-    border: 3px solid cyan;
-    text-align: center;
+    
 }
 
 .text-green{
@@ -62,7 +70,10 @@
 .row-centered{
     display: flex;
     justify-content: center;
+}
 
+.carrousel{
+    width: 50%;
 }
 
 .info-text{

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import UserContext from "../../../context/userContext";
 import Grid from "@mui/material/Grid";
 import DrawerLayout from '../../layout/Drawer/DrawerLayout'
@@ -6,14 +6,47 @@ import Slider from '@mui/material/Slider';
 import Box from '@mui/material/Box';
 import Bag from '../../../assets/icons/bag.svg'
 import { Container, Row, Col } from "react-bootstrap";
+import InfoModal from '../../utils/Modal/Modal';
 
 function valuetext(value) {
   return `${value}°C`;
 }
 
+
+
 const Step3 = () => {
   const { userData, setUserData } = useContext(UserContext);
   console.log(userData);
+  const [saldo, setSaldo] = useState('');
+  const [invest, setInvest] = useState('');
+      // Modal terms and use
+      const [open, setOpen] = useState(false);
+      const handleOpen = () => setOpen(true);
+      const handleClose = () => setOpen(false);
+
+
+  useEffect(()=>{
+    const datos = userData.user?.saldo
+    setSaldo(datos)
+    console.log(datos)
+  }, [userData])
+
+  function handleChange(evt) {
+    const value = evt.target.value;
+    if(value > saldo){
+      value = saldo
+      setSaldo(value)
+    } else {
+      setSaldo(value)
+    }
+}
+
+function handleSlider(value){
+  const valor = value.target.value
+  const final = (saldo * (valor/100)) ;
+
+  setInvest(final);
+}
 
   return (
     <>
@@ -28,7 +61,7 @@ const Step3 = () => {
             </Grid>
             <Grid item xs={12}>
               <div className="box-purple">
-                <h3 className="saldo"> $ {userData?.user.saldo} </h3>
+                <h3 className="saldo"> $ {saldo} </h3>
               </div>
             </Grid>
 
@@ -40,7 +73,7 @@ const Step3 = () => {
                   <img src={Bag}  width='25%'/>
                 </Grid>
                 <Grid item xs={6}>
-                  <input type='text' />
+                  <input type='number' onChange={handleChange} value={invest} /> 
                 </Grid>
                 <Grid item xs={12}>
                   <Slider
@@ -51,7 +84,8 @@ const Step3 = () => {
                     step={10}
                     marks
                     min={10}
-                    max={110}
+                    max={100}
+                    onChange={handleSlider}
                   />
                 </Grid>
               </Grid>
@@ -75,7 +109,9 @@ const Step3 = () => {
             </Grid>
             <Grid md={12}>
               <button>Atras</button>
-              <button>Confirmar</button>
+              <button onClick={handleOpen}>Confirmar</button>
+              <InfoModal open={open} handleClose={handleClose} children={'Total invertido' + invest}/>
+
             </Grid>
 
 

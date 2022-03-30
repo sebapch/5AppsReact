@@ -31,10 +31,10 @@ const Timelock = () => {
 
       <Grid container  className="containerCandado">
         <Grid item xs={6}>
-          <Stack>
-            <button value={30} onClick={(e) => setDays(e.target.value)}>30D</button>
-            <button value={60} onClick={(e) => setDays(e.target.value)}>60D</button>
-            <button value={90} onClick={(e) => setDays(e.target.value)}>90D</button>
+          <Stack className='stack-div'>
+            <button value={30} onClick={(e) => setDays(e.target.value)} className="btn btn-timelock">30D</button>
+            <button value={60} onClick={(e) => setDays(e.target.value)} className="btn btn-timelock">60D</button>
+            <button value={90} onClick={(e) => setDays(e.target.value)} className="btn btn-timelock">90D</button>
           </Stack>
         </Grid>
         <Grid item xs={6}>
@@ -59,7 +59,7 @@ const Timelock = () => {
         <Grid item xs={12} className="aligns">
           <p>Que es el Timelock?</p>
           <img src={infoAzul} alt="" width="50px" onClick={handleOpen}/>
-          <InfoModal open={open} handleClose={handleClose} />
+          <InfoModal open={open} handleClose={handleClose} children={'Modal del Timelock'}/>
         </Grid>
       </Grid>
       </Container>
