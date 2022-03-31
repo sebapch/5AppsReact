@@ -4,6 +4,8 @@
   align-items: center !important;
   justify-content: center;
   align-content: center;
+  border: 5px solid green !important;
+
 }
 
 .modal {
@@ -17,4 +19,11 @@
   overflow-x: hidden;
   overflow-y: auto;
   outline: 0;
+  border: 5px solid green !important;
+
+}
+
+.modal-dialog{
+  border: 5px solid green !important;
+  
 }

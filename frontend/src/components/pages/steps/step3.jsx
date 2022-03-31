@@ -6,7 +6,8 @@ import Slider from '@mui/material/Slider';
 import Box from '@mui/material/Box';
 import Bag from '../../../assets/icons/bag.svg'
 import { Container, Row, Col } from "react-bootstrap";
-import InfoModal from '../../utils/Modal/Modal';
+import ConfirmModal from '../../utils/Modal/ConfirmVaultModal';
+import { VaultContext } from '../../../context/vaultContext';
 
 function valuetext(value) {
   return `${value}°C`;
@@ -24,6 +25,8 @@ const Step3 = () => {
       const handleOpen = () => setOpen(true);
       const handleClose = () => setOpen(false);
 
+      const { funds, setFunds } = useContext(VaultContext);
+
 
   useEffect(()=>{
     const datos = userData.user?.saldo
@@ -33,19 +36,15 @@ const Step3 = () => {
 
   function handleChange(evt) {
     const value = evt.target.value;
-    if(value > saldo){
-      value = saldo
-      setSaldo(value)
-    } else {
-      setSaldo(value)
-    }
+    setInvest(value);
+    setFunds(value)
 }
 
 function handleSlider(value){
   const valor = value.target.value
   const final = (saldo * (valor/100)) ;
-
   setInvest(final);
+  setFunds(final);
 }
 
   return (
@@ -110,7 +109,7 @@ function handleSlider(value){
             <Grid md={12}>
               <button>Atras</button>
               <button onClick={handleOpen}>Confirmar</button>
-              <InfoModal open={open} handleClose={handleClose} children={'Total invertido' + invest}/>
+              <ConfirmModal open={open} handleClose={handleClose} />
 
             </Grid>
 

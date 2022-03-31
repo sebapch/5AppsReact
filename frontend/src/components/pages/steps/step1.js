@@ -24,11 +24,10 @@ const Step1 = () => {
     setIndex(selectedIndex);
   };
 
-  console.log('Vault Seleccionado: '+ index);
+  console.log("Vault Seleccionado: " + index);
 
   function handleClick() {
     setVault(index);
-    console.log(vault);
   }
 
   return (
@@ -108,11 +107,14 @@ const Step1 = () => {
             <Col xs={12}>
               <div className="btn-div">
                 <button className="custom-btn btn-atras">Atras</button>
-                
-                  <button className="custom-btn btn-siguiente" onClick={handleClick}>
+                <Link to="/step2" className="links-footer">
+                  <button
+                    className="custom-btn btn-siguiente"
+                    onClick={handleClick}
+                  >
                     Siguiente
                   </button>
-                
+                </Link>
               </div>
             </Col>
           </Row>
