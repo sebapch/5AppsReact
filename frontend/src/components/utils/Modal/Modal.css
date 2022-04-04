@@ -8,6 +8,15 @@
 
 }
 
+.modal-title{
+  color: #7ED957;
+  text-align: center;
+  font-weight: bold;
+}
+.modal-text{
+  color: white;
+}
+
 .modal {
   position: fixed;
   top: 75px !important;
@@ -19,11 +28,15 @@
   overflow-x: hidden;
   overflow-y: auto;
   outline: 0;
-  border: 5px solid green !important;
+  border: 5px solid #7ED957 !important;
 
 }
 
 .modal-dialog{
-  border: 5px solid green !important;
+  border: 5px solid #7ED957 !important;
   
+}
+
+.modal-container{
+  background-color: #4D0457;
 }

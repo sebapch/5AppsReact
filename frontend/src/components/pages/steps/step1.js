@@ -14,6 +14,7 @@ import ApyCripto from "../../utils/ApyCripto/ApyCripto";
 import { useHistory, Link } from "react-router-dom";
 import CheckIcon from "@mui/icons-material/Check";
 import { VaultContext } from "../../../context/vaultContext";
+import './step1.css';
 
 const Step1 = () => {
   const [index, setIndex] = useState(0);
@@ -38,7 +39,9 @@ const Step1 = () => {
             <Col xs={12} className="col-pasos">
               <div className="icons-pasos">
                 <CheckIcon />
-                <label className="paso paso1">1</label>
+                <div className='border'>
+                  <label className="paso paso1">1</label>
+                </div>
               </div>
               <div className="icons-pasos-middle">
                 <CheckIcon />
@@ -50,7 +53,7 @@ const Step1 = () => {
               </div>
             </Col>
           </Row>
-          {JSON.stringify(vault, null, 2)}
+         
           <Row>
             <Col xs={12}>
               <p className="text-green">
@@ -88,9 +91,7 @@ const Step1 = () => {
           </Row>
           <Row>
             <Col xs={12}>
-              {/*  {index === 0 ? <APY /> 
-            : index === 1 ? "Condition B" 
-            : "Neither"} */}
+             
 
               {index === 0 ? (
                 <>
@@ -102,7 +103,7 @@ const Step1 = () => {
               )}
             </Col>
           </Row>
-
+          <Divider className='divider-foot'/>
           <Row>
             <Col xs={12}>
               <div className="btn-div">

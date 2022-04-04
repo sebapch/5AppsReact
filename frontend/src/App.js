@@ -64,7 +64,9 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route path="/register" component={Register} />
           <Route path="/login" component={Login} />
-          <Route path="/test" component={DrawerLayout} />
+          <Route path="/perfil" component={Profile} />
+          <Route path="/bpay" component={Binance} />
+          <Route path="/transfer" component={WalletPage} />
           <ProtectedRoute path="/early" component={Early} />
           <VaultProvider>
             <Route path="/step1" component={Step1} />
@@ -74,9 +76,8 @@ function App() {
           <Route path="/vaults" component={Vaults} />
           <Route path="/settings" component={Settings} />
           {/* perfil */}
-          <Route path="/profile" component={Profile} />
-          <Route path="/bpay" component={Binance} />
-          <Route path="/transfer" component={WalletPage} />
+          
+          
 
 
         </Switch>

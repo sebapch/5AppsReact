@@ -3,20 +3,28 @@ import { Modal } from "react-bootstrap";
 import Typography from "@mui/material/Typography";
 import { Button } from "@mui/material";
 import "./Modal.css";
+import { Container } from "@mui/material";
 
-export default function InfoModal({ open, handleClose, children }) {
+export default function InfoModal({ open, handleClose, title, parrafo1, parrafo2, parrafo3, parrafo4 }) {
 
  
 
   return (
     <Modal show={open} onHide={handleClose} className="info-modal">
-      <Modal.Title>Terms and Conditions</Modal.Title>
+      <Container className="modal-container">
 
-      <Typography id="transition-modal-description">{children}</Typography>
+      <Modal.Title className="modal-title">{title}</Modal.Title>
+      <br />
+      <Typography id="transition-modal-description" className="modal-text">{parrafo1}</Typography>
+      <br />
+      {(parrafo2) ? <Typography id="transition-modal-description" className="modal-text">{parrafo2}</Typography> : null}
+      <br />
+      {(parrafo3) ? <Typography id="transition-modal-description" className="modal-text">{parrafo3}</Typography> : null}
+      <br />
+      {(parrafo4) ? <Typography id="transition-modal-description" className="modal-text">{parrafo4}</Typography> : null}
 
-      <Button variant="contained" onClick={handleClose}>
-        Aceptar
-      </Button>
+      </Container>
+      
     </Modal>
   );
 }

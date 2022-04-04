@@ -37,7 +37,7 @@ const SwitchTo = () => {
             <p className="stable">USDT</p>
           </Grid>
         </Grid>
-        {JSON.stringify(stable, null, 2)}
+        
 
       </FormGroup>
     </>

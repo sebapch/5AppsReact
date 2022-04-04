@@ -20,6 +20,7 @@ import AjustesBlanco from "../../../assets/ajustesVioleta.svg";
 import GuuruVioleta from "../../../assets/guuruVioleta.svg";
 import PerfilBlanco from "../../../assets/usuarioVioleta.svg";
 import UserContext from "../../../context/userContext";
+import Button from '@mui/material/Button';
 
 const drawerWidth = 240;
 
@@ -136,12 +137,12 @@ const DrawerLayout = ({ children }) => {
             {userData.user ? (
               <div>
                 <label>hola {userData?.user.displayName}</label>
-                <button onClick={logout}>Logout</button>
+                <Button onClick={logout} color="error"  variant="contained">Logout</Button>
               </div>
             ) : (
               <div>
-                <Link to='/register' ><button>Register</button></Link>
-                <Link to='/login' ><button>Log In</button></Link>
+                <Link to='/register' ><Button color="success"  variant="contained">Register</Button></Link>
+                <Link to='/login' ><Button color="success"  variant="contained" >Log In</Button></Link>
               </div>
             )}
           </div>
@@ -167,7 +168,7 @@ const DrawerLayout = ({ children }) => {
             <img src={GuuruVioleta} alt="" className="img-drawer" />
             <label className="text-drawer">Guuru</label>
           </Link>
-          <Link to="/profile" className="links-footer">
+          <Link to="/perfil" className="links-footer">
             <img src={PerfilBlanco} alt="" className="img-drawer" />
             <label className="text-drawer">Perfil</label>
           </Link>
