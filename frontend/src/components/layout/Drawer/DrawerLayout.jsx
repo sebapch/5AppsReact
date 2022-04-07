@@ -21,6 +21,8 @@ import GuuruVioleta from "../../../assets/guuruVioleta.svg";
 import PerfilBlanco from "../../../assets/usuarioVioleta.svg";
 import UserContext from "../../../context/userContext";
 import Button from '@mui/material/Button';
+import Footer from "../Footer";
+import Header from "../Header";
 
 const drawerWidth = 240;
 
@@ -114,9 +116,9 @@ const DrawerLayout = ({ children }) => {
   };
 
   return (
-    <Box sx={{ display: "flex" }} className='drawer'>
+    <Box sx={{ display: "flex" }} >
       <CssBaseline />
-      <AppBar position="fixed" open={open}>
+      <AppBar position="fixed" open={open} className='drawer'>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -149,13 +151,13 @@ const DrawerLayout = ({ children }) => {
         </Toolbar>
       </AppBar>
       <Drawer variant="permanent" open={open}>
-        <DrawerHeader>
+        <DrawerHeader className='drawer'>
           <IconButton onClick={handleDrawerClose}>
             <ChevronLeftIcon />
           </IconButton>
         </DrawerHeader>
         <Divider />
-        <List>
+        <List >
           <Link to="/" className="links-footer">
             <img src={HomeVioleta} alt="" className="img-drawer" />
             <label className="text-drawer">Inicio</label>
@@ -179,11 +181,13 @@ const DrawerLayout = ({ children }) => {
         </List>
         <Divider />
       </Drawer>
-
-      <Box component="main" sx={{ flexGrow: 1, p: 3, minHeight: "85.1vh" }}>
-        <DrawerHeader />
+      
+      <Header />
+      <Box component="main" sx={{ flexGrow: 1, p: 3, minHeight: "85.1vh" }} >
         {children}
       </Box>
+      <Footer />
+      
     </Box>
   );
 };

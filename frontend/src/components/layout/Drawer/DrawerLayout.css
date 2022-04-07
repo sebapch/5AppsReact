@@ -1,27 +1,44 @@
-.img-drawer{
-    width:50px;
+.img-drawer {
+    width: 50px;
 }
 
-.links-footer{
+.links-footer {
     display: flex;
     align-items: center;
     height: 4rem;
 }
 
-.text-drawer{
+.text-drawer {
     display: flex;
 }
 
-.btn-drawer{
+.btn-drawer {
     display: flex;
-    
+
     width: 75%;
     justify-content: flex-end;
 }
 
-  
+
 @media (max-width: 600px) {
-    .drawer{
-      display: none !important;
+    .drawer {
+        display: none !important;
+    }
+
+    .css-1hsz34s-MuiDrawer-docked .MuiDrawer-paper {
+        display: none !important;
+    }
+
+    .drawerContent {
+        display: block !important;
+    }
+
+    .drawerContent {
+        display: block !important;
+    }
+
+    .css-k008qs {
+        display: flex;
+        flex-direction: column;
     }
 }
