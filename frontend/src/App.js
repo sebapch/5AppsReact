@@ -25,6 +25,7 @@ import DrawerLayout from './components/layout/Drawer/DrawerLayout';
 import step2 from './components/pages/steps/step2';
 import step3 from './components/pages/steps/step3';
 import {VaultProvider} from './context/vaultContext';
+import Historial from './components/pages/Historial/Historial';
 
 function App() {
   const [ userData, setUserData] = useState({
@@ -66,6 +67,9 @@ function App() {
           <Route path="/login" component={Login} />
           <Route path="/perfil" component={Profile} />
           <Route path="/bpay" component={Binance} />
+          <Route path="/vaults" component={Vaults} />
+          <Route path="/opciones" component={Settings} />
+          <Route path="/historial" component={Historial} />
           <Route path="/transfer" component={WalletPage} />
           <ProtectedRoute path="/early" component={Early} />
           <VaultProvider>
@@ -73,8 +77,7 @@ function App() {
             <Route path="/step2" component={step2} />
             <Route path="/step3" component={step3} />
           </VaultProvider>
-          <Route path="/vaults" component={Vaults} />
-          <Route path="/settings" component={Settings} />
+          
           {/* perfil */}
           
           

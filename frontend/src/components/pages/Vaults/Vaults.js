@@ -1,63 +1,68 @@
 import * as React from 'react';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid';
 import DrawerLayout from '../../layout/Drawer/DrawerLayout';
+import { Container, Switch } from '@mui/material';
+import './Vaults.css';
+import InfoAzul from '../../../assets/icons/infoAzul.svg';
+import InfoVerde from '../../../assets/icons/infoVerde.svg';
+import HistorialVerde from '../../../assets/icons/HistorialVerde.svg';
+import Parado from '../../../assets/Parado.svg';
+import { Button } from '@mui/material';
 
-
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
-
-const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
-];
 
 const Vaults = () => {
   return (
     <>
-    <DrawerLayout>
-    <h1 className='title'>Historial</h1>
-    <label>Armado</label>
-    <label>Retiro</label>
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell>Dessert (100g serving)</TableCell>
-            <TableCell align="right">Calories</TableCell>
-            <TableCell align="right">Fat&nbsp;(g)</TableCell>
-            <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-            <TableCell align="right">Protein&nbsp;(g)</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map((row) => (
-            <TableRow
-              key={row.name}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-            >
-              <TableCell component="th" scope="row">
-                {row.name}
-              </TableCell>
-              <TableCell align="right">{row.calories}</TableCell>
-              <TableCell align="right">{row.fat}</TableCell>
-              <TableCell align="right">{row.carbs}</TableCell>
-              <TableCell align="right">{row.protein}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
-    </DrawerLayout>
+      <DrawerLayout>
+        <Container style={{ width: '75%' }}>
+          <Grid container >
+            <Grid item xs={12} >
+              <label className='auto-renew'>Auto Renovar mis vaults  </label>
+              <Switch />
+
+            </Grid>
+            <Grid item xs={12} className='grid-btns'>
+              <button className='btn-vault'>TODO</button>
+              <button className='btn-vault'>Estable</button>
+              <button className='btn-vault'>Big4</button>
+              <button className='btn-vault'>BSC</button>
+            </Grid>
+
+          </Grid>
+          <Grid container className='card-vault'>
+            <Container>
+              <Grid item xs={12} className='grid-total-invested'>
+                <label className='textos-vault'>Total Invertido</label>
+                <img src={InfoAzul} alt='' width='50px' />
+                <img src={HistorialVerde} alt='' width='50px' style={{ float: 'right' }} />
+
+              </Grid>
+              <Grid item xs={12}>
+                <label className='total-invest'>$ 1000</label>
+              </Grid>
+              <Grid item xs={12}>
+                <label className='textos-vault'>Valor Actual</label>
+                <img src={InfoVerde} alt='' width='50px' />
+
+              </Grid>
+              <Grid item xs={12}>
+                <label className='actual-invest'>$ 1200</label>
+              </Grid>
+              <Grid item xs={12} className='img-vault'>
+                <img src={Parado} alt='' width='200px' />
+              </Grid>
+
+            </Container>
+
+          </Grid>
+          <div className='buttons-vault'>
+            <Button variant="contained" color="success" className='btn-convertir'>Convertir todo a estable</Button>
+            <Button variant="contained" color="error" className='btn-desarmar'> Desarmar todo</Button>
+            <Button variant="contained" color="error" className='btn-desarmar'>Desarmar y retirar todo</Button>
+          </div>
+
+        </Container>
+      </DrawerLayout>
     </>
   )
 }
