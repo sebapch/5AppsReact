@@ -59,8 +59,8 @@ function App() {
     <BrowserRouter>
       <UserContext.Provider value={{ userData, setUserData }}>
          {/* <Header />  */}
+         <DrawerLayout>
         <Switch>
-
           
           <Route exact path="/" component={Home} />
           <Route path="/register" component={Register} />
@@ -77,13 +77,9 @@ function App() {
             <Route path="/step2" component={step2} />
             <Route path="/step3" component={step3} />
           </VaultProvider>
-          
-          {/* perfil */}
-          
-          
-
 
         </Switch>
+        </DrawerLayout>
         </UserContext.Provider>
     </BrowserRouter>
   );

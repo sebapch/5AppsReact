@@ -114,7 +114,7 @@ const DrawerLayout = ({ children }) => {
   };
 
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box sx={{ display: "flex" }} className='drawer'>
       <CssBaseline />
       <AppBar position="fixed" open={open}>
         <Toolbar>

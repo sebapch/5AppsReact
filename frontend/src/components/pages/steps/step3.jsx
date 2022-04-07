@@ -51,7 +51,6 @@ const Step3 = () => {
 
   return (
     <>
-      <DrawerLayout>
         <Container className="step3-container">
           <Row className="row-pasos">
             <Col xs={12} className="col-pasos">
@@ -140,7 +139,6 @@ const Step3 = () => {
             <h1>No existe</h1>
           )}
         </Container>
-      </DrawerLayout>
     </>
   );
 };

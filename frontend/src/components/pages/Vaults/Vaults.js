@@ -13,7 +13,6 @@ import { Button } from '@mui/material';
 const Vaults = () => {
   return (
     <>
-      <DrawerLayout>
         <Container style={{ width: '75%' }}>
           <Grid container >
             <Grid item xs={12} >
@@ -62,7 +61,6 @@ const Vaults = () => {
           </div>
 
         </Container>
-      </DrawerLayout>
     </>
   )
 }

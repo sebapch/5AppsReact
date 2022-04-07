@@ -41,8 +41,7 @@ function Home() {
 
   return (
     <>
-      <DrawerLayout>
-<Container>
+        <Container>
         {userData.user ? (
           <div>
 
@@ -93,7 +92,6 @@ function Home() {
 
         ) : (<h1>No existe</h1>)}
         </Container>
-      </DrawerLayout>
     </>
 
   );

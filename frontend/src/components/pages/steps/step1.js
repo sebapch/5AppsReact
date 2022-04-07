@@ -33,7 +33,6 @@ const Step1 = () => {
 
   return (
     <>
-      <DrawerLayout>
         <Container>
           <Row className="row-pasos">
             <Col xs={12} className="col-pasos">
@@ -120,7 +119,6 @@ const Step1 = () => {
             </Col>
           </Row>
         </Container>
-      </DrawerLayout>
     </>
   );
 };

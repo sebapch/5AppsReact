@@ -1,6 +1,5 @@
 import React from 'react'
 import Timelock from '../../utils/timelock/Timelock'
-import DrawerLayout from '../../layout/Drawer/DrawerLayout'
 import { useHistory, Link } from 'react-router-dom';
 import { Container, Row, Col } from "react-bootstrap";
 import CheckIcon from "@mui/icons-material/Check";
@@ -10,7 +9,6 @@ import './step2.css';
 const step2 = () => {
   return (
     <div>
-        <DrawerLayout>
         <Row className="row-pasos">
             <Col xs={12} className="col-pasos">
               <div className="icons-pasos">
@@ -39,7 +37,6 @@ const step2 = () => {
                   </button>
                   </Link>
                 </div>
-        </DrawerLayout>
     </div>
   )
 }

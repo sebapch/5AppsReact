@@ -15,7 +15,6 @@ const WalletPage = () => {
 
     return (
         <>
-        <DrawerLayout>
             <Grid container >
                 <Grid item xs={12}>
                     <h1 className='welcome'>Guuru Tag: {user}</h1>
@@ -82,7 +81,6 @@ const WalletPage = () => {
                 </Grid>
             </Grid>
             <label>Dolar Hoy: 1USD = 0.89EUR</label>
-            </DrawerLayout>
         </>
     )
 }

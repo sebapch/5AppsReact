@@ -30,7 +30,6 @@ const Settings = () => {
 
   return (
     <>
-      <DrawerLayout>
         <div className='contenedor'>
         <Container >
           <Grid container >
@@ -113,7 +112,6 @@ const Settings = () => {
 
         </Container>
         </div>
-      </DrawerLayout>
     </>
   )
 }

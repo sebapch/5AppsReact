@@ -11,7 +11,6 @@ import './Historial.css';
 const Historial = () => {
   return (
     <>
-      <DrawerLayout>
         <Container>
           <h1 className='title'>Historial</h1>
           <Grid container>
@@ -46,7 +45,6 @@ const Historial = () => {
           </Grid>
 
         </Container>
-      </DrawerLayout>
     </>
   )
 }
