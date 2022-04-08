@@ -1,15 +1,19 @@
-import React, {useState, useContext} from "react";
+import React, { useState, useContext } from "react";
 import { Modal } from "react-bootstrap";
 import Typography from "@mui/material/Typography";
 import { Button } from "@mui/material";
 import { VaultContext } from '../../../context/vaultContext'
 import "./Modal.css";
+import Axios from "axios";
 
 export default function ConfirmModal({ open, handleClose }) {
 
-    const { vault, stable, timelock,autoRenew, funds } = useContext(VaultContext);
+  const { vault, stable, timelock, autoRenew, funds, saveVaults } = useContext(VaultContext);
 
-
+  const handleClick = () => {
+    saveVaults()
+    handleClose()
+  }
 
   return (
     <Modal show={open} onHide={handleClose} className="info-modal">
@@ -27,9 +31,19 @@ export default function ConfirmModal({ open, handleClose }) {
 
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="contained" onClick={handleClose}>
+        <Button variant="contained" onClick={handleClick}>
           Aceptar
         </Button>
+        <button onClick={()=>{
+          Axios.get("http://localhost:5000/users/api/vaults")
+          .then(res => {
+            console.log(res)
+          })
+          .catch(err => {
+            console.log(err)
+          })
+
+        }}>traer vaults</button>
       </Modal.Footer>
     </Modal>
   );

@@ -27,7 +27,8 @@ function Login () {
             localStorage.setItem("isAuthenticated", "true");
             history.push("/");
         } catch(err) {
-            err.response.data.msg && setError(err.response.data.msg)
+            //err.response.data.msg && setError(err.response.data.msg)
+            console.log(err)
         }
         
     };
