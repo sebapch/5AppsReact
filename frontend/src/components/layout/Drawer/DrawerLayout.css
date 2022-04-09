@@ -19,6 +19,14 @@
     justify-content: flex-end;
 }
 
+.header{
+    display: none !important;
+}
+
+.footer-container{
+    display: none !important;
+}
+
 
 @media (max-width: 600px) {
     .drawer {
@@ -40,5 +48,23 @@
     .css-k008qs {
         display: flex;
         flex-direction: column;
+    }
+
+    .header{
+        display: flex !important;
+    }
+    
+    .footer-container{
+        display: flex !important;
+    }
+
+    .css-q67yjp-MuiDrawer-docked .MuiDrawer-paper {
+        display: none !important;
+
+    }
+
+    .css-7py4mh{
+        margin-top: 0px !important;
+        padding: 0px !important;
     }
 }

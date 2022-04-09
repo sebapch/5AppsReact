@@ -6,18 +6,17 @@ import Divider from "@mui/material/Divider";
 import Big4 from "../../../assets/Big4.png";
 import BSC from "../../../assets/BSC.png";
 import Estable from "../../../assets/Estable.png";
-import "./steps.css";
-import DrawerLayout from "../../layout/Drawer/DrawerLayout";
-import Footer from "../../layout/Footer";
 import { Container, Row, Col } from "react-bootstrap";
 import ApyCripto from "../../utils/ApyCripto/ApyCripto";
 import { useHistory, Link } from "react-router-dom";
-import CheckIcon from "@mui/icons-material/Check";
 import { VaultContext } from "../../../context/vaultContext";
+import StepsCount from "../../utils/stepsCount/stepsCount";
 import './step1.css';
 
 const Step1 = () => {
   const [index, setIndex] = useState(0);
+  const history = useHistory();
+
 
   const { vault, setVault } = useContext(VaultContext);
 
@@ -34,25 +33,8 @@ const Step1 = () => {
   return (
     <>
         <Container>
-          <Row className="row-pasos">
-            <Col xs={12} className="col-pasos">
-              <div className="icons-pasos">
-                <CheckIcon />
-                <div className='border'>
-                  <label className="paso paso1">1</label>
-                </div>
-              </div>
-              <div className="icons-pasos-middle">
-                <CheckIcon />
-                <label className="paso paso2">2</label>
-              </div>
-              <div className="icons-pasos">
-                <CheckIcon />
-                <label className="paso paso3">3</label>
-              </div>
-            </Col>
-          </Row>
-         
+          <StepsCount />
+
           <Row>
             <Col xs={12}>
               <p className="text-green">
@@ -106,7 +88,7 @@ const Step1 = () => {
           <Row>
             <Col xs={12}>
               <div className="btn-div">
-                <button className="custom-btn btn-atras">Atras</button>
+                <button className="custom-btn btn-atras" onClick={() => history.goBack()}>Atras</button>
                 <Link to="/step2" className="links-footer">
                   <button
                     className="custom-btn btn-siguiente"

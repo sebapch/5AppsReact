@@ -9,3 +9,7 @@
      border: 2px solid #82DA5C;
      align-items: center;
  }
+
+ .carousel-indicators {
+    display: none !important;
+}

@@ -42,7 +42,6 @@ function Register () {
     return ( 
 
 
-        <DrawerLayout>
         <div className="register">
             <h2>Register</h2>
             {error && <ErrorNotice message={error} clearError={() => setError(undefined)} />}
@@ -61,7 +60,6 @@ function Register () {
             </form>
             </div>
         </div>
-        </DrawerLayout>
         );
 }
  

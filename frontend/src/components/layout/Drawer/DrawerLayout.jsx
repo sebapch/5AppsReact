@@ -174,7 +174,7 @@ const DrawerLayout = ({ children }) => {
             <img src={PerfilBlanco} alt="" className="img-drawer" />
             <label className="text-drawer">Perfil</label>
           </Link>
-          <Link to="/settings" className="links-footer">
+          <Link to="/opciones" className="links-footer">
             <img src={AjustesBlanco} alt="" className="img-drawer" />
             <label className="text-drawer">Ajustes</label>
           </Link>
@@ -182,11 +182,13 @@ const DrawerLayout = ({ children }) => {
         <Divider />
       </Drawer>
       
-      <Header />
-      <Box component="main" sx={{ flexGrow: 1, p: 3, minHeight: "85.1vh" }} >
+      
+      <Box component="main" sx={{ flexGrow: 1, p: 3, minHeight: "85.1vh", marginTop: '3rem' }} >
+      <Header className='mobile-header'/>
         {children}
+        <Footer className='mobile-footer'/>
       </Box>
-      <Footer />
+     
       
     </Box>
   );

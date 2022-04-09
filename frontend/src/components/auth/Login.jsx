@@ -34,7 +34,6 @@ function Login () {
     };
     
     return (
-        <DrawerLayout>
         <div className="login">
             <h2>Login</h2>
             {error && <ErrorNotice message={error} clearError={() => setError(undefined)} />}
@@ -48,7 +47,6 @@ function Login () {
             </form>
             </div>
         </div>
-        </DrawerLayout>
     );
 }
  

@@ -26,6 +26,8 @@ import step2 from './components/pages/steps/step2';
 import step3 from './components/pages/steps/step3';
 import {VaultProvider} from './context/vaultContext';
 import Historial from './components/pages/Historial/Historial';
+import Admin from './components/pages/Private/Admin';
+import StepsCount from './components/utils/stepsCount/stepsCount';
 
 function App() {
   const [ userData, setUserData] = useState({
@@ -71,6 +73,10 @@ function App() {
           <Route path="/opciones" component={Settings} />
           <Route path="/historial" component={Historial} />
           <Route path="/transfer" component={WalletPage} />
+          <Route path="/admin" component={Admin} />
+          <Route path="/test" component={StepsCount} />
+
+
           <ProtectedRoute path="/early" component={Early} />
           <VaultProvider>
             <Route path="/step1" component={Step1} />
