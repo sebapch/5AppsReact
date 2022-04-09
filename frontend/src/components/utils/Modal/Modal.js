@@ -1,34 +1,30 @@
-import * as React from 'react';
-import { Modal } from 'react-bootstrap';
-import Typography from '@mui/material/Typography';
-import { Button } from '@mui/material';
+import React, {useContext, useEffect} from "react";
+import { Modal } from "react-bootstrap";
+import Typography from "@mui/material/Typography";
+import { Button } from "@mui/material";
+import "./Modal.css";
+import { Container } from "@mui/material";
 
-export default function InfoModal({ open, handleClose }) {
-    return (
-        <Modal show={open} onHide={handleClose}>
-            <Modal.Header closeButton>
-                <Modal.Title>Terms and Conditions</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-                <Typography id="transition-modal-description">
-                    <Typography id="transition-modal-title" variant="h6" component="span" sx={{ display: 'block' }}>Terse</Typography>
-                    LOREN IPSUM
-                </Typography>
-                <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-                    <Typography id="transition-modal-title" variant="h6" component="span" sx={{ display: 'block' }}>asddd</Typography>
-                    
-                </Typography>
-                <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-                    <Typography id="transition-modal-title" variant="h6" component="span" sx={{ display: 'block' }}>Tqwp</Typography>
-                    
-                </Typography>
-                <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-                    <Typography id="transition-modal-title" variant="h6" component="span" sx={{ display: 'block' }}>asdasd</Typography>
-                    
-                </Typography></Modal.Body>
-            <Modal.Footer>
-                <Button variant="contained" onClick={handleClose}>Aceptar</Button>
-            </Modal.Footer>
-        </Modal>
-    )
+export default function InfoModal({ open, handleClose, title, parrafo1, parrafo2, parrafo3, parrafo4 }) {
+
+ 
+
+  return (
+    <Modal show={open} onHide={handleClose} className="info-modal">
+      <Container className="modal-container">
+
+      <Modal.Title className="modal-title">{title}</Modal.Title>
+      <br />
+      <Typography id="transition-modal-description" className="modal-text">{parrafo1}</Typography>
+      <br />
+      {(parrafo2) ? <Typography id="transition-modal-description" className="modal-text">{parrafo2}</Typography> : null}
+      <br />
+      {(parrafo3) ? <Typography id="transition-modal-description" className="modal-text">{parrafo3}</Typography> : null}
+      <br />
+      {(parrafo4) ? <Typography id="transition-modal-description" className="modal-text">{parrafo4}</Typography> : null}
+
+      </Container>
+      
+    </Modal>
+  );
 }

@@ -4,6 +4,7 @@ import axios from "axios";
 import UserContext from "../../context/userContext";
 import ErrorNotice from "../../components/misc/ErrorNotice";
 import './Login.css';
+import DrawerLayout from '../layout/Drawer/DrawerLayout';
 
 function Login () {
     const [email, setEmail] = useState();
@@ -26,7 +27,8 @@ function Login () {
             localStorage.setItem("isAuthenticated", "true");
             history.push("/");
         } catch(err) {
-            err.response.data.msg && setError(err.response.data.msg)
+            //err.response.data.msg && setError(err.response.data.msg)
+            console.log(err)
         }
         
     };

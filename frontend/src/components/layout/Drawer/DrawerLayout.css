@@ -1,0 +1,70 @@
+.img-drawer {
+    width: 50px;
+}
+
+.links-footer {
+    display: flex;
+    align-items: center;
+    height: 4rem;
+}
+
+.text-drawer {
+    display: flex;
+}
+
+.btn-drawer {
+    display: flex;
+
+    width: 75%;
+    justify-content: flex-end;
+}
+
+.header{
+    display: none !important;
+}
+
+.footer-container{
+    display: none !important;
+}
+
+
+@media (max-width: 600px) {
+    .drawer {
+        display: none !important;
+    }
+
+    .css-1hsz34s-MuiDrawer-docked .MuiDrawer-paper {
+        display: none !important;
+    }
+
+    .drawerContent {
+        display: block !important;
+    }
+
+    .drawerContent {
+        display: block !important;
+    }
+
+    .css-k008qs {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .header{
+        display: flex !important;
+    }
+    
+    .footer-container{
+        display: flex !important;
+    }
+
+    .css-q67yjp-MuiDrawer-docked .MuiDrawer-paper {
+        display: none !important;
+
+    }
+
+    .css-7py4mh{
+        margin-top: 0px !important;
+        padding: 0px !important;
+    }
+}

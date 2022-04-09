@@ -24,6 +24,10 @@ import WalletPage from './components/pages/Profile/Wallet'
 import DrawerLayout from './components/layout/Drawer/DrawerLayout';
 import step2 from './components/pages/steps/step2';
 import step3 from './components/pages/steps/step3';
+import {VaultProvider} from './context/vaultContext';
+import Historial from './components/pages/Historial/Historial';
+import Admin from './components/pages/Private/Admin';
+import StepsCount from './components/utils/stepsCount/stepsCount';
 
 function App() {
   const [ userData, setUserData] = useState({
@@ -57,27 +61,31 @@ function App() {
     <BrowserRouter>
       <UserContext.Provider value={{ userData, setUserData }}>
          {/* <Header />  */}
+         <DrawerLayout>
         <Switch>
-
           
           <Route exact path="/" component={Home} />
           <Route path="/register" component={Register} />
           <Route path="/login" component={Login} />
-          <Route path="/test" component={DrawerLayout} />
-          <ProtectedRoute path="/early" component={Early} />
-          <Route path="/step1" component={Step1} />
-          <Route path="/step2" component={step2} />
-          <Route path="/step3" component={step3} />
-
-          <Route path="/vaults" component={Vaults} />
-          <Route path="/settings" component={Settings} />
-          {/* perfil */}
-          <Route path="/profile" component={Profile} />
+          <Route path="/perfil" component={Profile} />
           <Route path="/bpay" component={Binance} />
+          <Route path="/vaults" component={Vaults} />
+          <Route path="/opciones" component={Settings} />
+          <Route path="/historial" component={Historial} />
           <Route path="/transfer" component={WalletPage} />
+          <Route path="/admin" component={Admin} />
+          <Route path="/test" component={StepsCount} />
 
+
+          <ProtectedRoute path="/early" component={Early} />
+          <VaultProvider>
+            <Route path="/step1" component={Step1} />
+            <Route path="/step2" component={step2} />
+            <Route path="/step3" component={step3} />
+          </VaultProvider>
 
         </Switch>
+        </DrawerLayout>
         </UserContext.Provider>
     </BrowserRouter>
   );

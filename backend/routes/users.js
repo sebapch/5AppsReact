@@ -1,8 +1,10 @@
 const router = require("express").Router();
+
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const auth = require("../middleware/auth");
 const User = require("../models/user.model");
+//const registerUser = re...
 
 router.post("/register", async (req, res) => {
   try {
@@ -112,5 +114,23 @@ router.get("/", auth, async (req, res) => {
     saldo: user.saldo
   });
 });
+
+router.post("/api/vaults", /* auth,  */async (req,res)=>{
+  
+  const {userId,...newVault} = req.body
+
+  User.findByIdAndUpdate(userId,{ $push : { vaults : newVault } })
+  .then(user => res.json(user))
+  .catch(err => res.status(500).json({error: err.message}))
+
+  //new Vault(newVault)
+
+})
+
+router.get("/api/vaults",/* auth, */ async (req,res)=>{
+  const users = await User.find()
+  res.json(users)
+})
+
 
 module.exports = router;

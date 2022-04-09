@@ -1,0 +1,15 @@
+
+.paso1{
+    background-color: #4D0457;
+    color: white;
+    width: 25px;
+    height: 25px;
+    display: flex;
+     justify-content: center;
+     border: 2px solid #82DA5C;
+     align-items: center;
+ }
+
+ .carousel-indicators {
+    display: none !important;
+}

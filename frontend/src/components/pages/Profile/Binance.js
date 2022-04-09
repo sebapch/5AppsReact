@@ -4,6 +4,8 @@ import Grid from '@mui/material/Grid';
 import './Profile.css'
 import BNB from '../../../assets/coins/BNB.svg';
 import Wallet from '../../../assets/icons/Wallet.svg'
+import DrawerLayout from '../../layout/Drawer/DrawerLayout';
+
 
 
 const Binance = () => {
@@ -84,7 +86,6 @@ const Binance = () => {
                 </Grid>
             </Grid>
             <label>Dolar Hoy: 1USD = 0.89EUR</label>
-
         </>
     )
 }

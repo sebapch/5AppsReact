@@ -1,20 +1,60 @@
 .timelockContainer{
-    padding: 10%;
+    padding-left: 20% !important;
+    padding-right: 20% !important;
 }
 
 .containerCandado{
     display: flex;
     align-items: center;
-    background: linear-gradient(180deg, rgb(232, 225, 230) 0%, rgb(178, 50, 221) 100%);
-    border: 5px solid purple;
+    background: linear-gradient(180deg, rgb(232, 225, 230) 0%, #65266E 100%);
+    border: 5px solid #4D0457;
     border-radius:5%
 }
 
 .img-candado{
-    width: 100%;
+    width: 75%;
+    height: 75%;
 }
 
 .aligns{
     display: flex;
     align-items: baseline;
+}
+
+.btn-timelock{
+    background-color: white;
+    width: 50%;
+    border-left: 1px solid #4D0457;
+    border-top: 1px solid #4D0457;
+    border-bottom: 3px solid #4D0457;
+    border-right: 3px solid #4D0457;
+    font-weight: bold;
+    color: #4D0457;
+    margin-bottom: 3px;
+    margin-top: 3px;
+}
+
+.stack-div{
+    display: flex;
+    align-items: center;
+}
+
+.bloqueo{
+    padding-left: 2%;
+    color: white;
+    font-weight: bold;
+}
+
+.days{
+    font-weight: bold;
+    color:#82DA5C;
+}
+
+.quees{
+    font-weight: bold;
+    color: cyan;
+}
+
+.btn-timelock:active{
+    background-color: #82DA5C;
 }

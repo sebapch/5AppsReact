@@ -1,6 +1,5 @@
-import * as React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-
 import { styled, useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import MuiDrawer from "@mui/material/Drawer";
@@ -14,12 +13,16 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import Grid from "@mui/material/Grid";
-import './DrawerLayout.css';
+import "./DrawerLayout.css";
 import HomeVioleta from "../../../assets/homeVioleta.svg";
 import VaultsBlanco from "../../../assets/vaultsVioleta.svg";
 import AjustesBlanco from "../../../assets/ajustesVioleta.svg";
 import GuuruVioleta from "../../../assets/guuruVioleta.svg";
 import PerfilBlanco from "../../../assets/usuarioVioleta.svg";
+import UserContext from "../../../context/userContext";
+import Button from '@mui/material/Button';
+import Footer from "../Footer";
+import Header from "../Header";
 
 const drawerWidth = 240;
 
@@ -88,8 +91,22 @@ const AppBar = styled(MuiAppBar, {
   }),
 }));
 
+
+
 const DrawerLayout = ({ children }) => {
   const [open, setOpen] = React.useState(true);
+  const { userData, setUserData } = useContext(UserContext);
+  console.log(userData);
+
+  const logout = () => {
+    setUserData({
+      token: undefined,
+      user: undefined
+    })
+    localStorage.setItem("auth-token", "");
+    localStorage.setItem("isAuthenticated", "false");
+  
+  };
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -99,9 +116,9 @@ const DrawerLayout = ({ children }) => {
   };
 
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box sx={{ display: "flex" }} >
       <CssBaseline />
-      <AppBar position="fixed" open={open}>
+      <AppBar position="fixed" open={open} className='drawer'>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -118,44 +135,61 @@ const DrawerLayout = ({ children }) => {
           <Typography variant="h6" noWrap component="div">
             Guuru
           </Typography>
+          <div className="btn-drawer">
+            {userData.user ? (
+              <div>
+                <label>hola {userData?.user.displayName}</label>
+                <Button onClick={logout} color="error"  variant="contained">Logout</Button>
+              </div>
+            ) : (
+              <div>
+                <Link to='/register' ><Button color="success"  variant="contained">Register</Button></Link>
+                <Link to='/login' ><Button color="success"  variant="contained" >Log In</Button></Link>
+              </div>
+            )}
+          </div>
         </Toolbar>
       </AppBar>
       <Drawer variant="permanent" open={open}>
-        <DrawerHeader>
+        <DrawerHeader className='drawer'>
           <IconButton onClick={handleDrawerClose}>
             <ChevronLeftIcon />
           </IconButton>
         </DrawerHeader>
         <Divider />
-        <List>
+        <List >
           <Link to="/" className="links-footer">
-            <img src={HomeVioleta} alt="" />
-            <p className="text-footer">Inicio</p>
+            <img src={HomeVioleta} alt="" className="img-drawer" />
+            <label className="text-drawer">Inicio</label>
           </Link>
           <Link to="/vaults" className="links-footer">
-            <img src={VaultsBlanco} alt="" />
-            <p className="text-footer">Vaults</p>
+            <img src={VaultsBlanco} alt="" className="img-drawer" />
+            <label className="text-drawer">Vaults</label>
           </Link>
           <Link to="/step1" className="links-footer">
-            <img src={GuuruVioleta} alt="" />
-            <p className="text-footer">Guuru</p>
+            <img src={GuuruVioleta} alt="" className="img-drawer" />
+            <label className="text-drawer">Guuru</label>
           </Link>
-          <Link to="/profile" className="links-footer">
-            <img src={PerfilBlanco} alt="" />
-            <p className="text-footer">Perfil</p>
+          <Link to="/perfil" className="links-footer">
+            <img src={PerfilBlanco} alt="" className="img-drawer" />
+            <label className="text-drawer">Perfil</label>
           </Link>
-          <Link to="/settings" className="links-footer">
-            <img src={AjustesBlanco} alt="" />
-            <p className="text-footer">Ajustes</p>
+          <Link to="/opciones" className="links-footer">
+            <img src={AjustesBlanco} alt="" className="img-drawer" />
+            <label className="text-drawer">Ajustes</label>
           </Link>
         </List>
         <Divider />
       </Drawer>
-
-      <Box component="main" sx={{ flexGrow: 1, p: 3, minHeight: "85.1vh" }}>
-        <DrawerHeader />
+      
+      
+      <Box component="main" sx={{ flexGrow: 1, p: 3, minHeight: "85.1vh", marginTop: '3rem' }} >
+      <Header className='mobile-header'/>
         {children}
+        <Footer className='mobile-footer'/>
       </Box>
+     
+      
     </Box>
   );
 };
