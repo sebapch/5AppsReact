@@ -1,6 +1,6 @@
 import React from 'react'
 import CheckIcon from "@mui/icons-material/Check";
-
+import './stepsCount.css';
 import { Container, Row, Col } from "react-bootstrap";
 
 const StepsCount = () => {

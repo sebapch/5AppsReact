@@ -17,10 +17,10 @@ const parrafo4 = 'Pero no te preocupes, en caso de querer retirar tus fondos ant
 
 
 const Timelock = () => {
-  const [days, setDays] = useState("");
+  const [days, setDays] = useState(30);
   const [checked, setChecked] = React.useState(true);
   console.log(days);
-  const [color1 , setColor1] = useState(false);
+  const [color1 , setColor1] = useState(true);
   const [color2 , setColor2] = useState(false);
   const [color3 , setColor3] = useState(false);
 

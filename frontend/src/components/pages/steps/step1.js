@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import APY from "../../utils/apy/apy";
 import SwitchTo from "../../utils/switch/switchTo";
 import { Carousel } from "react-bootstrap";
@@ -24,6 +24,10 @@ const Step1 = () => {
     setIndex(selectedIndex);
   };
 
+  useEffect(() => {
+    setVault(0)
+  }, []);
+
   console.log("Vault Seleccionado: " + index);
 
   function handleClick() {
@@ -32,75 +36,75 @@ const Step1 = () => {
 
   return (
     <>
-        <Container>
-          <StepsCount />
+      <Container>
+        <StepsCount />
 
-          <Row>
-            <Col xs={12}>
-              <p className="text-green">
-                Elegí el tipo de Vault que quieras armar
-              </p>
-            </Col>
-          </Row>
-          <Row className="row-centered">
-            <Carousel
-              activeIndex={index}
-              onSelect={handleSelect}
-              interval={null}
-              className="carrousel"
-              variant="dark"
-            >
-              <Carousel.Item>
-                <img
-                  className="d-block w-100"
-                  src={Estable}
-                  alt="First slide"
-                />
-              </Carousel.Item>
-              <Carousel.Item>
-                <img className="d-block w-100" src={Big4} alt="Second slide" />
-              </Carousel.Item>
-              <Carousel.Item>
-                <img className="d-block w-100" src={BSC} alt="Third slide" />
-              </Carousel.Item>
-            </Carousel>
-          </Row>
-          <Row>
-            <Col xs={12}>
-              <p className="info-text">Info</p>
-            </Col>
-          </Row>
-          <Row>
-            <Col xs={12}>
-             
+        <Row>
+          <Col xs={12}>
+            <p className="text-green-step">
+              Elegí el tipo de Vault que quieras armar
+            </p>
+          </Col>
+        </Row>
+        <Row className="row-centered">
+          <Carousel
+            activeIndex={index}
+            onSelect={handleSelect}
+            interval={null}
+            className="carrousel"
+            variant="dark"
+          >
+            <Carousel.Item>
+              <img
+                className="d-block w-100"
+                src={Estable}
+                alt="First slide"
+              />
+            </Carousel.Item>
+            <Carousel.Item>
+              <img className="d-block w-100" src={Big4} alt="Second slide" />
+            </Carousel.Item>
+            <Carousel.Item>
+              <img className="d-block w-100" src={BSC} alt="Third slide" />
+            </Carousel.Item>
+          </Carousel>
+        </Row>
+        <Row>
+          <Col xs={12}>
+            <p className="info-text">Info</p>
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={12}>
 
-              {index === 0 ? (
-                <>
-                  <APY />
-                  <SwitchTo />
-                </>
-              ) : (
-                <ApyCripto />
-              )}
-            </Col>
-          </Row>
-          <Divider className='divider-foot'/>
-          <Row>
-            <Col xs={12}>
-              <div className="btn-div">
-                <button className="custom-btn btn-atras" onClick={() => history.goBack()}>Atras</button>
-                <Link to="/step2" className="links-footer">
-                  <button
-                    className="custom-btn btn-siguiente"
-                    onClick={handleClick}
-                  >
-                    Siguiente
-                  </button>
-                </Link>
-              </div>
-            </Col>
-          </Row>
-        </Container>
+
+            {index === 0 ? (
+              <>
+                <APY />
+                <SwitchTo />
+              </>
+            ) : (
+              <ApyCripto />
+            )}
+          </Col>
+        </Row>
+        <Divider className='divider-foot' />
+        <Row>
+          <Col xs={12}>
+            <div className="btn-div">
+              <button className="custom-btn btn-atras" onClick={() => history.goBack()}>Atras</button>
+              <Link to="/step2" className="links-footer">
+                <button
+                  className="custom-btn btn-siguiente"
+                  onClick={handleClick}
+                >
+                  Siguiente
+                </button>
+              </Link>
+            </div>
+          </Col>
+        </Row>
+      </Container>
     </>
   );
 };

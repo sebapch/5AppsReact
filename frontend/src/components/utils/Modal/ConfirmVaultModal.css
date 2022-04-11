@@ -1,0 +1,23 @@
+.resumen{
+    color: #20CAFF;
+    background-color: #4D0457;
+}
+
+.modal-header{
+    background-color: #4D0457;
+}
+
+.modal-body{
+    background-color: #4D0457;
+}
+
+.vault-elegido{
+    color: #7ED957;
+    font-size: 1.3rem !important;
+    font-weight: bold !important;
+    text-align: center;
+}
+
+.img-vault{
+    width: 100%;
+}

@@ -1,4 +1,4 @@
-import React, {useContext, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Switch from "@mui/material/Switch";
@@ -11,6 +11,9 @@ const SwitchTo = () => {
   const [checked, setChecked] = React.useState(true);
   const { stable, setStable } = useContext(VaultContext);
 
+  useEffect(() => {
+    setStable('USDT')
+  }, []);
 
   const handleChange = (event) => {
     setChecked(event.target.checked);
@@ -20,9 +23,11 @@ const SwitchTo = () => {
       setStable('CEuro')
     }
     
-    console.log(stable);
+    
   };
 
+  console.log(stable);
+  
   return (
     <>
       <FormGroup>
