@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import UserContext from "../../../context/userContext";
 import Grid from "@mui/material/Grid";
 import DrawerLayout from '../../layout/Drawer/DrawerLayout'
@@ -32,6 +32,9 @@ const Step3 = () => {
   const handleClose = () => setOpen(false);
 
   const { funds, setFunds } = useContext(VaultContext);
+
+  const history = useHistory();
+
 
 
   useEffect(() => {
@@ -122,7 +125,7 @@ const Step3 = () => {
             </Grid>
             <Grid md={12}>
               <div className="btn-div">
-                <button className="custom-btn btn-atras">Atras</button>
+                <button className="custom-btn btn-atras"  onClick={() => history.goBack()}>Atras</button>
                 
                   <button className="custom-btn btn-siguiente" onClick={handleOpen}>
                     Siguiente

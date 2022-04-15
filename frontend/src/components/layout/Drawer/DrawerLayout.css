@@ -27,10 +27,41 @@
     display: none !important;
 }
 
+.list{
+    
+    background: linear-gradient(180deg, rgba(126,217,87,1) 0%, rgba(32,202,255,1) 100%) !important;
+}
+
+.list ul{
+    height: 100%;
+}
+
+.drawer{
+    background: linear-gradient(90deg, rgba(126,217,87,1) 0%, rgba(32,202,255,1) 100%) !important;
+}
+
+.drawer-header{
+    background:rgba(126,217,87,1) 0% !important;
+}
+
+.children-container{
+    width: 50% !important;
+}
+
+
+@media (max-width: 700px) {
+    .children-container{
+        width: 85% !important;
+    }
+}
 
 @media (max-width: 600px) {
     .drawer {
         display: none !important;
+    }
+
+    .children-container{
+        width: 100% !important;
     }
 
     .css-1hsz34s-MuiDrawer-docked .MuiDrawer-paper {

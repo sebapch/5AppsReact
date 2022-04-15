@@ -63,6 +63,8 @@ const Timelock = () => {
     setAutoRenew(event.target.checked);
   };
 
+  console.log(autoRenew);
+
   return (
     <>
       <Container className="timelockContainer">
