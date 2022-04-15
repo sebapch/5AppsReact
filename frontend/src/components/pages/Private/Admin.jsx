@@ -1,10 +1,10 @@
 import React from 'react'
-import EnhancedTable from '../../utils/adminTable/adminTable'
+import AdminTable from '../../utils/adminTable/adminTable'
 
 const Admin = () => {
   return (
     <>
-    <EnhancedTable />
+    <AdminTable />
     </>
   )
 }
