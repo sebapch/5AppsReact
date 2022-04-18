@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d044ddc5d02dad1d7ffad91872857fab",
+    "revision": "dfb81936275fa45a777fd58b1f998d88",
     "url": "/index.html"
   },
   {
-    "revision": "c1321a554ffd6b31e4be",
+    "revision": "ab8e87ffe0bef814c3ef",
     "url": "/static/css/2.171a7357.chunk.css"
   },
   {
-    "revision": "c2182000afbcb519b2e5",
-    "url": "/static/css/main.faa9272b.chunk.css"
+    "revision": "dc6126c4ba6ee3a27eee",
+    "url": "/static/css/main.2a0af45b.chunk.css"
   },
   {
-    "revision": "c1321a554ffd6b31e4be",
-    "url": "/static/js/2.0a129c1e.chunk.js"
+    "revision": "ab8e87ffe0bef814c3ef",
+    "url": "/static/js/2.2c123c70.chunk.js"
   },
   {
     "revision": "ebe6c1cc4998babe3a771b9727186fb7",
-    "url": "/static/js/2.0a129c1e.chunk.js.LICENSE.txt"
+    "url": "/static/js/2.2c123c70.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "c2182000afbcb519b2e5",
-    "url": "/static/js/main.3dc09f0e.chunk.js"
+    "revision": "dc6126c4ba6ee3a27eee",
+    "url": "/static/js/main.ce2c5ae5.chunk.js"
   },
   {
     "revision": "2747b914e9a60db2276f",
@@ -52,6 +52,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/Big4.229da97d.png"
   },
   {
+    "revision": "57627d3d3d065ebe830621ea20dc061b",
+    "url": "/static/media/CargarPassword.57627d3d.svg"
+  },
+  {
     "revision": "859f1e183d36fa05e8877c056f06333f",
     "url": "/static/media/Estable.859f1e18.png"
   },
@@ -60,40 +64,72 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/Ethereum.3a1c17f7.svg"
   },
   {
-    "revision": "c97371fdfaef20eb1c75edff8025f147",
-    "url": "/static/media/Instagram.c97371fd.svg"
+    "revision": "d1a736e13841fc8a00d0ebe78bfcd9e0",
+    "url": "/static/media/HistorialVerde.d1a736e1.svg"
   },
   {
-    "revision": "3e79d86ac052189787665f89b32ee1e0",
-    "url": "/static/media/LogoOficial.3e79d86a.svg"
+    "revision": "0f95dfadb2b37a2ee4447c69cb84a2bd",
+    "url": "/static/media/Idioma.0f95dfad.svg"
   },
   {
-    "revision": "368929a5b6a6805c4be797bccf40905d",
-    "url": "/static/media/LogoSinTexto.368929a5.svg"
+    "revision": "7967490d1ebab4b14db5a2845c4c4558",
+    "url": "/static/media/Instagram.7967490d.svg"
   },
   {
-    "revision": "392492e6db96f09ebc455f7971484ad3",
-    "url": "/static/media/Mascota.392492e6.svg"
+    "revision": "5ec8d7fa58af5768068193f544be421a",
+    "url": "/static/media/LogoOficial.5ec8d7fa.svg"
   },
   {
-    "revision": "6aaf533633ddc8beadc5806d5a7da5ac",
-    "url": "/static/media/Telegram.6aaf5336.svg"
+    "revision": "d17d1c302607ee58d12aae2ebd022afb",
+    "url": "/static/media/LogoSinTexto.d17d1c30.svg"
   },
   {
-    "revision": "fbeb045e909f5889f29bd981c2a3f6eb",
-    "url": "/static/media/Twitter.fbeb045e.svg"
+    "revision": "629ff147055a5fa6c794fb17fd7a4be5",
+    "url": "/static/media/Mail.629ff147.svg"
+  },
+  {
+    "revision": "b65bb1a155c68c6ea964e590b13976bd",
+    "url": "/static/media/Mascota.b65bb1a1.svg"
+  },
+  {
+    "revision": "a065a374de7aabdba11e426dbbbde9ec",
+    "url": "/static/media/Notificaciones.a065a374.svg"
+  },
+  {
+    "revision": "b34ded293e672d8dbb97143696530f0f",
+    "url": "/static/media/Parado.b34ded29.svg"
+  },
+  {
+    "revision": "e99c9f381fa7bc98b3b199fba3bcadf0",
+    "url": "/static/media/PreguntasFrecuentes.e99c9f38.svg"
+  },
+  {
+    "revision": "f4a68aadeb5c1e79daf498bd2434eaca",
+    "url": "/static/media/Telegram.f4a68aad.svg"
+  },
+  {
+    "revision": "78425ecba26565533821f0e344e0f45e",
+    "url": "/static/media/Terms.78425ecb.svg"
+  },
+  {
+    "revision": "123f6ebecac4516016190defef732c20",
+    "url": "/static/media/Twitter.123f6ebe.svg"
+  },
+  {
+    "revision": "a1c1f147aa827a3358bd0273d49ffc3e",
+    "url": "/static/media/USDT.a1c1f147.svg"
   },
   {
     "revision": "d6699f77a60d72d7c95b846b7837139c",
     "url": "/static/media/UST.d6699f77.svg"
   },
   {
-    "revision": "ec2e5f9174e7796a09c6984ae16fd4af",
-    "url": "/static/media/Wallet.ec2e5f91.svg"
+    "revision": "419cfa2494bd5726544d703f43670e9d",
+    "url": "/static/media/Wallet.419cfa24.svg"
   },
   {
-    "revision": "68d9ed86cfe71e28e79ad8be35ed0fe0",
-    "url": "/static/media/Whatsapp.68d9ed86.svg"
+    "revision": "2290795ae8fd7ddd855a3ecfe068815b",
+    "url": "/static/media/Whatsapp.2290795a.svg"
   },
   {
     "revision": "fd1545f29c140ae33d5f1d9ba1b35c61",
@@ -104,8 +140,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/ajustesVioleta.3f97f5f1.svg"
   },
   {
-    "revision": "c89f14504e1c6cd5b1c7380307ce6d46",
-    "url": "/static/media/bag.c89f1450.svg"
+    "revision": "98fb17bfaa11da3a99924d708527d6cd",
+    "url": "/static/media/anti-phishing.98fb17bf.svg"
+  },
+  {
+    "revision": "1b9f1ede0abfd28b4c68a6a905bb967f",
+    "url": "/static/media/bag.1b9f1ede.svg"
   },
   {
     "revision": "5c763dec3081a6c55b0119c5b7890c99",
@@ -114,6 +154,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "3ec061c45318f6e6ceae8551b6066700",
     "url": "/static/media/candado.3ec061c4.png"
+  },
+  {
+    "revision": "3041d925526b045cdcf2708f13cf1a98",
+    "url": "/static/media/guuruBlanco.3041d925.svg"
   },
   {
     "revision": "f8658af1ae096586a6d0b7c781dc7b69",
@@ -136,16 +180,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/infoVerde.ac772775.svg"
   },
   {
-    "revision": "0e39b0d9c3a3d8bcf0035b543611158c",
-    "url": "/static/media/infoVioleta.0e39b0d9.svg"
+    "revision": "22328144caf09acd02e53f90c424cd46",
+    "url": "/static/media/infoVioleta.22328144.svg"
   },
   {
-    "revision": "e7a19b6dc5fc43c6023e80a324f21f94",
-    "url": "/static/media/lunaVioleta.e7a19b6d.svg"
+    "revision": "8b0707ed816ba2dacc2ff508f83ad017",
+    "url": "/static/media/lunaVioleta.8b0707ed.svg"
   },
   {
-    "revision": "3b786022c015c8f2fa13f4c919300611",
-    "url": "/static/media/solBlanco.3b786022.svg"
+    "revision": "063f08aac3af31db96a702984fdda79d",
+    "url": "/static/media/solBlanco.063f08aa.svg"
   },
   {
     "revision": "b0252de9ff092a483aa9d3b3b57bba55",
