@@ -33,7 +33,7 @@ export default function BasicTable() {
   const [users, setUsers] = useState([]);
 
   function traerVaults(){
-    Axios.get("http://localhost:5000/users/api/vaults")
+    Axios.get("/users/api/vaults")
             .then(res => {
               console.log(res)
               

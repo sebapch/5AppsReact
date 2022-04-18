@@ -15,7 +15,7 @@ export const VaultProvider = ({ children }) => {
   const {userData} = useContext(userContext)
 
   const saveVaults = () => {
-    axios.post('http://localhost:5000/users/api/vaults', {
+    axios.post('/users/api/vaults', {
       vault,
       stable,
       timelock,
