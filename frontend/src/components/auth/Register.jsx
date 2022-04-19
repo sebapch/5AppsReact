@@ -2,52 +2,65 @@ import React, { useState, useContext } from 'react';
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import UserContext from "../../context/userContext";
-import ErrorNotice from "../../components/misc/ErrorNotice";
-import './Login.css';
-import DrawerLayout from '../layout/Drawer/DrawerLayout';
+import ErrorNotice from "../misc/ErrorNotice";
+import './Login.css'
+import DrawerLayout from '../layout/Drawer/DrawerLayout'
 
-function Login () {
+function Register () {
+
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
+    const [passwordCheck, setPasswordCheck] = useState();
+    const [displayName, setDisplayName] = useState();
     const [error, setError] = useState();
+    const saldo = 0;
 
     const { setUserData } = useContext(UserContext);
     const history = useHistory();
 
     const submit = async (e) => {
         e.preventDefault();
+
         try{
-            const loginUser = {email, password};
-            const loginResponse = await axios.post("/users/login", loginUser);
+            const newUser = {email, password, passwordCheck, displayName, saldo};
+            await axios.post("/users/register", newUser);
+            const loginResponse = await axios.post("/users/login", {
+                email, password
+            });
             setUserData({
                 token: loginResponse.data.token,
                 user: loginResponse.data.user
             });
             localStorage.setItem("auth-token", loginResponse.data.token);
-            localStorage.setItem("isAuthenticated", "true");
             history.push("/");
         } catch(err) {
-            //err.response.data.msg && setError(err.response.data.msg)
-            console.log(err)
+            err.response.data.msg && setError(err.response.data.msg)
         }
         
     };
-    
-    return (
-        <div className="login">
-            <h2>Login</h2>
+   
+    return ( 
+
+
+        <div className="register">
+            <h2>Register</h2>
             {error && <ErrorNotice message={error} clearError={() => setError(undefined)} />}
             <div className='box-form'>
             <form onSubmit={submit} className='form-login'>
+                <label>Nombre: </label>
+                <input type="text" id="dsplay-name" onChange={e => setDisplayName(e.target.value)}/>
                 <label>Email: </label>
                 <input type="email" id="email" onChange={e => setEmail(e.target.value)}/>
                 <label>Password: </label>
                 <input type="password" id="password" onChange={e => setPassword(e.target.value)}/>
-                <input type="submit" value="Login" className="btn btn-primary" />
+                <label>Repetir Password: </label>
+                <input type="password" onChange={e => setPasswordCheck(e.target.value)}/>
+                
+                <input type="submit" value="Register" className="btn btn-primary" />
             </form>
             </div>
         </div>
-    );
+        );
 }
  
-export default Login;
+export default Register;
