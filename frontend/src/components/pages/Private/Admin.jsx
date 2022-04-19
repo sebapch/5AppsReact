@@ -1,8 +1,11 @@
 import React from 'react'
+import AdminTable from '../../utils/adminTable/adminTable'
 
 const Admin = () => {
   return (
-    <div>Admin</div>
+    <>
+    <AdminTable />
+    </>
   )
 }
 

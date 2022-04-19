@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import APY from "../../utils/apy/apy";
 import SwitchTo from "../../utils/switch/switchTo";
 import { Carousel } from "react-bootstrap";
@@ -6,24 +6,27 @@ import Divider from "@mui/material/Divider";
 import Big4 from "../../../assets/Big4.png";
 import BSC from "../../../assets/BSC.png";
 import Estable from "../../../assets/Estable.png";
-import "./steps.css";
-import DrawerLayout from "../../layout/Drawer/DrawerLayout";
-import Footer from "../../layout/Footer";
 import { Container, Row, Col } from "react-bootstrap";
 import ApyCripto from "../../utils/ApyCripto/ApyCripto";
 import { useHistory, Link } from "react-router-dom";
-import CheckIcon from "@mui/icons-material/Check";
 import { VaultContext } from "../../../context/vaultContext";
+import StepsCount from "../../utils/stepsCount/stepsCount";
 import './step1.css';
 
 const Step1 = () => {
   const [index, setIndex] = useState(0);
+  const history = useHistory();
+
 
   const { vault, setVault } = useContext(VaultContext);
 
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);
   };
+
+  useEffect(() => {
+    setVault(0)
+  }, []);
 
   console.log("Vault Seleccionado: " + index);
 
@@ -33,92 +36,75 @@ const Step1 = () => {
 
   return (
     <>
-        <Container>
-          <Row className="row-pasos">
-            <Col xs={12} className="col-pasos">
-              <div className="icons-pasos">
-                <CheckIcon />
-                <div className='border'>
-                  <label className="paso paso1">1</label>
-                </div>
-              </div>
-              <div className="icons-pasos-middle">
-                <CheckIcon />
-                <label className="paso paso2">2</label>
-              </div>
-              <div className="icons-pasos">
-                <CheckIcon />
-                <label className="paso paso3">3</label>
-              </div>
-            </Col>
-          </Row>
-         
-          <Row>
-            <Col xs={12}>
-              <p className="text-green">
-                Elegí el tipo de Vault que quieras armar
-              </p>
-            </Col>
-          </Row>
-          <Row className="row-centered">
-            <Carousel
-              activeIndex={index}
-              onSelect={handleSelect}
-              interval={null}
-              className="carrousel"
-              variant="dark"
-            >
-              <Carousel.Item>
-                <img
-                  className="d-block w-100"
-                  src={Estable}
-                  alt="First slide"
-                />
-              </Carousel.Item>
-              <Carousel.Item>
-                <img className="d-block w-100" src={Big4} alt="Second slide" />
-              </Carousel.Item>
-              <Carousel.Item>
-                <img className="d-block w-100" src={BSC} alt="Third slide" />
-              </Carousel.Item>
-            </Carousel>
-          </Row>
-          <Row>
-            <Col xs={12}>
-              <p className="info-text">Info</p>
-            </Col>
-          </Row>
-          <Row>
-            <Col xs={12}>
-             
+      <Container>
+        <StepsCount />
 
-              {index === 0 ? (
-                <>
-                  <APY />
-                  <SwitchTo />
-                </>
-              ) : (
-                <ApyCripto />
-              )}
-            </Col>
-          </Row>
-          <Divider className='divider-foot'/>
-          <Row>
-            <Col xs={12}>
-              <div className="btn-div">
-                <button className="custom-btn btn-atras">Atras</button>
-                <Link to="/step2" className="links-footer">
-                  <button
-                    className="custom-btn btn-siguiente"
-                    onClick={handleClick}
-                  >
-                    Siguiente
-                  </button>
-                </Link>
-              </div>
-            </Col>
-          </Row>
-        </Container>
+        <Row>
+          <Col xs={12}>
+            <p className="text-green-step">
+              Elegí el tipo de Vault que quieras armar
+            </p>
+          </Col>
+        </Row>
+        <Row className="row-centered">
+          <Carousel
+            activeIndex={index}
+            onSelect={handleSelect}
+            interval={null}
+            className="carrousel"
+            variant="dark"
+          >
+            <Carousel.Item>
+              <img
+                className="d-block w-100"
+                src={Estable}
+                alt="First slide"
+              />
+            </Carousel.Item>
+            <Carousel.Item>
+              <img className="d-block w-100" src={Big4} alt="Second slide" />
+            </Carousel.Item>
+            <Carousel.Item>
+              <img className="d-block w-100" src={BSC} alt="Third slide" />
+            </Carousel.Item>
+          </Carousel>
+        </Row>
+        <Row>
+          <Col xs={12}>
+            <p className="info-text">Info</p>
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={12}>
+
+
+            {index === 0 ? (
+              <>
+                <APY />
+                <SwitchTo />
+              </>
+            ) : (
+              <ApyCripto />
+            )}
+          </Col>
+        </Row>
+        <Divider className='divider-foot' />
+        <Row>
+          <Col xs={12}>
+            <div className="btn-div">
+              <button className="custom-btn btn-atras" onClick={() => history.goBack()}>Atras</button>
+              <Link to="/step2" className="links-footer">
+                <button
+                  className="custom-btn btn-siguiente"
+                  onClick={handleClick}
+                >
+                  Siguiente
+                </button>
+              </Link>
+            </div>
+          </Col>
+        </Row>
+      </Container>
     </>
   );
 };

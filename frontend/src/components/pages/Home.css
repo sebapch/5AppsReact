@@ -48,7 +48,7 @@
 
 .text-green{
     color: #7ED957;
-    text-align: initial;
+    text-align: center;
 }
 
 .text-blue{
@@ -89,6 +89,7 @@
     width: 130px;
     height: 40px;
     margin-left: 25px;
+    font-size: 14px;
     color: #fff;
     border-radius: 5px;
     padding: 10px 25px;

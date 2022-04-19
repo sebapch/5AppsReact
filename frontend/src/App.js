@@ -22,10 +22,12 @@ import TimeLock from './components/utils/timelock/Timelock'
 import Binance from './components/pages/Profile/Binance';
 import WalletPage from './components/pages/Profile/Wallet'
 import DrawerLayout from './components/layout/Drawer/DrawerLayout';
-import step2 from './components/pages/steps/step2';
-import step3 from './components/pages/steps/step3';
+import Step2 from './components/pages/steps/step2';
+import Step3 from './components/pages/steps/step3';
 import {VaultProvider} from './context/vaultContext';
 import Historial from './components/pages/Historial/Historial';
+import Admin from './components/pages/Private/Admin';
+import StepsCount from './components/utils/stepsCount/stepsCount';
 
 function App() {
   const [ userData, setUserData] = useState({
@@ -40,9 +42,9 @@ function App() {
         localStorage.setItem("auth-token", "");
         token = "";
       }
-      const tokenResponse = await axios.post('http://localhost:5000/users/tokenIsValid', null, {headers: {"x-auth-token": token}});
+      const tokenResponse = await axios.post('/users/tokenIsValid', null, {headers: {"x-auth-token": token}});
       if (tokenResponse.data) {
-        const userRes = await axios.get("http://localhost:5000/users/", {
+        const userRes = await axios.get("/users/", {
           headers: { "x-auth-token": token },
         });
         setUserData({
@@ -71,11 +73,15 @@ function App() {
           <Route path="/opciones" component={Settings} />
           <Route path="/historial" component={Historial} />
           <Route path="/transfer" component={WalletPage} />
+          <Route path="/admin" component={Admin} />
+          <Route path="/test" component={StepsCount} />
+
+
           <ProtectedRoute path="/early" component={Early} />
           <VaultProvider>
             <Route path="/step1" component={Step1} />
-            <Route path="/step2" component={step2} />
-            <Route path="/step3" component={step3} />
+            <Route path="/step2" component={Step2} />
+            <Route path="/step3" component={Step3} />
           </VaultProvider>
 
         </Switch>

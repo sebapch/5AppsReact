@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import UserContext from "../../context/userContext";
-import ErrorNotice from "../../components/misc/ErrorNotice";
+import ErrorNotice from "../misc/ErrorNotice";
 import './Login.css'
 import DrawerLayout from '../layout/Drawer/DrawerLayout'
 
@@ -23,8 +23,8 @@ function Register () {
 
         try{
             const newUser = {email, password, passwordCheck, displayName, saldo};
-            await axios.post("http://localhost:5000/users/register", newUser);
-            const loginResponse = await axios.post("http://localhost:5000/users/login", {
+            await axios.post("/users/register", newUser);
+            const loginResponse = await axios.post("/users/login", {
                 email, password
             });
             setUserData({
@@ -42,7 +42,6 @@ function Register () {
     return ( 
 
 
-        <DrawerLayout>
         <div className="register">
             <h2>Register</h2>
             {error && <ErrorNotice message={error} clearError={() => setError(undefined)} />}
@@ -61,7 +60,6 @@ function Register () {
             </form>
             </div>
         </div>
-        </DrawerLayout>
         );
 }
  
