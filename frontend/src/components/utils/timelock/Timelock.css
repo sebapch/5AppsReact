@@ -8,8 +8,7 @@
     align-items: center;
     background: linear-gradient(180deg, rgb(232, 225, 230) 0%, #65266E 100%);
     border: 5px solid #4D0457;
-    border-radius:5%;
-    height: 30rem;
+    border-radius:5%
 }
 
 .img-candado{

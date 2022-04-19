@@ -11,10 +11,6 @@
     background-color: #4D0457;
 }
 
-.modal-footer{
-    background-color: #4D0457;
-}
-
 .vault-elegido{
     color: #7ED957;
     font-size: 1.3rem !important;
@@ -24,19 +20,4 @@
 
 .img-vault{
     width: 100%;
-}
-
-.coins-grid{
-    display: flex;
-    flex-direction: row;
-}
-
-.grid-coins{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.img-vault-modal{
-    width: 75px;
 }

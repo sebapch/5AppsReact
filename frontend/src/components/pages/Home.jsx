@@ -78,7 +78,7 @@ function Home() {
                 </h4>
                 <h4 className="text-blue"> ¿Listo para invertir?</h4>
                 <div className="btn-div">
-                  <button className="custom-btn btn-atras" onClick={() => history.goBack()}>Atras</button>
+                  <button className="custom-btn btn-atras">Atras</button>
                     <Link to="/step1" className="links-footer">
                   <button className="custom-btn btn-siguiente">
                       Siguiente

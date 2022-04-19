@@ -1,9 +1,8 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { styled, useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import MuiDrawer from "@mui/material/Drawer";
-import Container from "@mui/material/Container";
 import MuiAppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import List from "@mui/material/List";
@@ -16,15 +15,10 @@ import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import Grid from "@mui/material/Grid";
 import "./DrawerLayout.css";
 import HomeVioleta from "../../../assets/homeVioleta.svg";
-import HomeBlanco from "../../../assets/homeBlanco.svg";
-import VaultsVioleta from "../../../assets/vaultsVioleta.svg";
-import VaultsBlanco from "../../../assets/vaultsBlanco.svg";
-import AjustesVioleta from "../../../assets/ajustesVioleta.svg";
-import AjustesBlanco from "../../../assets/ajustesBlanco.svg";
+import VaultsBlanco from "../../../assets/vaultsVioleta.svg";
+import AjustesBlanco from "../../../assets/ajustesVioleta.svg";
 import GuuruVioleta from "../../../assets/guuruVioleta.svg";
-import GuuruBlanco from "../../../assets/guuruBlanco.svg";
-import PerfilVioleta from "../../../assets/usuarioVioleta.svg";
-import PerfilBlanco from "../../../assets/usuarioBlanco.svg";
+import PerfilBlanco from "../../../assets/usuarioVioleta.svg";
 import UserContext from "../../../context/userContext";
 import Button from '@mui/material/Button';
 import Footer from "../Footer";
@@ -100,11 +94,9 @@ const AppBar = styled(MuiAppBar, {
 
 
 const DrawerLayout = ({ children }) => {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(true);
   const { userData, setUserData } = useContext(UserContext);
-  const [activeTab, setActiveTab] = useState('Home');
-
-  /* console.log(userData); */
+  console.log(userData);
 
   const logout = () => {
     setUserData({
@@ -116,8 +108,6 @@ const DrawerLayout = ({ children }) => {
   
   };
 
-
-
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -128,7 +118,7 @@ const DrawerLayout = ({ children }) => {
   return (
     <Box sx={{ display: "flex" }} >
       <CssBaseline />
-      <AppBar position="fixed" open={open} className='drawer' >
+      <AppBar position="fixed" open={open} className='drawer'>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -160,32 +150,32 @@ const DrawerLayout = ({ children }) => {
           </div>
         </Toolbar>
       </AppBar>
-      <Drawer variant="permanent" open={open} className="list">
-        <DrawerHeader className="drawer-header">
+      <Drawer variant="permanent" open={open}>
+        <DrawerHeader className='drawer'>
           <IconButton onClick={handleDrawerClose}>
             <ChevronLeftIcon />
           </IconButton>
         </DrawerHeader>
         <Divider />
-        <List className="list">
-          <Link to="/" className="links-footer" onClick={() => setActiveTab('Home')}>
-            <img src={activeTab === 'Home' ? HomeVioleta : HomeBlanco} alt="" className="img-drawer" />
+        <List >
+          <Link to="/" className="links-footer">
+            <img src={HomeVioleta} alt="" className="img-drawer" />
             <label className="text-drawer">Inicio</label>
           </Link>
-          <Link to="/vaults" className="links-footer" onClick={() => setActiveTab('Vaults')}>
-            <img src={activeTab === 'Vaults' ? VaultsVioleta : VaultsBlanco} alt="" className="img-drawer" />
+          <Link to="/vaults" className="links-footer">
+            <img src={VaultsBlanco} alt="" className="img-drawer" />
             <label className="text-drawer">Vaults</label>
           </Link>
-          <Link to="/step1" className="links-footer" onClick={() => setActiveTab('Guuru')}>
-            <img src={activeTab === 'Guuru' ? GuuruVioleta : GuuruBlanco} alt="" className="img-drawer" />
+          <Link to="/step1" className="links-footer">
+            <img src={GuuruVioleta} alt="" className="img-drawer" />
             <label className="text-drawer">Guuru</label>
           </Link>
-          <Link to="/perfil" className="links-footer" onClick={() => setActiveTab('Perfil')} >
-            <img src={activeTab === 'Perfil' ? PerfilVioleta : PerfilBlanco} alt="" className="img-drawer" />
+          <Link to="/perfil" className="links-footer">
+            <img src={PerfilBlanco} alt="" className="img-drawer" />
             <label className="text-drawer">Perfil</label>
           </Link>
-          <Link to="/opciones" className="links-footer" onClick={() => setActiveTab('Opciones')} >
-            <img src={activeTab === 'Opciones' ? AjustesVioleta : AjustesBlanco} alt="" className="img-drawer" />
+          <Link to="/opciones" className="links-footer">
+            <img src={AjustesBlanco} alt="" className="img-drawer" />
             <label className="text-drawer">Ajustes</label>
           </Link>
         </List>
@@ -195,10 +185,7 @@ const DrawerLayout = ({ children }) => {
       
       <Box component="main" sx={{ flexGrow: 1, p: 3, minHeight: "85.1vh", marginTop: '3rem' }} >
       <Header className='mobile-header'/>
-      <Container className="children-container">
         {children}
-      </Container>
-       
         <Footer className='mobile-footer'/>
       </Box>
      
