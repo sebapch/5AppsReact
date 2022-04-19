@@ -74,6 +74,7 @@ function App() {
           <Route path="/historial" component={Historial} />
           <Route path="/transfer" component={WalletPage} />
           <Route path="/admin" component={Admin} />
+          <Route path="/test" component={StepsCount} />
 
 
           <ProtectedRoute path="/early" component={Early} />
