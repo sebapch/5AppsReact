@@ -1,0 +1,10 @@
+.col-step2{
+    display: flex;
+}
+
+.btn-step2{
+    padding-bottom: 1rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}

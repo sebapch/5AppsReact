@@ -1,0 +1,19 @@
+.grid-btn{
+    background-color: #4D0457;
+    padding: 0.4rem;
+    width: 75%;
+}
+
+.btn-stable{
+    background-color: #4D0457 !important;
+    width: 50%;
+    color: white !important;
+    font-weight: bold !important;
+}
+
+.btn-stable-selected{
+    background-color: #82DA5C !important;
+    width: 50%;
+    color: #4D0457 !important;
+    font-weight: bold !important;
+}

@@ -1,15 +1,12 @@
 html{
  width: 100%;
- font-family: 'League Spartan', sans-serif;
 
 }
 
 body {
-  font-family: 'League Spartan', sans-serif;
-
+  font-family: 'League Spartan' !important;
 }
 
 code {
-  font-family: 'League Spartan', sans-serif;
 
 }

@@ -3,13 +3,10 @@ import { useHistory, Link } from 'react-router-dom';
 import UserContext from '../../context/userContext';
 import Mascota from '../../assets/Mascota.svg'
 import InfoModal from '../utils/Modal/Modal';
-import FixedBottomNavigation from '../layout/Footer';
 import './Home.css';
-import Header from '../layout/Header';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import infoVioleta from '../../assets/icons/infoVioleta.svg'
-import DrawerLayout from '../layout/Drawer/DrawerLayout';
 import Container from '@mui/material/Container';
 
 const titulo = '¿Que hace Guuru con mi dinero?'
@@ -24,10 +21,10 @@ function Home() {
   console.log(localStorage)
 
 
-      // Modal terms and use
-      const [open, setOpen] = useState(false);
-      const handleOpen = () => setOpen(true);
-      const handleClose = () => setOpen(false);
+  // Modal terms and use
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   const logout = () => {
     setUserData({
@@ -41,7 +38,7 @@ function Home() {
 
   return (
     <>
-        <Container>
+      <Container>
         {userData.user ? (
           <div>
 
@@ -70,28 +67,28 @@ function Home() {
               <h4 className="text-purple">Ommm...</h4>
               <Box className='box-info'>
                 <h4 className="text-green">¿Como Funciona?
-                <img src={infoVioleta} alt='' width='5%'  onClick={handleOpen}/>
-                <InfoModal open={open} handleClose={handleClose} 
-                title={titulo}
-                  parrafo1={parrafo1}
-                  parrafo2={parrafo2} />
+                  <img src={infoVioleta} alt='' width='15%' onClick={handleOpen} />
+                  <InfoModal open={open} handleClose={handleClose}
+                    title={titulo}
+                    parrafo1={parrafo1}
+                    parrafo2={parrafo2} />
                 </h4>
                 <h4 className="text-blue"> ¿Listo para invertir?</h4>
-                <div className="btn-div">
-                  <button className="custom-btn btn-atras" onClick={() => history.goBack()}>Atras</button>
-                    <Link to="/step1" className="links-footer">
-                  <button className="custom-btn btn-siguiente">
+
+                <div className="btn-div btn-step2">
+                  <Link to="/step1" className="links-footer">
+                    <button className="custom-btn btn-siguiente">
                       Siguiente
-                    
-                  </button>
+                    </button>
                   </Link>
                 </div>
+
               </Box>
             </div>
           </div>
 
         ) : (<h1>No existe</h1>)}
-        </Container>
+      </Container>
     </>
 
   );

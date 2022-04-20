@@ -36,6 +36,17 @@
 
 }
 
+.col-steps{
+    display: flex;
+    justify-content: center;
+ }
+
+.img-step{
+    width: 120px;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
 .paso{
     color: gray;
     width: 25px;
@@ -78,4 +89,14 @@
 .divider-foot{
     color: #4D0457;
     border: 3px solid purple;
+}
+
+.imgStep1{
+    height: 300px;
+}
+
+.btn-grid{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 }

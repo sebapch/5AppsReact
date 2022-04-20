@@ -1,5 +1,5 @@
 .img-drawer {
-    width: 50px;
+    width: 90px;
 }
 
 .links-footer {
@@ -10,6 +10,16 @@
 
 .text-drawer {
     display: flex;
+    font-size: 1rem;
+    color: white;
+    display: none;
+}
+
+.text-drawer-selected{
+    display: flex;
+    font-size: 1rem;
+    color: #4D0457;
+    
 }
 
 .btn-drawer {
@@ -30,6 +40,10 @@
 .list{
     
     background: linear-gradient(180deg, rgba(126,217,87,1) 0%, rgba(32,202,255,1) 100%) !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
 }
 
 .list ul{
@@ -64,7 +78,7 @@
         width: 100% !important;
     }
 
-    .css-1hsz34s-MuiDrawer-docked .MuiDrawer-paper {
+    .css-2dum1v-MuiDrawer-docked .MuiDrawer-paper  {
         display: none !important;
     }
 
@@ -84,6 +98,7 @@
     .header{
         display: flex !important;
     }
+
     
     .footer-container{
         display: flex !important;

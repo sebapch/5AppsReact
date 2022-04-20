@@ -6,20 +6,32 @@
 .containerCandado{
     display: flex;
     align-items: center;
-    background: linear-gradient(180deg, rgb(232, 225, 230) 0%, #65266E 100%);
+    background: linear-gradient(180deg, rgb(232, 225, 230) 0%, #5C1965 100%);
     border: 5px solid #4D0457;
     border-radius:5%;
-    height: 30rem;
+    padding-top: 3rem;
+    
 }
 
 .img-candado{
     width: 75%;
     height: 75%;
+  
+}
+
+.title-green{
+    font-family: 'League Spartan', sans-serif;                                               
 }
 
 .aligns{
     display: flex;
     align-items: baseline;
+    padding-left: 2rem !important;
+    padding-top: 1rem !important;
+}
+
+.aligns-bottom{
+    padding-top: 0 !important;
 }
 
 .btn-timelock{
@@ -40,10 +52,18 @@
     align-items: center;
 }
 
+.opts-timelock{
+    padding-top: 3rem;
+}
+
 .bloqueo{
     padding-left: 2%;
     color: white;
     font-weight: bold;
+}
+
+.bloqueo-bottom{
+    padding-bottom: 1rem;
 }
 
 .days{
@@ -52,6 +72,7 @@
 }
 
 .quees{
+    
     font-weight: bold;
     color: cyan;
 }
@@ -59,3 +80,39 @@
 .btn-timelock:active{
     background-color: #82DA5C;
 }
+
+.container {
+    position: relative;
+    text-align: center;
+    color: black;
+    margin-bottom: 3rem;
+  }
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.bottom-left {
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+  }
+  
+  /* Top left text */
+.top-left {
+    position: absolute;
+    top: 3rem;
+    left: 3rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.background-candado{
+    width: 100%;
+}
+

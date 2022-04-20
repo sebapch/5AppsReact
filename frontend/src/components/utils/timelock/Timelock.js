@@ -8,6 +8,8 @@ import infoAzul from "../../../assets/icons/infoAzul.svg";
 import Container from "@mui/material/Container";
 import InfoModal from "../Modal/Modal";
 import { VaultContext } from "../../../context/vaultContext";
+import RelojTransparente from '../../../assets/RelojTransparente.png';
+
 
 const titulo='¿que es el periodo de Timelock?'
 const parrafo1 = 'El periodo de Timelock es el tiempo durante el cual tus fondos estan invertidos en nuestras vaults.'
@@ -67,15 +69,16 @@ const Timelock = () => {
 
   return (
     <>
-      <Container className="timelockContainer">
-        <div >
+      <Grid container spacing={0}>
+        <Grid >
           <h1
             className="title-green"
             style={{ fontSize: "20px", textAlign: "center" }}
           >
             Selecciona el Período de Timelock para tu Vault
           </h1>
-        </div>
+        </Grid>
+        </Grid>
 
         <Grid container className="containerCandado">
           <Grid item xs={6}>
@@ -109,16 +112,15 @@ const Timelock = () => {
             </Stack>
           </Grid>
           <Grid item xs={6}>
-            <img src={Candado} alt="" className="img-candado" />
+            <img src={RelojTransparente} alt="" className="img-candado" />
           </Grid>
           
-          <Grid item xs={12} >
+          <Grid item xs={12} className='opts-timelock'>
             <label className='bloqueo'>Bloqueo = </label> <label className="days">{days} Dias</label>
           </Grid>
           <Grid item xs={12}>
-            <label className='bloqueo' >Beneficio Extra =</label> <label className="days">Ninguno</label>
+            <label className='bloqueo bloqueo-bottom' >Beneficio Extra =</label> <label className="days">Ninguno</label>
           </Grid>
-          
         </Grid>
 
         <Grid container spacing={2}>
@@ -130,7 +132,7 @@ const Timelock = () => {
               inputProps={{ "aria-label": "controlled" }}
             />
           </Grid>
-          <Grid item xs={12} className="aligns">
+          <Grid item xs={12} className="aligns aligns-bottom">
             <p className='quees'>Que es el Timelock?</p>
             <img src={infoAzul} alt="" width="50px" onClick={handleOpen} />
             <InfoModal
@@ -144,7 +146,6 @@ const Timelock = () => {
             />
           </Grid>
         </Grid>
-      </Container>
     </>
   );
 };

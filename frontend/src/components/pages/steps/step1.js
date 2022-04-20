@@ -5,20 +5,26 @@ import { Carousel } from "react-bootstrap";
 import Divider from "@mui/material/Divider";
 import Big4 from "../../../assets/Big4.png";
 import BSC from "../../../assets/BSC.png";
+import imgStep1 from "../../../assets/imgStep1.png";
 import Estable from "../../../assets/Estable.png";
+import StableEURO from "../../../assets/stableEURO.png";
+import StableUSDT from "../../../assets/stableUSDT.png";
+import Big4Vault from '../../../assets/Big4Vault.png'
+import BSCVault from '../../../assets/BSCVault.png'
 import { Container, Row, Col } from "react-bootstrap";
 import ApyCripto from "../../utils/ApyCripto/ApyCripto";
 import { useHistory, Link } from "react-router-dom";
 import { VaultContext } from "../../../context/vaultContext";
 import StepsCount from "../../utils/stepsCount/stepsCount";
+import BtnSelector from "../../utils/btnSelector/btnSelector";
+import './steps.css';
 import './step1.css';
 
 const Step1 = () => {
   const [index, setIndex] = useState(0);
   const history = useHistory();
 
-
-  const { vault, setVault } = useContext(VaultContext);
+  const { vault, setVault, stable, setStable } = useContext(VaultContext);
 
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);
@@ -37,9 +43,10 @@ const Step1 = () => {
   return (
     <>
       <Container>
-        <StepsCount />
-
         <Row>
+          <Col xs={12} className="col-steps">
+            <img src={imgStep1} alt="" className="img-step" />
+          </Col>
           <Col xs={12}>
             <p className="text-green-step">
               Elegí el tipo de Vault que quieras armar
@@ -75,23 +82,39 @@ const Step1 = () => {
           </Col>
         </Row>
         <Row>
-          <Col xs={12}>
+          <Col xs={12} className='col-select-vault'>
 
 
             {index === 0 ? (
               <>
-                <APY />
-                <SwitchTo />
+                {/*  <APY /> */}
+
+                <div className="container">
+                  <img src={stable === 'USDT' ? StableUSDT : StableEURO} alt="" className="img-stable" />
+                  <div class="centered">45% APY</div>
+                </div>
+                {/* <SwitchTo /> */}
+                <BtnSelector />
               </>
             ) : (
-              <ApyCripto />
+              index === 1 ? (
+                <div className="container">
+                  <img src={Big4Vault} alt="" className="img-stable" />
+                  <div class="centered">45% APY</div>
+                </div>
+
+              ) : (
+                <div className="container">
+                  <img src={BSCVault} alt="" className="img-stable" />
+                  <div class="centered">45% APY</div>
+                </div>
+              )
             )}
           </Col>
         </Row>
-        <Divider className='divider-foot' />
+        
         <Row>
-          <Col xs={12}>
-            <div className="btn-div">
+          <Col xs={12} className='btn-grid'>
               <button className="custom-btn btn-atras" onClick={() => history.goBack()}>Atras</button>
               <Link to="/step2" className="links-footer">
                 <button
@@ -101,8 +124,8 @@ const Step1 = () => {
                   Siguiente
                 </button>
               </Link>
-            </div>
           </Col>
+          
         </Row>
       </Container>
     </>

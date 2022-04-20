@@ -5,6 +5,11 @@
     align-items: center;
     height: 25% !important;
     border-top: 5px solid #4D0457;
+    
+}
+
+.footer-grid{
+    padding: 0px !important;
 }
 
 .footer-icons{
@@ -25,10 +30,15 @@
     align-items: center;
     justify-content: center;
     align-content: center;
-
 }
 
+
+
 .text-footer{
-    text-align: center;
-    
+    display: none; 
+}
+
+.text-footer-selected{
+    display: none; 
+    color: #4D0457;
 }

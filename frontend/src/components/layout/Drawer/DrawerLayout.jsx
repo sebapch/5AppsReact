@@ -47,9 +47,9 @@ const closedMixin = (theme) => ({
     duration: theme.transitions.duration.leavingScreen,
   }),
   overflowX: "hidden",
-  width: `calc(${theme.spacing(5)} + 1px)`,
+  width: `calc(${theme.spacing(7)} + 1px)`,
   [theme.breakpoints.up("sm")]: {
-    width: `calc(${theme.spacing(6)} + 1px)`,
+    width: `calc(${theme.spacing(8)} + 1px)`,
   },
 });
 
@@ -170,23 +170,23 @@ const DrawerLayout = ({ children }) => {
         <List className="list">
           <Link to="/" className="links-footer" onClick={() => setActiveTab('Home')}>
             <img src={activeTab === 'Home' ? HomeVioleta : HomeBlanco} alt="" className="img-drawer" />
-            <label className="text-drawer">Inicio</label>
+            <label className={activeTab === 'Home' ? "text-drawer-selected" : "text-drawer"}>Inicio</label>
           </Link>
           <Link to="/vaults" className="links-footer" onClick={() => setActiveTab('Vaults')}>
             <img src={activeTab === 'Vaults' ? VaultsVioleta : VaultsBlanco} alt="" className="img-drawer" />
-            <label className="text-drawer">Vaults</label>
+            <label className={activeTab === 'Vaults' ? "text-drawer-selected" : "text-drawer"}>Vaults</label>
           </Link>
           <Link to="/step1" className="links-footer" onClick={() => setActiveTab('Guuru')}>
             <img src={activeTab === 'Guuru' ? GuuruVioleta : GuuruBlanco} alt="" className="img-drawer" />
-            <label className="text-drawer">Guuru</label>
+            <label className={activeTab === 'Guuru' ? "text-drawer-selected" : "text-drawer"}>Guuru</label>
           </Link>
           <Link to="/perfil" className="links-footer" onClick={() => setActiveTab('Perfil')} >
             <img src={activeTab === 'Perfil' ? PerfilVioleta : PerfilBlanco} alt="" className="img-drawer" />
-            <label className="text-drawer">Perfil</label>
+            <label className={activeTab === 'Perfil' ? "text-drawer-selected" : "text-drawer"}>Perfil</label>
           </Link>
           <Link to="/opciones" className="links-footer" onClick={() => setActiveTab('Opciones')} >
             <img src={activeTab === 'Opciones' ? AjustesVioleta : AjustesBlanco} alt="" className="img-drawer" />
-            <label className="text-drawer">Ajustes</label>
+            <label className={activeTab === 'Opciones' ? "text-drawer-selected" : "text-drawer"} >Ajustes</label>
           </Link>
         </List>
         <Divider />
