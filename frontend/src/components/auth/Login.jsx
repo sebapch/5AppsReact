@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import UserContext from "../../context/userContext";
-import ErrorNotice from "../misc/ErrorNotice";
+import ErrorNotice from "../../components/misc/ErrorNotice";
 import './Login.css';
 import DrawerLayout from '../layout/Drawer/DrawerLayout';
 
@@ -34,6 +34,7 @@ function Login () {
     };
     
     return (
+    
         <div className="login">
             <h2>Login</h2>
             {error && <ErrorNotice message={error} clearError={() => setError(undefined)} />}
@@ -47,6 +48,7 @@ function Login () {
             </form>
             </div>
         </div>
+       
     );
 }
  

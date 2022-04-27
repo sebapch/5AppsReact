@@ -24,6 +24,7 @@ import Historial from './components/pages/Historial/Historial';
 import Admin from './components/pages/Private/Admin';
 
 
+
 function App() {
   const [ userData, setUserData] = useState({
     token: undefined,
@@ -37,9 +38,9 @@ function App() {
         localStorage.setItem("auth-token", "");
         token = "";
       }
-      const tokenResponse = await axios.post('/users/tokenIsValid', null, {headers: {"x-auth-token": token}});
+      const tokenResponse = await axios.post('http://localhost:5000/users/tokenIsValid', null, {headers: {"x-auth-token": token}});
       if (tokenResponse.data) {
-        const userRes = await axios.get("/users/", {
+        const userRes = await axios.get("http://localhost:5000/users/", {
           headers: { "x-auth-token": token },
         });
         setUserData({
@@ -69,6 +70,7 @@ function App() {
           <Route path="/opciones" component={Settings} />
           <Route path="/historial" component={Historial} />
           <Route path="/transfer" component={WalletPage} />
+
           <Route path="/admin" component={Admin} />
 
 
@@ -79,6 +81,7 @@ function App() {
             <Route path="/step2" component={Step2} />
             <Route path="/step3" component={Step3} />
             <Route path="/step4" component={Step4} />
+
           </VaultProvider>
 
         </Switch>
