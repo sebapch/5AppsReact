@@ -1,0 +1,73 @@
+.grid-top-step4{
+    border-top: 5px solid #4D0457;
+    margin-top: 1rem;
+}
+
+.step4-text{
+    margin-top: 2rem;
+}
+
+.grid-mascot{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-grid{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+
+}
+
+.text-vault-id{
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #4D0457;
+}
+
+.text-vault-nro{
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #20CAFF ;
+}
+
+.btn-pendiente{
+    background-color: #b8b8b8 !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 5px !important;
+    font-size: 1.2rem !important;
+    font-weight: bold !important;
+}
+
+.flex-grid-pendiente{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.btn-armar{
+    background-color: white !important;
+    color: #82DA5C !important;
+    border: none !important;
+    border-radius: 5px !important;
+    font-size: 1.2rem !important;
+    font-weight: bold !important;
+}
+
+.btn-cancelar{
+    background-color: white !important;
+
+    color: rgb(182, 0, 0) !important;
+    border: none !important;
+    border-radius: 5px !important;
+    font-size: 1.2rem !important;
+    font-weight: bold !important;
+}
+
+.last{
+    margin-bottom: 2rem;
+}
