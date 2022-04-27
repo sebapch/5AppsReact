@@ -8,49 +8,50 @@ import InfoVerde from '../../../assets/icons/infoVerde.svg';
 import HistorialVerde from '../../../assets/icons/HistorialVerde.svg';
 import Parado from '../../../assets/Parado.svg';
 import { Button } from '@mui/material';
+import BtnVaults from '../../utils/btnVaults/btnVaults';
 
 
 const Vaults = () => {
   return (
     <>
-        <Container style={{ width: '75%' }}>
+        <Container >
           <Grid container >
             <Grid item xs={12} >
               <label className='auto-renew'>Auto Renovar mis vaults  </label>
               <Switch />
 
             </Grid>
-            <Grid item xs={12} className='grid-btns'>
-              <button className='btn-vault'>TODO</button>
-              <button className='btn-vault'>Estable</button>
-              <button className='btn-vault'>Big4</button>
-              <button className='btn-vault'>BSC</button>
+            <Grid  className='grid-btns'>
+              <BtnVaults />
             </Grid>
 
           </Grid>
           <Grid container className='card-vault'>
             <Container>
+              <div className='container'>
               <Grid item xs={12} className='grid-total-invested'>
                 <label className='textos-vault'>Total Invertido</label>
                 <img src={InfoAzul} alt='' width='50px' />
-                <img src={HistorialVerde} alt='' width='50px' style={{ float: 'right' }} />
-
+                <div className='top-right'>
+                  <img src={HistorialVerde} alt='' width='50px' style={{ float: 'right' }} />
+                </div>
               </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={12} style={{textAlign: "left"}}>
                 <label className='total-invest'>$ 1000</label>
               </Grid>
-              <Grid item xs={12}>
+
+              <Grid item xs={12} className='grid-valor-actual'>
                 <label className='textos-vault'>Valor Actual</label>
                 <img src={InfoVerde} alt='' width='50px' />
 
               </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={12}  style={{textAlign: "left"}}>
                 <label className='actual-invest'>$ 1200</label>
               </Grid>
               <Grid item xs={12} className='img-vault'>
                 <img src={Parado} alt='' width='200px' />
               </Grid>
-
+              </div>
             </Container>
 
           </Grid>

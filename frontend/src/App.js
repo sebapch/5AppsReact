@@ -11,6 +11,7 @@ import Early from './components/pages/Early';
 import Step1 from './components/pages/steps/step1';
 import Vaults from './components/pages/Vaults/Vaults'
 import Profile from './components/pages/Profile/Profile';
+import Depositar from './components/pages/Profile/Depositar';
 import Settings from './components/pages/Settings/Settings';
 import Binance from './components/pages/Profile/Binance';
 import WalletPage from './components/pages/Profile/Wallet'
@@ -21,7 +22,7 @@ import Step4 from './components/pages/steps/step4';
 import {VaultProvider} from './context/vaultContext';
 import Historial from './components/pages/Historial/Historial';
 import Admin from './components/pages/Private/Admin';
-import btnSelector from './components/utils/btnSelector/btnSelector';
+
 
 function App() {
   const [ userData, setUserData] = useState({
@@ -62,6 +63,7 @@ function App() {
           <Route path="/register" component={Register} />
           <Route path="/login" component={Login} />
           <Route path="/perfil" component={Profile} />
+          <Route path="/depositar" component={Depositar} />
           <Route path="/bpay" component={Binance} />
           <Route path="/vaults" component={Vaults} />
           <Route path="/opciones" component={Settings} />

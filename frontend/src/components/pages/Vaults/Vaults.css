@@ -8,8 +8,8 @@
     border-top: 1px solid #4D0457;
     border-bottom: 3px solid #4D0457;
     border-right: 3px solid #4D0457;
-    display: flex;
-    justify-content: space-evenly;
+    width: 100%;
+    margin-bottom: 1rem;
     
 }
 
@@ -37,23 +37,32 @@
     color: #4D0457;
     font-size: 1.5rem;
     font-weight: bold;
+    text-align: left;
+    display: flex;
 }
 
 .grid-total-invested{
     margin-top: 1rem !important;
+    display: flex;
 }
 
 .total-invest{
     color: #20CAFF;
     font-size: 1.8rem;
     font-weight: bold;
+    display: flex;
 }
 
+.grid-valor-actual{
+    margin-top: 1rem !important;
+    display: flex;
+}
 
 .actual-invest{
     color: #6bd883;
     font-size: 1.8rem;
     font-weight: bold;
+    text-align: left;
 }
 
 .img-vault{
@@ -63,12 +72,26 @@
 
 .btn-convertir{
     width: 100%;
-    margin-top: 1rem !important;
-    margin-bottom: 1rem !important;
+    font-weight: bold !important;
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.5rem !important;
 }
 
 .btn-desarmar{
     width: 100%;
-    margin-top: 1rem !important;
-    margin-bottom: 1rem !important;
+    font-weight: bold !important;
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.5rem !important;
 }
+
+.container {
+    position: relative;
+    color: black;
+    margin-bottom: 3rem;
+}
+
+.top-right {
+    position: absolute;
+    top: 5%;
+    right: 0%;
+  }

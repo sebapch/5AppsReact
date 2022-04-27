@@ -5,12 +5,11 @@ import Grid from '@mui/material/Grid';
 import './Profile.css'
 import BNB from '../../../assets/coins/BNB.svg';
 import Wallet from '../../../assets/icons/Wallet.svg'
-import Header from '../../layout/Header';
-import FixedBottomNavigation from '../../layout/Footer'
-import DrawerLayout from '../../layout/Drawer/DrawerLayout';
+import HistorialAzul from '../../../assets/icons/HistorialAzul.png';
 
 
-const Profile = () => {
+
+const Depositar = () => {
 
   const { userData, setUserData } = useContext(UserContext);
   console.log(userData)
@@ -22,7 +21,7 @@ const Profile = () => {
     <>
       <Grid container >
         <Grid item xs={12}>
-          <h1 className='welcome'>Guuru Tag: {user}</h1>
+          <h1 className='welcome '>Guuru Tag: <label className='user-label'>{user}</label> </h1>
         </Grid>
         <Grid xs={12} className='grid-container'>
           <div className='div-exterior'>
@@ -32,7 +31,7 @@ const Profile = () => {
               </h1>
 
               <Grid container >
-                <Link to='/bpay'>
+                <Link to='/bpay' className='link-depositar'>
                   <Grid xs={12} className='container-btn'>
                     <img src={BNB} alt='' width='150px'></img>
                     <label style={{ color: "white" }}>
@@ -42,7 +41,7 @@ const Profile = () => {
                   </Grid>
                 </Link>
               </Grid>
-              <Link to='/transfer'>
+              <Link to='/transfer' className='link-depositar'>
                 <Grid xs={12} className='container-btn'>
                   <img src={Wallet} alt='' width='150px'></img>
                   <label style={{ color: "white" }}>
@@ -51,9 +50,12 @@ const Profile = () => {
                 </Grid>
               </Link>
               <Grid xs={12} className='grid-cerrar'>
-                <label className='btn-cerrar'>
-                  cerrar
-                </label>
+                <Link to='/perfil' >
+                  <label className='btn-cerrar'>
+                    volver
+                  </label>
+
+                </Link>
 
 
               </Grid>
@@ -64,9 +66,14 @@ const Profile = () => {
           </div>
         </Grid>
       </Grid>
-      <label>Dolar Hoy: 1USD = 0.89EUR</label>
+      <Grid className='cambio-grid'>
+                        <div className='border-cambio'>
+                            <label className='dolar-hoy'>Dolar Hoy: <label className='coin'>1 USDT </label> = <label className='coin'>0.89 EUR </label></label>
+                        </div>
+                        <img src={HistorialAzul} alt="" width='25px' style={{marginTop: "2%"}}/>
+                    </Grid>
     </>
   )
 }
 
-export default Profile
+export default Depositar

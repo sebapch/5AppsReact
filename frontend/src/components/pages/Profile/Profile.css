@@ -1,30 +1,114 @@
 .welcome{
     display: flex;
     justify-content: flex-start;
-    border-top: 1px solid purple;
-    border-bottom: 3px solid purple;
+    border-top: 5px solid #4D0457;
+    border-bottom: 5px solid #4D0457;
     padding-top: 1rem;
     padding-bottom: 1rem;
+    color: #82DA5C;
+}
+
+.profile-container{
+    margin-bottom: 3rem;
+}
+
+.user-label{
+    color: #4D0457;
 }
 
 .div-interior{
     border: 5px solid white;
     display: flex;
     flex-direction: column;
-    background-color: purple;
+    background-color: #4D0457;
     border-radius: 5%;
     padding-top: 5%;
     padding-bottom: 5%;
 }
 
+.top-row{
+    height: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.top-col{
+    text-align: center;
+    border-right: 3px solid #4D0457;
+    
+}
+.top-col-2{
+    text-align: center;
+}
+
+.top-text{
+    color: white;
+    font-size: 1rem;
+}
+
+.top-number{
+    color: #4D0457;
+    font-size: 1.1rem;
+}
+
+.balance-text{
+    color: white;
+    font-size: 2rem;
+}
+
+.balance-number{
+    color: #4D0457;
+    font-size: 2.1rem;
+}
+
+.middle-col{
+    text-align: center;
+    border-top: 3px solid #4D0457;
+    border-bottom: 3px solid #4D0457;
+    height: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.center-col{
+    text-align: center;
+    
+}
+
+.bottom-row{
+    margin-top: 1rem;
+}
+
+.bottom-text{
+    font-size: 0.7rem;
+    color: white;
+}
+
+.background-profile{
+    background: linear-gradient(0deg, rgba(126,217,87,1) 0%, rgba(32,202,255,1) 100%);
+    border: 6px solid #4D0457;
+    border-radius: 5%;
+    width: 75%;
+    padding: 2%;
+
+}
+
+.center-profile{
+    display: flex;
+    justify-content: center;
+}
+
 .div-exterior{
     background: linear-gradient(0deg, rgba(126,217,87,1) 0%, rgba(32,202,255,1) 100%);
-    border: 6px solid purple;
+    border: 6px solid #4D0457;
     border-radius: 2%;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 75%;
     padding: 2%;
 
 }
@@ -35,6 +119,11 @@
     justify-content: flex-start;
     padding-top: 5%;
     padding-bottom: 5%;
+}
+
+.container-btn-alias{
+    display: flex;
+    justify-content: center;
 }
 
 .grid-cerrar{
@@ -49,7 +138,55 @@
     justify-content: center;
 }
 
+.cambio-grid{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .title-wallet{
     text-align: center;
     color: #59D49D;
+    font-size: 2rem;
+}
+
+.border-cambio{
+    display: flex;
+    justify-content: center;
+    height: 3rem;
+    align-items: center;
+    border: 1px solid #4D0457;
+    border-bottom: 3px solid #4D0457;
+    border-right: 3px solid #4D0457;
+    width: 60%;
+    margin-top: 5%;
+    margin-right: 1rem;
+}
+
+.dolar-hoy{
+    font-size: 14px;
+    color: #4D0457;
+}
+
+.coin{
+    color: #82DA5C;
+}
+
+.link-depositar{
+    text-decoration: none !important;
+}
+
+.btn-deposit{
+    background-color: white;
+    width: 50%;
+    border-left: 1px solid #4D0457;
+    border-top: 1px solid #4D0457;
+    border-bottom: 3px solid #4D0457;
+    border-right: 3px solid #4D0457;
+    font-weight: bold;
+    color: #4D0457;
+    margin-bottom: 3px;
+    margin-top: 3px;
+    display: flex;
+    justify-content: space-between;
 }

@@ -1,0 +1,18 @@
+.grid-btn-vault{
+    background-color: white;
+    width: 100%;
+}
+
+.btn-vault{
+    background-color: white !important;
+    width: 25%;
+    color: #4D0457 !important;
+    font-weight: bold !important;
+}
+
+.btn-vault-selected{
+    background-color: #4D0457 !important;
+    width: 25%;
+    color: #82DA5C !important;
+    font-weight: bold !important;
+}

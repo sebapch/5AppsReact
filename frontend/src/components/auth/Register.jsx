@@ -4,7 +4,6 @@ import axios from "axios";
 import UserContext from "../../context/userContext";
 import ErrorNotice from "../misc/ErrorNotice";
 import './Login.css'
-import DrawerLayout from '../layout/Drawer/DrawerLayout'
 
 function Register () {
 

@@ -42,7 +42,7 @@ const Step1 = () => {
 
   return (
     <>
-      <Container>
+      <Container style={{padding: "0px"}}>
         <Row>
           <Col xs={12} className="col-steps">
             <img src={imgStep1} alt="" className="img-step" />
