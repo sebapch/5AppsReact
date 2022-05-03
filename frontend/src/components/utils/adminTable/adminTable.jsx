@@ -9,6 +9,7 @@ import Paper from '@mui/material/Paper';
 import Axios from "axios";
 import zIndex from '@mui/material/styles/zIndex';
 import { Button } from '@mui/material';
+import './adminTable.css';
 
 
 function createData(name, calories, fat, carbs, protein) {
@@ -51,11 +52,11 @@ export default function BasicTable() {
   }, []);
 
   console.log(users.data);
-
+ 
   
 
   return (
-    <TableContainer component={Paper}>
+    <TableContainer component={Paper} className="admin-container">
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
@@ -69,17 +70,19 @@ export default function BasicTable() {
         </TableHead>
         <TableBody>
           {users.data?.map((user, index) => (
+            
             <TableRow
               key={index}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell component="th" scope="row">
                 {user?._id}
+                {console.log((user?.vaults.length ))}
               </TableCell>
                <TableCell align="right">{user?.displayName}</TableCell>
               <TableCell align="right">{user?.email}</TableCell>
               <TableCell align="right">{user?.saldo}</TableCell>
-             <TableCell align="right">{JSON.stringify(user?.vaults)}</TableCell>
+             <TableCell align="right">{(user?.vaults.length)}</TableCell>
              <TableCell align="right">
                <Button color="secondary">Editar</Button>
                <Button color="error">Eliminar</Button>
