@@ -22,6 +22,7 @@ import Step4 from './components/pages/steps/step4';
 import {VaultProvider} from './context/vaultContext';
 import Historial from './components/pages/Historial/Historial';
 import Admin from './components/pages/Private/Admin';
+import EditData from './components/pages/Private/EditData';
 
 
 
@@ -72,7 +73,7 @@ function App() {
           <Route path="/transfer" component={WalletPage} />
 
           <Route path="/admin" component={Admin} />
-
+          <Route path="/edit/:id" component={EditData} />
 
 
           <ProtectedRoute path="/early" component={Early} />
