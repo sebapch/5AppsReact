@@ -5,8 +5,27 @@ import Axios from 'axios';
 const EditData = () => {
   const { id } = useParams();
   const [edited, setEdited] = useState({});
+  const [users, setUsers] = useState([]);
 
-  console.log(edited);
+
+  function traerUser(id){
+    Axios.get(`/edit/user`)	
+            .then(res => {
+              console.log(res)
+              
+              setUsers(res)
+            })
+            .catch(err => {
+              console.log(err)
+            })
+  }
+  useEffect(() => {
+    traerUser();
+    console.log(users);
+  }, []);
+
+
+  
 
   return (
     <>
