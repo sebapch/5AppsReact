@@ -19,8 +19,6 @@ import './adminTable.css';
 export default function BasicTable() {
   const [users, setUsers] = useState([]);
 
-
-
   function traerVaults(){
     Axios.get("/users/api/vaults")
             .then(res => {
@@ -34,11 +32,20 @@ export default function BasicTable() {
   }
   useEffect(() => {
     traerVaults();
-    
+
   }, []);
 
-  console.log(users.data);
+console.log(users.data);
  
+function deleteUser(id){
+  
+  Axios.delete(`/users/api/${id}`)
+  .then(res => {
+    console.log(res)
+    window.location.reload();
+  })
+  .catch(err => { console.log(err) })
+}
 
   
 
@@ -72,16 +79,14 @@ export default function BasicTable() {
               <TableCell align="right">{(user?.vaults.length)}</TableCell>
              <TableCell align="right">
              <Link to={`/edit/${user._id}`} className="links-footer">
-                <Button color="secondary"
-                >
+                <Button color="secondary" >
                   Editar
                 </Button>
               </Link>
                
-               <Button color="error">Eliminar</Button>
+               <Button color="error" onClick={() => deleteUser(user._id)}>Eliminar</Button>
              </TableCell>
-
-              
+ 
             </TableRow>
           ))}
         </TableBody>

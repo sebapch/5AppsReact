@@ -80,13 +80,20 @@ router.post("/login", async (req, res) => {
 });
 
 
-router.delete("/delete", auth, async (req, res) => {
-  try {
-    const deletedUser = await User.findByIdAndDelete(req.user);
-    res.json(deletedUser);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
+router.delete('/api/:id', function(req, res, next) {
+  User.findByIdAndRemove(req.params.id, req.body, function (err, post) {
+    if (err) return next(err);
+    res.json(post);
+  });
+});
+
+//CONSEGUIR USUARIO
+router.get('/api/edit/:id', function(req, res, next) {
+  User.findById(req.params.id, req.body, function (err, post) {
+    if (err) return next(err);
+    res.json(post);
   }
+  );
 });
 
 router.post("/tokenIsValid", async (req, res) => {
@@ -115,6 +122,16 @@ router.get("/", auth, async (req, res) => {
   });
 });
 
+router.post("/api/edit/:id", /* auth,  */async (req,res)=>{
+  
+  const {userId} = req.body
+
+  User.findByIdAndUpdate(userId,{ saldo : req.body.saldo })
+  .then(user => res.json(user))
+  .catch(err => res.status(500).json({error: err.message}))
+
+
+})
 
 router.post("/api/vaults", /* auth,  */async (req,res)=>{
   

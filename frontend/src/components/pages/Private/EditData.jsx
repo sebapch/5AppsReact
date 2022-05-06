@@ -4,16 +4,13 @@ import Axios from 'axios';
 
 const EditData = () => {
   const { id } = useParams();
-  const [edited, setEdited] = useState({});
-  const [users, setUsers] = useState([]);
+  const [user, setUser] = useState([]);
+  const [saldo, setSaldo] = useState();
 
-
-  function traerUser(id){
-    Axios.get(`/edit/user`)	
+  function traerUser(){
+    Axios.get(`/users/api/edit/${id}`)
             .then(res => {
-              console.log(res)
-              
-              setUsers(res)
+              setUser(res.data)
             })
             .catch(err => {
               console.log(err)
@@ -21,15 +18,35 @@ const EditData = () => {
   }
   useEffect(() => {
     traerUser();
-    console.log(users);
   }, []);
 
+  const saveUser = () => {
+    Axios.post(`/users/api/edit/${id}`, {
+      saldo: saldo,
+      userId : user._id
+    })
+      .then(res => {
+        console.log(res)
+        console.log(saldo)
+      }
+      ).catch(err => {
+        console.log(err)
+      })
+  }
 
-  
+console.log(saldo);
 
   return (
     <>
-      <div>hola</div>
+      <h1>Editar usuario</h1>
+      <form>
+      <input type="text" defaultValue={user.displayName}/>
+      <input type="text" defaultValue={user.email}/>
+      <input type="text" defaultValue={user.saldo} onChange={e => setSaldo(e.target.value)}/>
+      <input type="text" defaultValue={user._id}/>
+      <button onClick={saveUser}>Editar</button>
+      </form>
+
     </>
   )
 }
