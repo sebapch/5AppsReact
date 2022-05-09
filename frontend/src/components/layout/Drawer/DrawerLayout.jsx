@@ -26,6 +26,8 @@ import GuuruBlanco from "../../../assets/guuruBlanco.svg";
 import PerfilVioleta from "../../../assets/usuarioVioleta.svg";
 import PerfilBlanco from "../../../assets/usuarioBlanco.svg";
 import UserContext from "../../../context/userContext";
+import Telegram from "../../../assets/icons/Telegram.svg";
+import Twitter from "../../../assets/icons/Twitter.svg";
 import Button from '@mui/material/Button';
 import Footer from "../Footer";
 import Header from "../Header";
@@ -130,22 +132,16 @@ const DrawerLayout = ({ children }) => {
       <CssBaseline />
       <AppBar position="fixed" open={open} className='drawer' >
         <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={{
-              marginRight: 5,
-              ...(open && { display: "none" }),
-            }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap component="div">
+          
+            <img src={GuuruVioleta} alt="home" onClick={handleDrawerClose} width="5%"/>
+            {/* <MenuIcon /> */}
+         
+          <Typography variant="h1" noWrap component="h1" sx={{fontWeight: "bold", fontFamily: 'League Spartan', fontSize: "24px"}}>
             Guuru
           </Typography>
           <div className="btn-drawer">
+            <img src={Telegram} alt="home" onClick={handleDrawerClose} width="8%"/>
+            <img src={Twitter} alt="home" onClick={handleDrawerClose} width="8%"/>
             {userData.user ? (
               <div>
                 <label>hola {userData?.user.displayName}</label>
@@ -162,9 +158,10 @@ const DrawerLayout = ({ children }) => {
       </AppBar>
       <Drawer variant="permanent" open={open} className="list">
         <DrawerHeader className="drawer-header">
-          <IconButton onClick={handleDrawerClose}>
+          {/* <IconButton onClick={handleDrawerClose}>
             <ChevronLeftIcon />
-          </IconButton>
+          </IconButton> */}
+          <img src={GuuruVioleta} alt="home" onClick={handleDrawerClose}/>
         </DrawerHeader>
         <Divider />
         <List className="list">
