@@ -24,7 +24,7 @@
 
 .btn-drawer {
     display: flex;
-
+    align-items: center;
     width: 75%;
     justify-content: flex-end;
 }
@@ -38,7 +38,6 @@
 }
 
 .list{
-    
     background: linear-gradient(180deg, rgba(126,217,87,1) 0%, rgba(32,202,255,1) 100%) !important;
     display: flex;
     flex-direction: column;
@@ -60,6 +59,25 @@
 
 .children-container{
     width: 50% !important;
+}
+
+.btn-reg{
+    background: linear-gradient(180deg, #FCCE52 0%, #FC9C4B 100%) !important;
+    margin-right: 1rem !important;
+	border:1px solid #18ab29;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-size:17px;
+	padding:8px 15px;
+	text-decoration:none !important;
+	text-shadow:0px 1px 0px #2f6627;
+    border-radius: 25px !important;
+    
+}
+
+.btn-reg:hover{
+    color: rgba(32,202,255,1);
 }
 
 

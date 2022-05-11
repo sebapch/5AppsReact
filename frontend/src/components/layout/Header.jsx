@@ -1,5 +1,6 @@
 import React, { Component, useContext } from 'react';
 import { useHistory, Link } from 'react-router-dom';
+import Login from '../auth/Login';
 import AuthOptions from '../auth/AuthOptions';
 import UserContext from '../../context/userContext';
 import './Header.css';
@@ -27,7 +28,7 @@ function Header() {
 
   return (
     <>
-      {userData.user ? (
+      
 
         <Box sx={{ flexGrow: 2 }}>
           <Grid container spacing={2} className='header'>
@@ -47,12 +48,7 @@ function Header() {
           </Grid>
         </Box>
 
-      ) : (
-        <div>
-          <h2>You are not logged in</h2>
-          <button>LOG IN</button>
-        </div>
-      )}
+      
     </>
   );
 

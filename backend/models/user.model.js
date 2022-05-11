@@ -21,6 +21,10 @@ const vaultSchema = new mongoose.Schema({
     type : Boolean,
     required: true
   },
+  activated : {
+    type : Boolean,
+    required: true
+  },
   funds : {
     type : Number,
     required: true,

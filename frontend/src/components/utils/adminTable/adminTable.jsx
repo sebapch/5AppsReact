@@ -18,6 +18,7 @@ import './adminTable.css';
 
 export default function BasicTable() {
   const [users, setUsers] = useState([]);
+  const [deactivated, setDeactivated]= useState(0);
 
   function traerVaults(){
     Axios.get("/users/api/vaults")
@@ -32,7 +33,6 @@ export default function BasicTable() {
   }
   useEffect(() => {
     traerVaults();
-
   }, []);
 
 console.log(users.data);
@@ -47,6 +47,9 @@ function deleteUser(id){
   .catch(err => { console.log(err) })
 }
 
+
+
+
   
 
   return (
@@ -58,7 +61,8 @@ function deleteUser(id){
             <TableCell align="right">UserName</TableCell>
             <TableCell align="right">Email</TableCell>
             <TableCell align="right">Saldo</TableCell>
-            <TableCell align="right">Vaults</TableCell>
+            <TableCell align="right">Solicitudes</TableCell>
+            <TableCell align="right">Vaults Activas</TableCell>
             <TableCell align="right">Actions</TableCell>
           </TableRow>
         </TableHead>
@@ -71,11 +75,21 @@ function deleteUser(id){
             >
               <TableCell component="th" scope="row">
                 {user?._id}
-                {console.log((user?.vaults.length ))}
+                
               </TableCell>
               <TableCell align="right">{user?.displayName}</TableCell>
               <TableCell align="right">{user?.email}</TableCell>
               <TableCell align="right">{user?.saldo}</TableCell>
+            
+              <TableCell align="right">
+              {user?.vaults.map((user) =>
+               (
+                (user?.activated == false ? 'Solicitud pendiente' : 'vault activo')
+            ))}
+
+
+
+            </TableCell>
               <TableCell align="right">{(user?.vaults.length)}</TableCell>
              <TableCell align="right">
              <Link to={`/edit/${user._id}`} className="links-footer">

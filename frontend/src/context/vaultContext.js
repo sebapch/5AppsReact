@@ -12,6 +12,7 @@ export const VaultProvider = ({ children }) => {
   const [timelock, setTimelock] = useState('')
   const [autoRenew, setAutoRenew] = useState(true)
   const [funds, setFunds] = useState(0)
+  const [activated, setActivated] = useState(false)
   const {userData} = useContext(userContext)
 
   const saveVaults = () => {
@@ -21,6 +22,7 @@ export const VaultProvider = ({ children }) => {
       timelock,
       autoRenew,
       funds,
+      activated,
       userId : userData.user?.id || userData
     })
       .then(res => {
