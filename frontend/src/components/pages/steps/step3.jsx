@@ -94,11 +94,8 @@ const Step3 = () => {
     setFunds(final);
   }
 
-
-
   return (
     <>
-
 
       {userData.user ? (
         <Grid>
@@ -153,15 +150,12 @@ const Step3 = () => {
           </Grid>
           <Grid md={12}>
             <label className="disclaimer">
-
               Disclaimer: el mercado de criptomonedas es un mercado con mucho riesgo
               y volatilidad. Guuru no es un asesor financiero y no se responsabiliza por las
               posibles perdidas de valor que los activos puedan experimentar debido
               a los movimientos del mercado. Al utilizar Guuru, todos los usuarios aceptan
               bloquear sus fondos entendiendo dichos riesgos
-
             </label>
-
           </Grid>
           <Grid md={12}>
             <FormControlLabel control={<Checkbox />} label="Aceptar" />

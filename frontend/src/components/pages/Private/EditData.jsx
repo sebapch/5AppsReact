@@ -7,7 +7,7 @@ const EditData = () => {
   const [user, setUser] = useState([]);
   const [saldo, setSaldo] = useState();
 
-  function traerUser(){
+  function traerUser (){
     Axios.get(`/users/api/edit/${id}`)
             .then(res => {
               setUser(res.data)
@@ -34,16 +34,28 @@ const EditData = () => {
       })
   }
 
-console.log(saldo);
+  console.log(user);
 
   return (
     <>
       <h1>Editar usuario</h1>
       <form>
+      <label>Nombre del usuario: </label>
       <input type="text" defaultValue={user.displayName}/>
-      <input type="text" defaultValue={user.email}/>
+      <br/>
+      <label>Email: </label>
+      <input type="text" defaultValue={user?.email}/>
+      <br/>
+      <label>Saldo disponible: </label>
       <input type="text" defaultValue={user.saldo} onChange={e => setSaldo(e.target.value)}/>
+      <br/>
+      <label>ID del usuario: </label>
       <input type="text" defaultValue={user._id}/>
+      {user?.vaults.length > 0 ? 'cargo' : 'no cargo' }
+      
+      <label >
+        </label>
+        <br/>
       <button onClick={saveUser}>Editar</button>
       </form>
 

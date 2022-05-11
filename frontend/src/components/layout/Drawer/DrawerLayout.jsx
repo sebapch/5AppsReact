@@ -149,8 +149,10 @@ const DrawerLayout = ({ children }) => {
               </div>
             ) : (
               <div>
-                <Link to='/register' ><button color="success"  variant="contained" className='btn-reg'>Register</button></Link>
-                <Link to='/login' ><button color="success"  variant="contained" className='btn-reg'>Log In</button></Link>
+
+                <Link to='/register' className='btn-reg'>Register</Link>
+                <Link to='/login' className='btn-reg' >Log In</Link>
+
               </div>
             )}
           </div>
