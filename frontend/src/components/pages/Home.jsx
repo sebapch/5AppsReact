@@ -69,7 +69,8 @@ function Home() {
                 <h4 className="text-green">¿Como Funciona?
                   <img src={infoVioleta} alt='' width='15%' onClick={handleOpen} />
                   <InfoModal open={open} handleClose={handleClose}
-                    title={titulo}
+                    title={titulo} 
+                    
                     parrafo1={parrafo1}
                     parrafo2={parrafo2} />
                 </h4>

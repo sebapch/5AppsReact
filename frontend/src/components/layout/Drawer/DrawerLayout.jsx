@@ -140,17 +140,19 @@ const DrawerLayout = ({ children }) => {
             Guuru
           </Typography>
           <div className="btn-drawer">
-            <img src={Telegram} alt="home" onClick={handleDrawerClose} width="8%"/>
-            <img src={Twitter} alt="home" onClick={handleDrawerClose} width="8%"/>
+            <img src={Telegram} alt="home" onClick={handleDrawerClose} width="6%"/>
+            <img src={Twitter} alt="home" onClick={handleDrawerClose} width="6%"/>
             {userData.user ? (
               <div>
                 <label>hola {userData?.user.displayName}</label>
-                <Button onClick={logout} color="error"  variant="contained">Logout</Button>
+                <button onClick={logout} color="error"  variant="contained" className='btn-logout'>Logout</button>
               </div>
             ) : (
               <div>
+
                 <Link to='/register' className='btn-reg'>Register</Link>
                 <Link to='/login' className='btn-reg' >Log In</Link>
+
               </div>
             )}
           </div>
