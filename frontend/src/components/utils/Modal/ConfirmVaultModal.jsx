@@ -4,6 +4,7 @@ import { Modal } from "react-bootstrap";
 import Typography from "@mui/material/Typography";
 import { Button } from "@mui/material";
 import { VaultContext } from "../../../context/vaultContext";
+import UserContext from '../../../context/userContext';
 import Grid from "@mui/material/Grid";
 import "./Modal.css";
 import "./ConfirmVaultModal.css";
@@ -25,13 +26,16 @@ import BSW from "../../../assets/coins/BSW.png";
 export default function ConfirmModal({ open, handleClose }) {
   const { vault, stable, timelock, autoRenew, funds, saveVaults } =
     useContext(VaultContext);
+    const { userData, setUserData } = useContext(UserContext);
+
     const history = useHistory();
 
   const Percentaje = funds / 100;
   const total = funds - Percentaje;
+ 
 
   console.log(Percentaje);
-
+  console.log(userData);
   const handleClick = () => {
     saveVaults();
     handleClose();

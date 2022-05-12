@@ -131,11 +131,11 @@ router.post("/api/edit/:id", /* auth,  */async (req,res)=>{
   .catch(err => res.status(500).json({error: err.message}))
 })
 
-router.post("/api/activate/:vaultid", /* auth,  */async (req,res)=>{
-  
-  const {userId} = req.body
+router.post("/api/activate/:id/", /* auth,  */async (req,res)=>{
 
-  User.findByIdAndUpdate(userId,{ saldo : req.body.saldo })
+  const {userId, vaultId} = req.body
+
+  User.findByIdAndUpdate(userId,{ $set : {name : 'biche'} })
   .then(user => res.json(user))
   .catch(err => res.status(500).json({error: err.message}))
 })
