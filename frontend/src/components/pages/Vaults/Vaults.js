@@ -11,6 +11,7 @@ import HistorialVerde from '../../../assets/icons/HistorialVerde.svg';
 import Parado from '../../../assets/Parado.svg';
 import { Button } from '@mui/material';
 import BtnVaults from '../../utils/btnVaults/btnVaults';
+import { Link } from "react-router-dom";
 
 
 const Vaults = () => {
@@ -115,7 +116,9 @@ const Vaults = () => {
                 <label className='textos-vault'>Total Invertido</label>
                 <img src={InfoAzul} alt='' width='50px' />
                 <div className='top-right'>
+                <Link to='/historial'>
                   <img src={HistorialVerde} alt='' width='50px' style={{ float: 'right' }} />
+                </Link>
                 </div>
               </Grid>
               <Grid item xs={12} style={{textAlign: "left"}}>
@@ -142,7 +145,9 @@ const Vaults = () => {
                <label className='textos-vault'>Total Invertido</label>
                <img src={InfoAzul} alt='' width='50px' />
                <div className='top-right'>
-                 <img src={HistorialVerde} alt='' width='50px' style={{ float: 'right' }} />
+               <Link to='/historial'>
+                  <img src={HistorialVerde} alt='' width='50px' style={{ float: 'right' }} />
+                </Link>
                </div>
              </Grid>
              <Grid item xs={12} style={{textAlign: "left"}}>
@@ -158,7 +163,10 @@ const Vaults = () => {
                <label className='actual-invest'>$ 1200</label>
              </Grid>
              <Grid item xs={12} className='img-vault'>
+               <Link to='/historial'>
                <img src={Parado} alt='' width='200px' />
+                </Link>
+
              </Grid>
              </div>
            </Container>
@@ -170,7 +178,9 @@ const Vaults = () => {
                <label className='textos-vault'>Total Invertido</label>
                <img src={InfoAzul} alt='' width='50px' />
                <div className='top-right'>
-                 <img src={HistorialVerde} alt='' width='50px' style={{ float: 'right' }} />
+               <Link to='/historial'>
+                  <img src={HistorialVerde} alt='' width='50px' style={{ float: 'right' }} />
+                </Link>
                </div>
              </Grid>
              <Grid item xs={12} style={{textAlign: "left"}}>
@@ -197,7 +207,9 @@ const Vaults = () => {
                <label className='textos-vault'>Total Invertido</label>
                <img src={InfoAzul} alt='' width='50px' />
                <div className='top-right'>
-                 <img src={HistorialVerde} alt='' width='50px' style={{ float: 'right' }} />
+               <Link to='/historial'>
+                  <img src={HistorialVerde} alt='' width='50px' style={{ float: 'right' }} />
+                </Link>
                </div>
              </Grid>
              <Grid item xs={12} style={{textAlign: "left"}}>
