@@ -1,5 +1,5 @@
-import React, { useState, useContext } from "react";
-import { useHistory, Link } from 'react-router-dom';
+import React, { useState, useContext, useEffect } from "react";
+import { useHistory, Link, useParams } from 'react-router-dom';
 import { Modal } from "react-bootstrap";
 import Typography from "@mui/material/Typography";
 import { Button } from "@mui/material";
@@ -8,7 +8,7 @@ import UserContext from '../../../context/userContext';
 import Grid from "@mui/material/Grid";
 import "./Modal.css";
 import "./ConfirmVaultModal.css";
-import Axios from "axios";
+import axios from "axios";
 import Big4 from "../../../assets/Big4.png";
 import BSC from "../../../assets/BSC.png";
 import Estable from "../../../assets/Estable.png";
@@ -27,16 +27,33 @@ export default function ConfirmModal({ open, handleClose }) {
   const { vault, stable, timelock, autoRenew, funds, saveVaults } =
     useContext(VaultContext);
     const { userData, setUserData } = useContext(UserContext);
-
+    const [user, setUser] = useState([]);
     const history = useHistory();
+    const id = userData.user._id;
 
-  const Percentaje = funds / 100;
-  const total = funds - Percentaje;
- 
+  let Percentaje = funds / 100;
+  let total = funds - Percentaje;
+  const saldoRestante = userData.user.saldo - funds;
 
-  console.log(Percentaje);
-  console.log(userData);
+
+  const nuevoSaldo = () => {
+    axios.post(`/users/api/edit/`, {
+      userId: id,
+      saldo: saldoRestante 
+    })
+      .then(res => {
+        console.log(res)
+      }
+      ).catch(err => {
+        console.log(err)
+      })
+  }
+
+  console.log(saldoRestante);
+  console.log(id);
+
   const handleClick = () => {
+    nuevoSaldo();
     saveVaults();
     handleClose();
     history.push({
@@ -48,6 +65,7 @@ export default function ConfirmModal({ open, handleClose }) {
     <Modal show={open} onHide={handleClose} className="info-modal">
       <Modal.Header closeButton closeVariant="white" className="modal-header">
         <Modal.Title className="resumen">Resumen de solicitud</Modal.Title>
+        {saldoRestante}
       </Modal.Header>
       <Modal.Body className="modal-body">
         <Typography className="vault-elegido">Vault elegido</Typography>

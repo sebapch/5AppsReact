@@ -145,7 +145,7 @@ const DrawerLayout = ({ children }) => {
             {userData.user ? (
               <div>
                 <label>hola {userData?.user.displayName}</label>
-                <button onClick={logout} color="error"  variant="contained" className='btn-logout'>Logout</button>
+                <button onClick={logout} color="error"  variant="contained" className='btn-reg'>Logout</button>
               </div>
             ) : (
               <div>

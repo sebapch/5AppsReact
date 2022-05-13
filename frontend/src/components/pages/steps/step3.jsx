@@ -26,11 +26,13 @@ const Step3 = () => {
   const { userData, setUserData } = useContext(UserContext);
   console.log(userData);
   const [saldo, setSaldo] = useState('');
+  const [saldoInvertido, setSaldoInvertido] = useState('');
   const [invest, setInvest] = useState('');
   // Modal terms and use
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  
 
   const { funds, setFunds } = useContext(VaultContext);
 

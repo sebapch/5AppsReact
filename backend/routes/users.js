@@ -115,11 +115,7 @@ router.post("/tokenIsValid", async (req, res) => {
 
 router.get("/", auth, async (req, res) => {
   const user = await User.findById(req.user);
-  res.json({
-    displayName: user.displayName,
-    id: user._id,
-    saldo: user.saldo
-  });
+  res.json(user);
 });
 
 router.post("/api/edit/:id", /* auth,  */async (req,res)=>{
@@ -131,14 +127,15 @@ router.post("/api/edit/:id", /* auth,  */async (req,res)=>{
   .catch(err => res.status(500).json({error: err.message}))
 })
 
-router.post("/api/activate/:id/", /* auth,  */async (req,res)=>{
+router.post("/api/edit/", /* auth,  */async (req,res)=>{
+  
+  const {userId} = req.body
 
-  const {userId, vaultId} = req.body
-
-  User.findByIdAndUpdate(userId,{ $set : {name : 'biche'} })
+  User.findByIdAndUpdate(userId,{ saldo : req.body.saldo })
   .then(user => res.json(user))
   .catch(err => res.status(500).json({error: err.message}))
 })
+
 
 router.post("/api/vaults", /* auth,  */async (req,res)=>{
   
@@ -156,6 +153,11 @@ router.get("/api/vaults",/* auth, */ async (req,res)=>{
   const users = await User.find()
   res.json(users)
 })
+
+router.get("/api/getvaults", /* auth, */ async (req, res) => {
+  const user = await User.findById(req.user);
+  res.json(user);
+});
 
 
 
