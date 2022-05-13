@@ -87,7 +87,7 @@ const Vaults = () => {
 
   return (
     <>
-        <Container >
+        <Container className="mb-4">
           <Grid container >
             <Grid item xs={12} >
               <label className='auto-renew'>Auto Renovar mis vaults  </label>
