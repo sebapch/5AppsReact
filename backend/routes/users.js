@@ -101,7 +101,7 @@ router.post("/tokenIsValid", async (req, res) => {
     const token = req.header("x-auth-token");
     if (!token) return res.json(false);
 
-    const verified = jwt.verify(token, process.env.JWT_SECRET);
+    const verified = jwt.verify(token, ']x"_w%n.^kGC(/]M5A6\:+xyV{v^jy?vq?%?sHQ{$(>uQ7,E5B');
     if (!verified) return res.json(false);
 
     const user = await User.findById(verified.id);
@@ -115,11 +115,7 @@ router.post("/tokenIsValid", async (req, res) => {
 
 router.get("/", auth, async (req, res) => {
   const user = await User.findById(req.user);
-  res.json({
-    displayName: user.displayName,
-    id: user._id,
-    saldo: user.saldo
-  });
+  res.json(user);
 });
 
 router.post("/api/edit/:id", /* auth,  */async (req,res)=>{
@@ -131,7 +127,7 @@ router.post("/api/edit/:id", /* auth,  */async (req,res)=>{
   .catch(err => res.status(500).json({error: err.message}))
 })
 
-router.post("/api/activate/:vaultid", /* auth,  */async (req,res)=>{
+router.post("/api/edit/", /* auth,  */async (req,res)=>{
   
   const {userId} = req.body
 
@@ -139,6 +135,7 @@ router.post("/api/activate/:vaultid", /* auth,  */async (req,res)=>{
   .then(user => res.json(user))
   .catch(err => res.status(500).json({error: err.message}))
 })
+
 
 router.post("/api/vaults", /* auth,  */async (req,res)=>{
   
@@ -156,6 +153,11 @@ router.get("/api/vaults",/* auth, */ async (req,res)=>{
   const users = await User.find()
   res.json(users)
 })
+
+router.get("/api/getvaults", /* auth, */ async (req, res) => {
+  const user = await User.findById(req.user);
+  res.json(user);
+});
 
 
 

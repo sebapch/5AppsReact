@@ -26,7 +26,7 @@ const Settings = () => {
   return (
     <>
         
-        <Container >
+        <Container className="mb-4">
           <Grid container >
             <Grid item xs={12} className='top-soporte'>
               <h1 className='soporte'>Soporte:  </h1>

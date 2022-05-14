@@ -15,6 +15,7 @@ export const VaultProvider = ({ children }) => {
   const [activated, setActivated] = useState(false)
   const {userData} = useContext(userContext)
 
+  
   const saveVaults = () => {
     axios.post('/users/api/vaults', {
       vault,
@@ -23,7 +24,7 @@ export const VaultProvider = ({ children }) => {
       autoRenew,
       funds,
       activated,
-      userId : userData.user?.id || userData
+      userId : userData.user?._id || userData
     })
       .then(res => {
         console.log(res)

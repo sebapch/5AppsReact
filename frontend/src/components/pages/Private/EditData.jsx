@@ -44,8 +44,9 @@ const EditData = () => {
 
   const activateVault = () => {
     Axios.post(`/users/api/activate/${id}`, {
-      activated: true,
-      vaultId: user.vaults._id
+      
+      userId: user._id,
+      activated: true
     })
       .then(res => {
         console.log(res)

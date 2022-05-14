@@ -19,6 +19,7 @@ import './adminTable.css';
 export default function BasicTable() {
   const [users, setUsers] = useState([]);
   const [deactivated, setDeactivated]= useState(0);
+  let count = 0;
 
   function traerVaults(){
     Axios.get("/users/api/vaults")
@@ -46,9 +47,6 @@ function deleteUser(id){
   })
   .catch(err => { console.log(err) })
 }
-
-
-
 
   
 
@@ -84,7 +82,7 @@ function deleteUser(id){
               <TableCell align="right">
               {user?.vaults.map((user) =>
                (
-                (user?.activated == false ? 'Solicitud pendiente' : 'vault activo')
+                (user?.activated == false  ? 'X'  : null)
             ))}
 
 
@@ -100,7 +98,6 @@ function deleteUser(id){
                
                <Button color="error" onClick={() => deleteUser(user._id)}>Eliminar</Button>
              </TableCell>
- 
             </TableRow>
           ))}
         </TableBody>

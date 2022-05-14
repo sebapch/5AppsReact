@@ -111,6 +111,9 @@
     .children-container{
         width: 100% !important;
     }
+    .list{
+        display: none !important;
+    }
 
     .css-2dum1v-MuiDrawer-docked .MuiDrawer-paper  {
         display: none !important;
