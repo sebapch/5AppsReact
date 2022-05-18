@@ -29,7 +29,7 @@ export default function ConfirmModal({ open, handleClose }) {
     const { userData, setUserData } = useContext(UserContext);
     const [user, setUser] = useState([]);
     const history = useHistory();
-    const id = userData.user._id;
+    const id = userData.user.id;
 
   let Percentaje = funds / 100;
   let total = funds - Percentaje;
