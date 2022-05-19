@@ -23,6 +23,7 @@ import {VaultProvider} from './context/vaultContext';
 import Historial from './components/pages/Historial/Historial';
 import Admin from './components/pages/Private/Admin';
 import EditData from './components/pages/Private/EditData';
+import VaultInfo from './components/pages/VaultInfo/VaultInfo';
 
 
 
@@ -71,7 +72,7 @@ function App() {
           <Route path="/opciones" component={Settings} />
           <Route path="/historial" component={Historial} />
           <Route path="/transfer" component={WalletPage} />
-
+          <Route path="/vaultinfo/:userid/:vaultid" component={VaultInfo} />
           <Route path="/admin" component={Admin} />
           <Route path="/edit/:id" component={EditData} />
 

@@ -159,6 +159,23 @@ router.get("/api/getvaults", /* auth, */ async (req, res) => {
   res.json(user);
 });
 
+//get data from userid vaultid
+router.post("/api/activate/:id/:vaultid", /* auth,  */async (req,res)=>{
+  const {id, vaultid} = req.params
+  
+
+  User.findOneAndUpdate({_id: "628578544576e6f7cef2c788"},{ $push: {perro: true}  }, {
+    new: true
+  })
+  .then(user => res.json(user))
+  .catch(err => res.status(500).json({error: err.message}))
+});
+
+
+
+  
+  
+
 
 
 module.exports = router;

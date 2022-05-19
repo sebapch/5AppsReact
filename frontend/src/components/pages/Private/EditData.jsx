@@ -42,11 +42,11 @@ const EditData = () => {
       })
   }
 
-  const activateVault = () => {
-    Axios.post(`/users/api/activate/${id}`, {
+  const activateVault = (vault) => {
+    Axios.post(`/users/api/activate/${id}/${vault}`, {
       
       userId: user._id,
-      activated: true
+      vaultid: vault
     })
       .then(res => {
         console.log(res)
@@ -89,9 +89,9 @@ const EditData = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {user?.vaults && user.vaults.map((vault) => (
+            {user?.vaults && user.vaults.map((vault, index) => (
               <TableRow
-                key={vault._id}
+                key={index}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
               >
                 <TableCell align="right">{vault._id}</TableCell>
@@ -102,7 +102,7 @@ const EditData = () => {
                 <TableCell align="right">{vault.funds}</TableCell>
                 <TableCell align="right">{(vault.autoRenew) ? 'activado' : 'no activado'}</TableCell>
                 <TableCell align="right">{(vault.activated) ? 'activa' : ' no activa'}</TableCell>
-                {(!vault.activated) ? <TableCell align="right"><Button variant="contained" onClick={activateVault}>Aceptar y activar</Button></TableCell> : null}
+                {(!vault.activated) ? <TableCell align="right"><Button variant="contained" onClick={() => activateVault(vault._id)}>Aceptar y activar</Button></TableCell> : null}
                 
               </TableRow>
             ))}

@@ -5,6 +5,7 @@ import Grid from '@mui/material/Grid';
 import DrawerLayout from '../../layout/Drawer/DrawerLayout';
 import { Container, Switch } from '@mui/material';
 import './Vaults.css';
+import CarrouselHistory from '../../utils/CarrouselHistory/CarrouselHistory';
 import InfoAzul from '../../../assets/icons/infoAzul.svg';
 import InfoVerde from '../../../assets/icons/infoVerde.svg';
 import HistorialVerde from '../../../assets/icons/HistorialVerde.svg';
@@ -12,7 +13,19 @@ import Parado from '../../../assets/Parado.svg';
 import { Button } from '@mui/material';
 import BtnVaults from '../../utils/btnVaults/btnVaults';
 import { Link } from "react-router-dom";
-
+import Big4 from "../../../assets/Big4.png";
+import BSC from "../../../assets/BSC.png";
+import Estable from "../../../assets/Estable.png";
+import USDT from "../../../assets/coins/USDT.png";
+import cEuro from "../../../assets/coins/cEURO.png";
+import BTC from "../../../assets/coins/BTC.png";
+import ADA from "../../../assets/coins/ACS.png";
+import ETH from "../../../assets/coins/Ethereum.png";
+import BNB from "../../../assets/coins/BNB.png";
+import Candado from "../../../assets/candado.png";
+import Cake from "../../../assets/coins/Cake.png";
+import Land from "../../../assets/coins/LAND.png";
+import BSW from "../../../assets/coins/BSW.png";
 
 const Vaults = () => {
   const { userData, setUserData } = useContext(UserContext);
@@ -138,39 +151,28 @@ const Vaults = () => {
               </Grid>
               </div>
             </Container>
+
+
              : activeTab === 'Estable' 
-             ?  <Container>
-             <div className='container'>
-             <Grid item xs={12} className='grid-total-invested'>
-               <label className='textos-vault'>Total Invertido</label>
-               <img src={InfoAzul} alt='' width='50px' />
-               <div className='top-right'>
-               <Link to='/historial'>
-                  <img src={HistorialVerde} alt='' width='50px' style={{ float: 'right' }} />
-                </Link>
-               </div>
+             ?   <Container>
+             <Grid item md={12} className='d-flex justify-content-evenly'>
+               <img src={USDT} alt='Tether' width='50px' />
+               <img src={cEuro} alt='Tether' width='50px'/>
              </Grid>
-             <Grid item xs={12} style={{textAlign: "left"}}>
-               <label className='total-invest'>$ {stableFunds}</label>
+             <Grid item md={12} className='d-flex flex-column '>
+               <label>Valor Inicial: <label>{stableFunds}</label></label>
+               <label>Valor Actual: <label>{stableFunds}</label></label>
              </Grid>
+              <Grid item md={12} className='d-flex flex-column'>
+                <Grid item md={12} className='d-flex justify-content-evenly'>
+                <label>ID</label><label>FECHA</label>
+                </Grid>
+                <CarrouselHistory text={'stable'}/>
+             </Grid>
+          </Container>
 
-             <Grid item xs={12} className='grid-valor-actual'>
-               <label className='textos-vault'>Valor Actual</label>
-               <img src={InfoVerde} alt='' width='50px' />
 
-             </Grid>
-             <Grid item xs={12}  style={{textAlign: "left"}}>
-               <label className='actual-invest'>$ 1200</label>
-             </Grid>
-             <Grid item xs={12} className='img-vault'>
-               <Link to='/historial'>
-               <img src={Parado} alt='' width='200px' />
-                </Link>
 
-             </Grid>
-             </div>
-           </Container>
-                
              : activeTab === 'Big4' 
              ? <Container>
              <div className='container'>
@@ -186,11 +188,9 @@ const Vaults = () => {
              <Grid item xs={12} style={{textAlign: "left"}}>
                <label className='total-invest'>$ {BTCFunds}</label>
              </Grid>
-
              <Grid item xs={12} className='grid-valor-actual'>
                <label className='textos-vault'>Valor Actual</label>
                <img src={InfoVerde} alt='' width='50px' />
-
              </Grid>
              <Grid item xs={12}  style={{textAlign: "left"}}>
                <label className='actual-invest'>$ 1200</label>
@@ -215,11 +215,9 @@ const Vaults = () => {
              <Grid item xs={12} style={{textAlign: "left"}}>
                <label className='total-invest'>$ {BSCFunds}</label>
              </Grid>
-
              <Grid item xs={12} className='grid-valor-actual'>
                <label className='textos-vault'>Valor Actual</label>
                <img src={InfoVerde} alt='' width='50px' />
-
              </Grid>
              <Grid item xs={12}  style={{textAlign: "left"}}>
                <label className='actual-invest'>$ 1200</label>
@@ -230,7 +228,7 @@ const Vaults = () => {
              </div>
            </Container> 
              : null}
-            
+
 
           </Grid>
           <div className='buttons-vault'>

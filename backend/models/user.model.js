@@ -30,6 +30,8 @@ const vaultSchema = new mongoose.Schema({
     required: true,
     min: 0
   }
+},{
+  timestamps: true
 });
 
 const userSchema = new mongoose.Schema({
