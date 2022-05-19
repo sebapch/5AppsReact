@@ -28,7 +28,7 @@ const EditVaultData = () => {
         <>
             <Grid container >
                 {vault.vaults?.map((vault) => (
-                    (vault._id === '628578544576e6f7cef2c788') ? (
+                    (vault._id === vaultid) ? (
                         <>
                         <Grid className='d-flex flex-column'>
                             <h1>Vault ID : {vault._id}</h1>
@@ -60,11 +60,11 @@ const EditVaultData = () => {
                             <label>Coins: </label>
                             {vault.coins?.map((coin) => (
                                 <>
-                                    <label>{coin.name}</label>
-                                    <input type="text" defaultValue={coin.amount} />
+                                    <label>{coin.coin}</label>
+                                    <input type="text" defaultValue={coin.quantity} />
                                 </>
                             ))}
-                            
+
                         </Grid>
                             
                             
