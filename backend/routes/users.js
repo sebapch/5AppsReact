@@ -159,12 +159,13 @@ router.get("/api/getvaults", /* auth, */ async (req, res) => {
   res.json(user);
 });
 
-//get data from userid vaultid
+//SET VAULT ACTIVATED TRUE
 router.post("/api/activate/:id/:vaultid", /* auth,  */async (req,res)=>{
-  const {id, vaultid} = req.params
-  
+  const { id } = req.params
+  const { vaultId } = req.body
+  const idVault = vaultId
 
-  User.findOneAndUpdate({_id: "628578544576e6f7cef2c788"},{ $push: {perro: true}  }, {
+  User.updateOne({id, 'vaults._id': vaultId},{ '$set': {'vaults.$.activated': true}}, {
     new: true
   })
   .then(user => res.json(user))
@@ -172,7 +173,14 @@ router.post("/api/activate/:id/:vaultid", /* auth,  */async (req,res)=>{
 });
 
 
+//GET SPECIFIC VAULT FROM DB
+router.get("/api/vaults/:id/:vaultid", /* auth,  */async (req,res)=>{
+  const { id, vaultid } = req.params
 
+  User.findOne({id, 'vaults._id': vaultid})
+  .then(user => res.json(user))
+  .catch(err => res.status(500).json({error: err.message}))
+});
   
   
 

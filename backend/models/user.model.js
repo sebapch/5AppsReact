@@ -1,6 +1,19 @@
 const mongoose = require("mongoose");
 const validator = require("validator");
 
+const coinSchema = new mongoose.Schema({
+  coin : {
+    type: String,
+    required: true,
+  },
+  quantity : {
+    type: Number,
+    required: true,
+  },
+},{
+  timestamps: true
+});
+
 const vaultSchema = new mongoose.Schema({
   vault : {
     type: Number,
@@ -29,7 +42,8 @@ const vaultSchema = new mongoose.Schema({
     type : Number,
     required: true,
     min: 0
-  }
+  },
+  coins : [coinSchema]
 },{
   timestamps: true
 });
