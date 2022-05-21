@@ -183,6 +183,18 @@ router.get("/api/vaults/:id/:vaultid", /* auth,  */async (req,res)=>{
 });
   
   
+//save ada and bnb in vaults inside user account
+router.post("/api/vaults/:id/:vaultid", /* auth,  */async (req,res)=>{
+  const { id, vaultid } = req.params
+  const { coins } = req.body
+
+  User.updateOne({id, 'vaults._id': vaultid},{ '$set': {'vaults.$.coins': coins}}, {
+    new: true
+  })
+  .then(user => res.json(user))
+  .catch(err => res.status(500).json({error: err.message}))
+}
+);
 
 
 
