@@ -22,7 +22,32 @@ const VaultsSum = () => {
   };
   useEffect(() => {
     getSumOfFundsInUSD();
-  }, []);
+    getSumOffFunds();
+  }, [uservaults]);
+
+  const getSumOffFunds = () => {
+    let totalF = 0;
+    if (uservaults) {
+      uservaults.map(vault => {
+        console.log(vault.funds)
+        vault.coins.map(coin => {
+          
+          if (coin.coin !== 'USDT' && coin.coin !== 'cEuro') {
+            console.log(cryptos[coin.coin]?.USD)
+            
+            console.log(total)
+            totalF +=  cryptos[coin.coin]?.USD * coin.quantity
+            setSumVaults(totalF);
+          }
+          else {
+            totalF += coin.quantity
+            setSumVaults(totalF);
+          }
+        })
+      }
+      )
+  }}
+
 
 
   console.log(cryptos);
@@ -30,39 +55,7 @@ const VaultsSum = () => {
   console.log(sumVaults);
   return (
     <>
-      <div className="cryptos">
-        {Object.keys(cryptos).map((key) => (
-          <div key={key}>
-            <span>{key}</span>
-            <span>&nbsp;{cryptos[key].USD}</span>
-          </div>
-        ))}
-      </div>
-      <div className="vaultsSUM">
-        {userData.user?.vaults.map((vault, index) => (
-          <div key={index}>
-            <span>fondos : {vault.funds}</span>
-            {vault?.coins.map((coin, index) => (
-                
-              <div key={index}>
-                <span>{coin.coin}</span>
-                <span>&nbsp;{coin.quantity}</span>
-                {/* compare coin.coin with cryptos and check if the same value */}
-                
-                <h3>{coin.coin !== 'USDT' && coin.coin !== 'cEuro' && cryptos[coin.coin]?.USD * coin.quantity}</h3>
-                
-                    {
-                (coin.coin !== 'USDT' && coin.coin !== 'cEuro') ? total +=  cryptos[coin.coin]?.USD * coin.quantity : 'return igual'
-                }
-               
-                
-                    
-                
-              </div>
-            ))}
-          </div>
-        ))}
-      </div>
+      <h1>{sumVaults.toFixed(2)}</h1>
     </>
   );
 };
