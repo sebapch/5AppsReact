@@ -6,6 +6,7 @@ import DrawerLayout from '../../layout/Drawer/DrawerLayout';
 import { Container, Switch } from '@mui/material';
 import './Vaults.css';
 import CarrouselHistory from '../../utils/CarrouselHistory/CarrouselHistory';
+import VaultSum from './VaultsSum';
 import InfoAzul from '../../../assets/icons/infoAzul.svg';
 import InfoVerde from '../../../assets/icons/infoVerde.svg';
 import HistorialVerde from '../../../assets/icons/HistorialVerde.svg';
@@ -41,6 +42,9 @@ const Vaults = () => {
   const [stableFunds, setStableFunds] = useState(0);
   const [BTCFunds, setBTCFunds] = useState(0);
   const [BSCFunds, setBSCFunds] = useState(0);
+  const [cryptos, setCryptos] = useState([]);
+  const [valorActual, setValorActual] = useState(0);
+
 
   useEffect(() => {
       setActiveTab('TODO')
@@ -97,7 +101,9 @@ const Vaults = () => {
       )
   }}, [uservaults])
 
-  console.log(BSCFunds)
+
+
+  console.log(userVaults)
 
   return (
     <>
@@ -144,7 +150,7 @@ const Vaults = () => {
 
               </Grid>
               <Grid item xs={12}  style={{textAlign: "left"}}>
-                <label className='actual-invest'>$ 1200</label>
+                <label className='actual-invest'><VaultSum /></label>
               </Grid>
               <Grid item xs={12} className='img-vault'>
                 <img src={Parado} alt='' width='200px' />
@@ -161,7 +167,7 @@ const Vaults = () => {
              </Grid>
              <Grid item md={12} className='d-flex flex-column '>
                <label>Valor Inicial: <label>{stableFunds}</label></label>
-               <label>Valor Actual: <label>{stableFunds}</label></label>
+               <label>Valor Actual: </label>
              </Grid>
               <Grid item md={12} className='d-flex flex-column'>
                 <Grid item md={12} className='d-flex justify-content-evenly'>
