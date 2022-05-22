@@ -20,7 +20,6 @@ const VaultsSum = () => {
         setCryptos(cryptos);
       });
   };
-
   useEffect(() => {
     getSumOfFundsInUSD();
   }, []);
