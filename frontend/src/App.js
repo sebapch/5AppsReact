@@ -23,6 +23,8 @@ import {VaultProvider} from './context/vaultContext';
 import Historial from './components/pages/Historial/Historial';
 import Admin from './components/pages/Private/Admin';
 import EditData from './components/pages/Private/EditData';
+import VaultInfo from './components/pages/VaultInfo/VaultInfo';
+import EditVaultData from './components/pages/Private/EditVaultData';
 
 
 
@@ -56,8 +58,10 @@ function App() {
 
   return (
     <BrowserRouter>
+    
       <UserContext.Provider value={{ userData, setUserData }}>
          {/* <Header />  */}
+         
          <DrawerLayout>
         <Switch>
           
@@ -71,11 +75,10 @@ function App() {
           <Route path="/opciones" component={Settings} />
           <Route path="/historial" component={Historial} />
           <Route path="/transfer" component={WalletPage} />
-
+          <Route path="/vaultinfo/:userid/:vaultid" component={VaultInfo} />
           <Route path="/admin" component={Admin} />
           <Route path="/edit/:id" component={EditData} />
-
-
+          <Route path="/editvault/:id/:vaultid" component={EditVaultData} />
           <ProtectedRoute path="/early" component={Early} />
           <VaultProvider>
             <Route path="/step1" component={Step1} />

@@ -159,6 +159,43 @@ router.get("/api/getvaults", /* auth, */ async (req, res) => {
   res.json(user);
 });
 
+//SET VAULT ACTIVATED TRUE
+router.post("/api/activate/:id/:vaultid", /* auth,  */async (req,res)=>{
+  const { id } = req.params
+  const { vaultId } = req.body
+  const idVault = vaultId
+
+  User.updateOne({id, 'vaults._id': vaultId},{ '$set': {'vaults.$.activated': true}}, {
+    new: true
+  })
+  .then(user => res.json(user))
+  .catch(err => res.status(500).json({error: err.message}))
+});
+
+
+//GET SPECIFIC VAULT FROM DB
+router.get("/api/vaults/:id/:vaultid", /* auth,  */async (req,res)=>{
+  const { id, vaultid } = req.params
+
+  User.findOne({id, 'vaults._id': vaultid})
+  .then(user => res.json(user))
+  .catch(err => res.status(500).json({error: err.message}))
+});
+  
+  
+//save ada and bnb in vaults inside user account
+router.post("/api/vaults/:id/:vaultid", /* auth,  */async (req,res)=>{
+  const { id, vaultid } = req.params
+  const { coins } = req.body
+
+  User.updateOne({id, 'vaults._id': vaultid},{ '$set': {'vaults.$.coins': coins}}, {
+    new: true
+  })
+  .then(user => res.json(user))
+  .catch(err => res.status(500).json({error: err.message}))
+}
+);
+
 
 
 module.exports = router;
