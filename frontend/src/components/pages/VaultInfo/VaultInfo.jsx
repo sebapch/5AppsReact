@@ -31,9 +31,19 @@ const VaultInfo = () => {
     traerVault();
   }, []);
 
-  console.log(vault);
+  function toTimestamp(strDate){
+    var datum = Date.parse(strDate);
+    return datum/1000;
+ }
 
+  console.log(toTimestamp(vault.createdAt));
+  console.log(toTimestamp(vault.updatedAt));
+  var today = new Date();
+  var priorDate = new Date(new Date().setDate(today.getDate() + 30));
   
+  console.log(today)
+  console.log(priorDate);
+
 
   return (
     <>
