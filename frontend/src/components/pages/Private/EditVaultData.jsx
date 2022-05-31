@@ -65,7 +65,7 @@ const EditVaultData = () => {
 
     }
 
-
+    //map of array of vaults inside vault
 
 
 
@@ -73,6 +73,46 @@ const EditVaultData = () => {
         await Axios.get(`/users/api/vaults/${id}/${vaultid}`)
             .then(res => {
                 setVault(res.data)
+                res.data.vaults.map(vault => {
+                    
+                    if(vault._id === vaultid){
+                        console.log('hasta aca ' + vault._id)
+                        console.log(vault)
+                        vault.coins.map((vault, index) => {
+                            switch(index){
+                                case 0:
+                                    setUsdt(vault.quantity);
+                                    break;
+                                case 1:
+                                    setBtc(vault.quantity);
+                                    break;
+                                case 2:
+                                    setEth(vault.quantity);
+                                    break;
+                                case 3:
+                                    setCeuro(vault.quantity);
+                                    break;
+                                case 4:
+                                    setAda(vault.quantity);
+                                    break;
+                                case 5:
+                                    setBnb(vault.quantity);
+                                    break;
+                                case 6:
+                                    setCake(vault.quantity);
+                                    break;
+                                case 7:
+                                    setLand(vault.quantity);
+                                    break;
+                                case 8:
+                                    setBsw(vault.quantity);
+                                    break;
+                                default:
+                                    break;
+                            }
+                        })
+                    }
+                })
             })
             .catch(err => {
                 console.log(err)
@@ -82,8 +122,15 @@ const EditVaultData = () => {
         traerVault();
     }, []);
 
+ 
 
-    console.log(coins);
+
+
+
+ 
+
+    console.log(vault)
+    console.log(usdt);
     return (
         <>
             <Grid container >
@@ -123,9 +170,9 @@ const EditVaultData = () => {
                                 <>
                                 <Grid item md={4} className='d-flex flex-column align-items-center'>
                                     <label>{coin.coin}</label>
-                                    {console.log(coin.coin)}
                                     
-                                    <input type="text" key={index} defaultValue={coin.quantity} className='w-50' onChange={(e) => handleChange(e.target.value, index)}/>
+                                    
+                                    <input type="text" key={index} defaultValue={coin.quantity}  className='w-50' onChange={(e) => handleChange(e.target.value, index)} />
                                     </Grid>
                                 </>
                             ))}

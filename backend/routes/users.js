@@ -173,6 +173,8 @@ router.post("/api/activate/:id/:vaultid", /* auth,  */async (req,res)=>{
 });
 
 
+
+
 //GET SPECIFIC VAULT FROM DB
 router.get("/api/vaults/:id/:vaultid", /* auth,  */async (req,res)=>{
   const { id, vaultid } = req.params

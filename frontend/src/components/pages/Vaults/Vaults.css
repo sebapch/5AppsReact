@@ -95,3 +95,29 @@
     top: 5%;
     right: 0%;
   }
+
+.box-valor{
+    border-left: 1px solid #4D0457;
+    border-top: 1px solid #4D0457;
+    border-bottom: 3px solid #4D0457;
+    border-right: 3px solid #4D0457;
+}
+
+.valor-invest{
+    color: #4D0457;
+    font-size: 18px;
+}
+
+.value-initial{
+    color: #20CAFF;
+    font-size: 18px;
+}
+
+.value-actual{
+    color: #6bd883;
+    font-size: 18px;
+}
+
+.green-label{
+    color: #6bd883;
+}

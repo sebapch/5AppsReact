@@ -37,7 +37,6 @@ const Vaults = () => {
   let totalBSC = 0;
   const uservaults = userData.user?.vaults
   
-  console.log(uservaults)
   const [activeTab, setActiveTab] = useState('TODO');
   const [stableFunds, setStableFunds] = useState(0);
   const [BTCFunds, setBTCFunds] = useState(0);
@@ -102,9 +101,6 @@ const Vaults = () => {
   }}, [uservaults])
 
 
-
-  console.log(userVaults)
-
   return (
     <>
         <Container className="mb-4">
@@ -127,6 +123,8 @@ const Vaults = () => {
         
           </Grid>
           <Grid container className='card-vault'>
+
+          
             
           {activeTab === 'TODO' ? 
           <Container>
@@ -161,78 +159,78 @@ const Vaults = () => {
 
              : activeTab === 'Estable' 
              ?   <Container>
-             <Grid item md={12} className='d-flex justify-content-evenly'>
+             <Grid item md={12} className='d-flex justify-content-evenly mt-3'>
                <img src={USDT} alt='Tether' width='50px' />
                <img src={cEuro} alt='Tether' width='50px'/>
              </Grid>
-             <Grid item md={12} className='d-flex flex-column '>
-               <label>Valor Inicial: <label>{stableFunds}</label></label>
-               <label>Valor Actual: </label>
+             <Grid item md={12} className='d-flex flex-column box-valor align-items-center m-4' >
+               <label className='valor-invest'>Valor Inicial = <label className='value-initial'>{stableFunds}</label></label>
+               <label className='valor-invest'>Valor Actual =  <label className='value-actual'>{stableFunds}</label></label>
              </Grid>
               <Grid item md={12} className='d-flex flex-column'>
                 <Grid item md={12} className='d-flex justify-content-evenly'>
-                <label>ID</label><label>FECHA</label>
+                <label className='green-label'>ID</label><label className='green-label'>FECHA</label>
                 </Grid>
+                <Grid item md={12} className='d-flex justify-content-center mb-4'>
                 <CarrouselHistory text={'stable'}/>
+                </Grid>
+                
              </Grid>
           </Container>
 
 
 
              : activeTab === 'Big4' 
-             ? <Container>
-             <div className='container'>
-             <Grid item xs={12} className='grid-total-invested'>
-               <label className='textos-vault'>Total Invertido</label>
-               <img src={InfoAzul} alt='' width='50px' />
-               <div className='top-right'>
-               <Link to='/historial'>
-                  <img src={HistorialVerde} alt='' width='50px' style={{ float: 'right' }} />
-                </Link>
-               </div>
+             ? 
+             <Container>
+             <Grid item md={12} className='d-flex justify-content-evenly mt-3'>
+               <img src={BTC} alt='BTC' width='50px' />
+               <img src={ADA} alt='ADA' width='50px'/>
+               <img src={ETH} alt='ETH' width='50px'/>
+               <img src={BNB} alt='BNB' width='50px'/>
+
              </Grid>
-             <Grid item xs={12} style={{textAlign: "left"}}>
-               <label className='total-invest'>$ {BTCFunds}</label>
+             <Grid item md={12} className='d-flex flex-column box-valor align-items-center m-4' >
+               <label className='valor-invest'>Valor Inicial = <label className='value-initial'>{BTCFunds}</label></label>
+               <label className='valor-invest'>Valor Actual =  <label className='value-actual'>{BTCFunds}</label></label>
              </Grid>
-             <Grid item xs={12} className='grid-valor-actual'>
-               <label className='textos-vault'>Valor Actual</label>
-               <img src={InfoVerde} alt='' width='50px' />
+              <Grid item md={12} className='d-flex flex-column'>
+                <Grid item md={12} className='d-flex justify-content-evenly'>
+                <label className='green-label'>ID</label><label className='green-label'>FECHA</label>
+                </Grid>
+                <Grid item md={12} className='d-flex justify-content-center mb-4'>
+                <CarrouselHistory text={'stable'}/>
+                </Grid>
+                
              </Grid>
-             <Grid item xs={12}  style={{textAlign: "left"}}>
-               <label className='actual-invest'>$ 1200</label>
-             </Grid>
-             <Grid item xs={12} className='img-vault'>
-               <img src={Parado} alt='' width='200px' />
-             </Grid>
-             </div>
-           </Container>
+          </Container>
+             
+      
+
+
              : activeTab === 'BSC' 
              ? <Container>
-             <div className='container'>
-             <Grid item xs={12} className='grid-total-invested'>
-               <label className='textos-vault'>Total Invertido</label>
-               <img src={InfoAzul} alt='' width='50px' />
-               <div className='top-right'>
-               <Link to='/historial'>
-                  <img src={HistorialVerde} alt='' width='50px' style={{ float: 'right' }} />
-                </Link>
-               </div>
+             <Grid item md={12} className='d-flex justify-content-evenly mt-3'>
+               <img src={BNB} alt='BNB' width='50px' />
+               <img src={Cake} alt='Cake' width='50px'/>
+               <img src={Land} alt='Land' width='50px'/>
+               <img src={BSW} alt='BSW' width='50px'/>
+
              </Grid>
-             <Grid item xs={12} style={{textAlign: "left"}}>
-               <label className='total-invest'>$ {BSCFunds}</label>
+             <Grid item md={12} className='d-flex flex-column box-valor align-items-center m-4' >
+               <label className='valor-invest'>Valor Inicial = <label className='value-initial'>{BTCFunds}</label></label>
+               <label className='valor-invest'>Valor Actual =  <label className='value-actual'>{BTCFunds}</label></label>
              </Grid>
-             <Grid item xs={12} className='grid-valor-actual'>
-               <label className='textos-vault'>Valor Actual</label>
-               <img src={InfoVerde} alt='' width='50px' />
+              <Grid item md={12} className='d-flex flex-column'>
+                <Grid item md={12} className='d-flex justify-content-evenly'>
+                <label className='green-label'>ID</label><label className='green-label'>FECHA</label>
+                </Grid>
+                <Grid item md={12} className='d-flex justify-content-center mb-4'>
+                <CarrouselHistory text={'stable'}/>
+                </Grid>
+                
              </Grid>
-             <Grid item xs={12}  style={{textAlign: "left"}}>
-               <label className='actual-invest'>$ 1200</label>
-             </Grid>
-             <Grid item xs={12} className='img-vault'>
-               <img src={Parado} alt='' width='200px' />
-             </Grid>
-             </div>
-           </Container> 
+          </Container> 
              : null}
 
 

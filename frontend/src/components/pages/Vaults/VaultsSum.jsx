@@ -2,16 +2,18 @@ import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import UserContext from "../../../context/userContext";
 
+
+
 const VaultsSum = () => {
   const [cryptos, setCryptos] = useState([]);
   const { userData, setUserData } = useContext(UserContext);
   const [sumVaults, setSumVaults] = useState(0);
-    let total = 0;
-    const uservaults = userData.user?.vaults
+  const [loading, setLoading] = useState(false);
+  let total = 0;
+  const uservaults = userData.user?.vaults;
 
-
-  const getSumOfFundsInUSD = () => {
-    axios
+  async function getSumOfFundsInUSD() {
+    await axios
       .get(
         "https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH,ADA,BNB,Cake,LAND,BSW,&tsyms=USD"
       )
@@ -19,45 +21,43 @@ const VaultsSum = () => {
         const cryptos = res.data;
         setCryptos(cryptos);
       });
-  };
-  useEffect(() => {
-    getSumOfFundsInUSD();
-    getSumOffFunds();
-  }, [uservaults]);
+  }
 
   const getSumOffFunds = () => {
+    setLoading(true);
     let totalF = 0;
     if (uservaults) {
-      uservaults.map(vault => {
-        console.log(vault.funds)
-        vault.coins.map(coin => {
-          
-          if (coin.coin !== 'USDT' && coin.coin !== 'cEuro') {
-            console.log(cryptos[coin.coin]?.USD)
-            
-            console.log(total)
-            totalF +=  cryptos[coin.coin]?.USD * coin.quantity
+      uservaults.map((vault) => {
+        console.log(vault.funds);
+        vault.coins.map((coin) => {
+          if (coin.coin !== "USDT" && coin.coin !== "cEuro") {
+            totalF += cryptos[coin.coin]?.USD * coin.quantity;
             setSumVaults(totalF);
-          }
-          else {
-            totalF += coin.quantity
+            setLoading(false);
+          } else {
+            totalF += coin.quantity;
             setSumVaults(totalF);
+            setLoading(false);
           }
-        })
-      }
-      )
-  }}
+        });
+      });
+    }
+  };
+
+  useEffect(() => {
+    getSumOfFundsInUSD();  
+    
+  }, [uservaults]);
+
+ useEffect(() => {
+    getSumOffFunds();
+ }, [cryptos])
 
 
-
-  console.log(cryptos);
-  console.log(userData);
-  console.log(sumVaults);
-  return (
-    <>
-      <h1>{sumVaults.toFixed(2)}</h1>
-    </>
-  );
+  return <>
+  {sumVaults && <h1>{sumVaults.toFixed(2)}</h1>}
+  
+  </>;
 };
 
 export default VaultsSum;
