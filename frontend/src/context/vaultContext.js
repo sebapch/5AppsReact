@@ -9,7 +9,7 @@ export const VaultProvider = ({ children }) => {
 
   const [vault, setVault] = useState('')
   const [stable, setStable] = useState('')
-  const [timelock, setTimelock] = useState('')
+  const [timelock, setTimelock] = useState(30)
   const [autoRenew, setAutoRenew] = useState(true)
   const [funds, setFunds] = useState(0)
   const [activated, setActivated] = useState(false)

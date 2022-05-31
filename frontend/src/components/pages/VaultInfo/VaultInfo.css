@@ -1,0 +1,15 @@
+.border-info{
+
+        border-left: 1px solid #4D0457 !important;
+        border-top: 1px solid #4D0457 !important;
+        border-bottom: 3px solid #4D0457 !important;
+        border-right: 3px solid #4D0457 !important;
+}
+
+.info-purple{
+    color: #4D0457;
+}
+
+.info-green{
+    color: #6bd883;
+}
