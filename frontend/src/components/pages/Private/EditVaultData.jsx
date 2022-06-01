@@ -182,7 +182,7 @@ const EditVaultData = () => {
                             <label>{vault.createdAt}</label>
                             <label>Ultima Modificacion: </label>
                             <label>{vault.updatedAt}</label>
-                            {(!vault.activated) ? <Button variant="contained" onClick={() => activateVault(vault._id)}>activar</Button> : null}
+                            {(!vault.activated) ? <Button variant="contained" onClick={() => activateVault(vault?._id)}>activar</Button> : null}
 
                             <label>Coins: </label>
                             <Grid className="d-flex  flex-wrap">

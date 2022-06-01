@@ -165,9 +165,7 @@ router.get("/api/getvaults", /* auth, */ async (req, res) => {
 router.post("/api/activate/:id/:vaultid", /* auth,  */async (req,res)=>{
   const { id } = req.params
   const { vaultId, endDate } = req.body
-  
-
-  User.updateOne({id, 'vaults._id': vaultId},{ '$set': {'vaults.$.activated': true}, $push: {'vaults.$.endDate': endDate}}, {
+  User.updateOne({id, 'vaults._id': vaultId},{ '$set': {'vaults.$.activated': true, 'vaults.$.endDate': endDate}}, {
     new: true
   })
   .then(user => res.json(user))
