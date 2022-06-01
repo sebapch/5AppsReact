@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import Axios from 'axios';
 import { Grid } from "@mui/material";
 import UserContext from "../../../context/userContext";
 import Mascota from "../../../assets/Mascota.png";
@@ -9,6 +10,14 @@ import "./step4.css";
 
 const Step4 = () => {
   const { userData, setUserData } = useContext(UserContext);
+
+
+  async function bringDataFromVault(){
+    await Axios.get(`/users/api/edit/${userData.userId}`)
+    .then(res => {
+      setUserData(userData => res.data)
+    })
+  }
 
   return (
     <>

@@ -31,8 +31,9 @@ export default function LinearWithValueLabel(data) {
   const now = data.value.now;
   
   const progress1 = ((now - end) / (start - end)) * 100 ;
-  console.log(start);
-  console.log(end);
+
+
+
   
   React.useEffect(() => {
     //set progress bar with the value of now beeing start the 100% and end the 0%

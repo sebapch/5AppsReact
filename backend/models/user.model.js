@@ -42,6 +42,10 @@ const vaultSchema = new mongoose.Schema({
     type : String,
     required: true
   },
+  solicitud : {
+    type : Number,
+    required: true
+  },
   funds : {
     type : Number,
     required: true,
