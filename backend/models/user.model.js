@@ -38,6 +38,10 @@ const vaultSchema = new mongoose.Schema({
     type : Boolean,
     required: true
   },
+  endDate : {
+    type : String,
+    required: true
+  },
   funds : {
     type : Number,
     required: true,

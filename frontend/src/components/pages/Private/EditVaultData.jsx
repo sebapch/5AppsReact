@@ -1,10 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import Axios from 'axios';
-import {Grid, Input } from '@mui/material';
+import {Grid, Input, Button } from '@mui/material';
 import { useParams, Link } from 'react-router-dom'
+import { VaultContext } from "../../../context/vaultContext";
+
 
 const EditVaultData = () => {
-    const [vault, setVault] = useState([]);
+    const [vault, setVault] = useState('');
+    const [timeTo, setTimeTo] = useState();
+    const [endDays, setEndDays] = useState('');
     const { id, vaultid } = useParams();
     const [usdt, setUsdt ] = useState(0);
     const [btc, setBtc ] = useState(0);
@@ -65,19 +69,16 @@ const EditVaultData = () => {
 
     }
 
-    //map of array of vaults inside vault
-
-
-
     async function traerVault() {
         await Axios.get(`/users/api/vaults/${id}/${vaultid}`)
             .then(res => {
                 setVault(res.data)
+               
                 res.data.vaults.map(vault => {
-                    
                     if(vault._id === vaultid){
-                        console.log('hasta aca ' + vault._id)
                         console.log(vault)
+                        console.log(vault.timelock)
+                        setTimeTo(vault.timelock)
                         vault.coins.map((vault, index) => {
                             switch(index){
                                 case 0:
@@ -118,19 +119,45 @@ const EditVaultData = () => {
                 console.log(err)
             })
     }
+
+
+
+    function toTimestamp(strDate){
+        var datum = Date.parse(strDate);
+        return datum/1000;
+     }
+
+     function setEnd(){
+        var today = new Date();
+        var priorDate = new Date(new Date().setDate(today.getDate() + timeTo));
+        setEndDays(toTimestamp(priorDate));
+     }
+
+
     useEffect(() => {
         traerVault();
     }, []);
 
- 
+    useEffect(() => {
+        setEnd();
+    }, [timeTo]); 
 
+    async function activateVault(vault) {
+        await Axios.post(`/users/api/activate/${id}/${vault}`, {
+            userId: id,
+            vaultId: vault,
+            endDate: endDays
+          })
+            .then(res => {
+              console.log(res)
+            })
+            .catch(err => {
+              console.log(err)
+            })
+            
+        }
 
-
-
- 
-
-    console.log(vault)
-    console.log(usdt);
+        console.log(endDays);
     return (
         <>
             <Grid container >
@@ -139,30 +166,23 @@ const EditVaultData = () => {
                         <>
                         <Grid className='d-flex flex-column'>
                             <h1>Vault ID : {vault._id}</h1>
-                            
                             <label>Activada: </label>
-                            <input type="text" defaultValue={vault.activated} />
-                            
+                            <input type="text" defaultValue={vault.activated} />                            
                             <label>Auto Renovar: </label>
-                            <input type="text" defaultValue={vault.autoRenew} />
-                            
+                            <input type="text" defaultValue={vault.autoRenew} />                           
                             <label>Valor: </label>
                             <input type="text" defaultValue={vault.funds} />
-
                             <label>Valor: </label>
                             <input type="text" defaultValue={vault.funds} />
-
                             <label>Stable: </label>
                             <input type="text" defaultValue={vault.stable} />
-
                             <label>Timelock: </label>
                             <input type="text" defaultValue={vault.timelock} />
-
                             <label>Creada el: </label>
                             <label>{vault.createdAt}</label>
-
                             <label>Ultima Modificacion: </label>
                             <label>{vault.updatedAt}</label>
+                            {(!vault.activated) ? <Button variant="contained" onClick={() => activateVault(vault._id)}>activar</Button> : null}
 
                             <label>Coins: </label>
                             <Grid className="d-flex  flex-wrap">
@@ -179,7 +199,7 @@ const EditVaultData = () => {
                             </Grid>
                         </Grid>
                             
-                            <button onClick={saveCoins}>GUARDAR CAMBIOS</button>
+                            <button onClick={saveCoins}>GUARDAR Monedas</button>
                         </>
 
                     )

@@ -64,7 +64,7 @@ function App() {
          
          <DrawerLayout>
         <Switch>
-          
+        <VaultProvider>
           <Route exact path="/" component={Home} />
           <Route path="/register" component={Register} />
           <Route path="/login" component={Login} />
@@ -80,7 +80,7 @@ function App() {
           <Route path="/edit/:id" component={EditData} />
           <Route path="/editvault/:id/:vaultid" component={EditVaultData} />
           <ProtectedRoute path="/early" component={Early} />
-          <VaultProvider>
+          
             <Route path="/step1" component={Step1} />
             <Route path="/step2" component={Step2} />
             <Route path="/step3" component={Step3} />

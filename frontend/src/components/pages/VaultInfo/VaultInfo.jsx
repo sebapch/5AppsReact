@@ -9,17 +9,21 @@ const VaultInfo = () => {
   const [vault, setVault] = useState([]);
 
   const { userid, vaultid } = useParams();
-  console.log("userID: " + userid + "vault ID: " + vaultid);
+
+  const start = toTimestamp(vault.createdAt);
+  const end = vault.endDate
+  const now = toTimestamp(new Date());
+
+  console.log(end);
 
   function traerVault(vault) {
     Axios.get(`/users/api/vaults/${userid}/${vaultid}`)
       .then((res) => {
-        setVault(res.data);
         res.data.vaults.map((vault) => {
           console.log(vault)
           if(vault._id === vaultid){
-            console.log(vaultid)
             setVault(vault)
+            console.log(vault)
           }
         })
       })
@@ -35,21 +39,13 @@ const VaultInfo = () => {
     var datum = Date.parse(strDate);
     return datum/1000;
  }
-
-  console.log(toTimestamp(vault.createdAt));
-  console.log(toTimestamp(vault.updatedAt));
-  var today = new Date();
-  var priorDate = new Date(new Date().setDate(today.getDate() + 30));
-  
-  console.log(today)
-  console.log(priorDate);
+ 
 
 
   return (
     <>
       <Container className="mb-4">
        
-
         <Grid className="d-flex flex-column border-info p-4 m-4">
           <label className='info-purple'>Vault ID: <label className='info-green'>{vault._id}</label></label>
           <label className='info-purple'>Fecha de armado: <label className='info-green'>{vault.createdAt}</label></label>
@@ -57,7 +53,7 @@ const VaultInfo = () => {
           <label className='info-purple'>Saldo actual: <label className='info-green'>INSERTAR SALDO ACTUAL</label></label>
           <label className='info-purple'>Intereses: <label className='info-green'>INSERTAR INTERESES</label></label>
           <label className='info-purple'>Timelock: <label className='info-green'>{vault.timelock}D</label></label>
-          <LinearWithValueLabel />
+          <LinearWithValueLabel value={{start, end, now}}/>
           <br/>
           <label>COINS:</label>
           

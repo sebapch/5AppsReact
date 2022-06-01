@@ -42,21 +42,6 @@ const EditData = () => {
       })
   }
 
-  const activateVault = (vault) => {
-    console.log(vault);
-    Axios.post(`/users/api/activate/${id}/${vault}`, {
-      
-      userId: user._id,
-      vaultId: vault
-    })
-      .then(res => {
-        console.log(res)
-      })
-      .catch(err => {
-        console.log(err)
-      })
-      window.location.reload();
-  }
 
   console.log(user);
 
@@ -104,7 +89,7 @@ const EditData = () => {
                 <TableCell align="right">{vault.funds}</TableCell>
                 <TableCell align="right">{(vault.autoRenew) ? 'activado' : 'no activado'}</TableCell>
                 <TableCell align="right">{(vault.activated) ? 'activa' : ' no activa'}</TableCell>
-                {(!vault.activated) ? <TableCell align="right"><Button variant="contained" onClick={() => activateVault(vault?._id)}>Aceptar y activar</Button></TableCell> : null}
+                
                 <TableCell align="right"><Link to={`/editvault/${id}/${vault._id}`}>Editar</Link></TableCell>
               </TableRow>
             ))}

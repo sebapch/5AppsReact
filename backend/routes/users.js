@@ -4,6 +4,8 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const auth = require("../middleware/auth");
 const User = require("../models/user.model");
+
+
 //const registerUser = re...
 
 router.post("/register", async (req, res) => {
@@ -162,10 +164,10 @@ router.get("/api/getvaults", /* auth, */ async (req, res) => {
 //SET VAULT ACTIVATED TRUE
 router.post("/api/activate/:id/:vaultid", /* auth,  */async (req,res)=>{
   const { id } = req.params
-  const { vaultId } = req.body
-  const idVault = vaultId
+  const { vaultId, endDate } = req.body
+  
 
-  User.updateOne({id, 'vaults._id': vaultId},{ '$set': {'vaults.$.activated': true}}, {
+  User.updateOne({id, 'vaults._id': vaultId},{ '$set': {'vaults.$.activated': true}, $push: {'vaults.$.endDate': endDate}}, {
     new: true
   })
   .then(user => res.json(user))

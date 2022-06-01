@@ -10,11 +10,7 @@ function LinearProgressWithLabel(props) {
       <Box sx={{ width: '100%', mr: 1 }}>
         <LinearProgress variant="determinate" {...props} />
       </Box>
-      <Box sx={{ minWidth: 35 }}>
-        <Typography variant="body2" color="text.secondary">{`${Math.round(
-          props.value,
-        )}%`}</Typography>
-      </Box>
+      
     </Box>
   );
 }
@@ -27,17 +23,22 @@ LinearProgressWithLabel.propTypes = {
   value: PropTypes.number.isRequired,
 };
 
-export default function LinearWithValueLabel() {
+export default function LinearWithValueLabel(data) {
   const [progress, setProgress] = React.useState(10);
-
+  
+  const start = data.value.start;
+  const end = data.value.end;
+  const now = data.value.now;
+  
+  const progress1 = ((now - end) / (start - end)) * 100 ;
+  console.log(start);
+  console.log(end);
+  
   React.useEffect(() => {
-    const timer = setInterval(() => {
-      setProgress((prevProgress) => (prevProgress >= 100 ? 10 : prevProgress + 10));
-    }, 800);
-    return () => {
-      clearInterval(timer);
-    };
-  }, []);
+    //set progress bar with the value of now beeing start the 100% and end the 0%
+    setProgress(progress1);
+  }, [progress1]);
+
 
   return (
     <Box sx={{ width: '100%' }}>
