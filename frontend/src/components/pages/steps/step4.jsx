@@ -1,4 +1,6 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { Link, useHistory } from "react-router-dom";
+import Axios from 'axios';
 import { Grid } from "@mui/material";
 import UserContext from "../../../context/userContext";
 import Mascota from "../../../assets/Mascota.png";
@@ -9,6 +11,39 @@ import "./step4.css";
 
 const Step4 = () => {
   const { userData, setUserData } = useContext(UserContext);
+  const [vault, setVault] = useState([]);
+  const [funds, setFunds] = useState(0);
+  const [lastElement, setLastElement] = useState([]);
+  let idUser = userData.user?._id;
+  const history = useHistory();
+
+  async function bringDataFromVault(){
+    await Axios.get(`/users/api/vaults/${idUser}`)
+
+    .then(res => {
+      console.log(res.data)
+      setVault(res.data)
+      setLastElement(res.data?.vaults[0]._id)
+      setFunds(res.data?.vaults[0].funds)
+    })
+  }
+
+  useEffect(() => {
+    bringDataFromVault();
+  }, [userData])
+
+
+  console.log(lastElement);
+  console.log(vault);
+
+  async function deleteVault(){
+    await Axios.delete(`/users/api/vaults/${idUser}`)
+    .then(res => {
+      console.log(res.data)
+      history.push( '/');
+    })
+  }
+
 
   return (
     <>
@@ -18,7 +53,7 @@ const Step4 = () => {
         </Grid>
         <Grid xs={12}>
           <div className="box-purple">
-            <h3 className="saldo"> $ 40 </h3>
+            <h3 className="saldo"> $ {funds} </h3>
           </div>
         </Grid>
       </Grid>
@@ -39,15 +74,18 @@ const Step4 = () => {
         <Grid xs={12} className="flex-grid">
           <label className="text-vault-id">Tu vault ID :</label>
 
-          <label className="text-vault-nro">&nbsp;&nbsp;451547</label>
+          <label className="text-vault-nro">&nbsp;&nbsp;{lastElement.slice(-6)}</label>
         </Grid>
         <Grid xs={12} className="flex-grid-pendiente">
           <Button disabled className="btn-pendiente"> Solicitud Pendiente</Button>
           <img src={Reloj} alt="" width="8%" />
         </Grid>
         <Grid xs={12} className="flex-grid-pendiente last">
-          <button className="btn-armar"> Armar otro vault</button>
-          <button className="btn-cancelar"> Cancelar solicitud</button>
+          <Link to='/step1'>
+            <button className="btn-armar"> Armar otro vault</button>
+          </Link>
+          
+          <button className="btn-cancelar" onClick={deleteVault}> Cancelar solicitud</button>
         </Grid>
       </Grid>
     </>

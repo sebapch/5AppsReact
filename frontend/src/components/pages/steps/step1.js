@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
+import Axios from 'axios';
 import APY from "../../utils/apy/apy";
 import SwitchTo from "../../utils/switch/switchTo";
 import { Carousel } from "react-bootstrap";
@@ -23,6 +24,10 @@ import './step1.css';
 const Step1 = () => {
   const [index, setIndex] = useState(0);
   const history = useHistory();
+  const [stableApy, setStableApy] = useState('');
+  const [big4Apy, setBig4Apy] = useState('');
+  const [bscApy, setBscApy] = useState('');
+
 
   const { vault, setVault, stable, setStable } = useContext(VaultContext);
 
@@ -39,6 +44,25 @@ const Step1 = () => {
   function handleClick() {
     setVault(index);
   }
+
+ //get all apys from db and set them to state
+ async function getApy() {
+  await Axios.get("/apy/getAll")
+    .then((res) => {
+      console.log(res.data);
+      res.data.map((data) => {
+          setStableApy(data.stableApy);
+          setBig4Apy(data.big4Apy);
+          setBscApy(data.bscApy);
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+useEffect(() => {
+  getApy();
+}, []);
 
   return (
     <>
@@ -91,7 +115,7 @@ const Step1 = () => {
 
                 <div className="container">
                   <img src={stable === 'USDT' ? StableUSDT : StableEURO} alt="" className="img-stable" />
-                  <div class="centered">45% APY</div>
+                  <div class="centered">{stableApy}% APY</div>
                 </div>
                 {/* <SwitchTo /> */}
                 <BtnSelector />
@@ -100,13 +124,13 @@ const Step1 = () => {
               index === 1 ? (
                 <div className="container">
                   <img src={Big4Vault} alt="" className="img-stable" />
-                  <div class="centered">45% APY</div>
+                  <div class="centered">{big4Apy}% APY</div>
                 </div>
 
               ) : (
                 <div className="container">
                   <img src={BSCVault} alt="" className="img-stable" />
-                  <div class="centered">45% APY</div>
+                  <div class="centered">{bscApy}% APY</div>
                 </div>
               )
             )}

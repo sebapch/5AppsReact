@@ -39,9 +39,36 @@ function Register () {
     };
    
     return ( 
+<div className="divBody">
+      <div className="form-main">
+        <input type="checkbox" id="chk" aria-hidden="true" />
+        <div className="signup">
+          {error && (
+            <ErrorNotice
+              message={error}
+              clearError={() => setError(undefined)}
+            />
+          )}
+          <form onSubmit={submit}>
+            <label for="chk" aria-hidden="true" className="top-text2">
+              REGISTER
+            </label>
+            
+                <input type="text" id="dsplay-name" className="form-input" placeholder="Nombre" onChange={e => setDisplayName(e.target.value)}/>
+                
+                <input type="email" id="email" className="form-input" placeholder="email" onChange={e => setEmail(e.target.value)}/>
+                
+                <input type="password" id="password" className="form-input" placeholder="password" onChange={e => setPassword(e.target.value)}/>
+                
+                <input type="password" className="form-input" placeholder="repetir password" onChange={e => setPasswordCheck(e.target.value)}/>
 
+            <input type="submit" value="Register" className="form-button" />
+          </form>
+        </div>
+      </div>
+    </div>
 
-        <div className="register">
+        /* <div className="register">
             <h2>Register</h2>
             {error && <ErrorNotice message={error} clearError={() => setError(undefined)} />}
             <div className='box-form'>
@@ -58,7 +85,7 @@ function Register () {
                 <input type="submit" value="Register" className="btn btn-primary" />
             </form>
             </div>
-        </div>
+        </div> */
         );
 }
  

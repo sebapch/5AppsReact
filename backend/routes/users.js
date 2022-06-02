@@ -4,6 +4,8 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const auth = require("../middleware/auth");
 const User = require("../models/user.model");
+
+
 //const registerUser = re...
 
 router.post("/register", async (req, res) => {
@@ -162,15 +164,15 @@ router.get("/api/getvaults", /* auth, */ async (req, res) => {
 //SET VAULT ACTIVATED TRUE
 router.post("/api/activate/:id/:vaultid", /* auth,  */async (req,res)=>{
   const { id } = req.params
-  const { vaultId } = req.body
-  const idVault = vaultId
-
-  User.updateOne({id, 'vaults._id': vaultId},{ '$set': {'vaults.$.activated': true}}, {
+  const { vaultId, endDate } = req.body
+  User.updateOne({id, 'vaults._id': vaultId},{ '$set': {'vaults.$.activated': true, 'vaults.$.endDate': endDate}}, {
     new: true
   })
   .then(user => res.json(user))
   .catch(err => res.status(500).json({error: err.message}))
 });
+
+
 
 
 //GET SPECIFIC VAULT FROM DB
@@ -180,6 +182,26 @@ router.get("/api/vaults/:id/:vaultid", /* auth,  */async (req,res)=>{
   User.findOne({id, 'vaults._id': vaultid})
   .then(user => res.json(user))
   .catch(err => res.status(500).json({error: err.message}))
+});
+
+//get last vault created from db
+router.get("/api/vaults/:id", /* auth,  */async (req,res)=>{
+  const { id } = req.params
+  
+  User.findOne({'_id' : id}, {'vaults': {$slice: -1}})
+  .then(user => res.json(user))
+  .catch(err => res.status(500).json({error: err.message})) 
+
+});
+
+//delete last vault created from db
+router.delete("/api/vaults/:id", /* auth,  */async (req,res)=>{
+  const { id } = req.params
+  
+  User.updateOne({'_id' : id}, {'vaults': {$pop: 1}})
+  .then(user => res.json(user))
+  .catch(err => res.status(500).json({error: err.message})) 
+
 });
   
   

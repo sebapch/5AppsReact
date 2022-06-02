@@ -8,6 +8,7 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import infoVioleta from '../../assets/icons/infoVioleta.svg'
 import Container from '@mui/material/Container';
+import Login from '../auth/Login';
 
 const titulo = '¿Que hace Guuru con mi dinero?'
 const parrafo1 = 'Invertir con Guuru es similar a poner tu dinero en un plazo fijo. Aunque hay una gran diferencia: -en lugar de depositar tu dinero en un banco y generar ingresos en tu moneda local, estaras depositandolo en nuestras VAULTS de criptomonedas y generando dolares.  '
@@ -88,7 +89,7 @@ function Home() {
             </div>
           </div>
 
-        ) : (<h1>No existe</h1>)}
+        ) : (<Login />)}
       </Container>
     </>
 
