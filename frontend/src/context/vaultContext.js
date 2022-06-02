@@ -15,12 +15,10 @@ export const VaultProvider = ({ children }) => {
   const [activated, setActivated] = useState(false)
   const [endDate, setEndDate] = useState('nollego')
   const {userData} = useContext(userContext)
-  const [solicitud, setSolicitud] = useState('')
   
 
   
   const saveVaults = async() => {
-    
   
     await axios.post('/users/api/vaults', {
       vault,
@@ -30,7 +28,6 @@ export const VaultProvider = ({ children }) => {
       endDate,
       funds,
       activated,
-      solicitud,
       coins: [{coin: 'USDT', quantity: 0}, {coin: 'cEuro', quantity: 0},{coin: 'BTC', quantity: 0}, {coin: 'ETH', quantity: 0}, {coin: 'ADA', quantity: 0}, {coin: 'BNB', quantity: 0},{coin: 'CAKE', quantity: 0},{coin: 'LAND', quantity: 0},{coin: 'BSW', quantity: 0}],
       userId : userData.user?._id || userData
     })

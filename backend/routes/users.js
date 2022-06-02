@@ -183,6 +183,26 @@ router.get("/api/vaults/:id/:vaultid", /* auth,  */async (req,res)=>{
   .then(user => res.json(user))
   .catch(err => res.status(500).json({error: err.message}))
 });
+
+//get last vault created from db
+router.get("/api/vaults/:id", /* auth,  */async (req,res)=>{
+  const { id } = req.params
+  
+  User.findOne({'_id' : id}, {'vaults': {$slice: -1}})
+  .then(user => res.json(user))
+  .catch(err => res.status(500).json({error: err.message})) 
+
+});
+
+//delete last vault created from db
+router.delete("/api/vaults/:id", /* auth,  */async (req,res)=>{
+  const { id } = req.params
+  
+  User.updateOne({'_id' : id}, {'vaults': {$pop: 1}})
+  .then(user => res.json(user))
+  .catch(err => res.status(500).json({error: err.message})) 
+
+});
   
   
 //save ada and bnb in vaults inside user account

@@ -115,9 +115,13 @@ const EditVaultData = () => {
                     }
                 })
             })
+            .finally(() => {
+                console.log('finally');
+            })
             .catch(err => {
                 console.log(err)
             })
+            
     }
 
 
@@ -129,7 +133,9 @@ const EditVaultData = () => {
 
      function setEnd(){
         var today = new Date();
-        var priorDate = new Date(new Date().setDate(today.getDate() + timeTo));
+        var priorDate = new Date(new Date().setDate(today.getDate() + parseInt(timeTo)));
+        console.log(timeTo)
+        console.log(priorDate)
         setEndDays(toTimestamp(priorDate));
      }
 
@@ -143,6 +149,7 @@ const EditVaultData = () => {
     }, [timeTo]); 
 
     async function activateVault(vault) {
+        
         await Axios.post(`/users/api/activate/${id}/${vault}`, {
             userId: id,
             vaultId: vault,
