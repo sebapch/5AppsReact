@@ -28,7 +28,6 @@ const Historial = () => {
                 <Button className={active === 'Retiro' ? "btn-stable-selected" : 'btn-stable'} onClick={() => setActive('Retiro')}>Retiro</Button>
             </Grid>
             </Grid>
-
           </Grid>
           <Grid container className='table-grid'>
             {vaultsData?.map((vault) => (
